@@ -1128,7 +1128,7 @@ RectTransform:
   m_GameObject: {fileID: 109884892}
   m_LocalRotation: {x: 0, y: -0, z: 0.96116555, w: -0.27597266}
   m_LocalPosition: {x: 0, y: 0, z: -0}
-  m_LocalScale: {x: 3.743424, y: 3.743424, z: 3.743424}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 493402525}
@@ -1238,7 +1238,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 442efe366f9fd574bb6e309ee42d9c0a, type: 3}
+  m_Sprite: {fileID: -1932370199, guid: 39403d9fa3f0a214e8e1e75a6b3afc8a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6179,7 +6179,7 @@ RectTransform:
   m_GameObject: {fileID: 1055916490}
   m_LocalRotation: {x: 0, y: 0, z: 0.27597284, w: 0.9611655}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.743424, y: 3.743424, z: 3.743424}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 493402525}
@@ -6289,7 +6289,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 442efe366f9fd574bb6e309ee42d9c0a, type: 3}
+  m_Sprite: {fileID: -1932370199, guid: 39403d9fa3f0a214e8e1e75a6b3afc8a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12922,6 +12922,10 @@ PrefabInstance:
     - target: {fileID: 6321192721813465763, guid: e6ee6d3e4e3ee694d9b4afca019c8ec7, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.93939
+      objectReference: {fileID: 0}
+    - target: {fileID: 7684816786541735949, guid: e6ee6d3e4e3ee694d9b4afca019c8ec7, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
