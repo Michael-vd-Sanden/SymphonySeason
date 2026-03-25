@@ -7,12 +7,7 @@ public class SceneSwitching : MonoBehaviour
     [Header("-------------- Changeble Values")]
     public string nextScene;
 
-    private string newSceneName;
-
-    private void Start()
-    {
-        newSceneName = "BP 1_Easy";
-    }
+    private string newSceneName = "BP 1_Easy";
 
     public void ChangeSceneName (string name)
     {

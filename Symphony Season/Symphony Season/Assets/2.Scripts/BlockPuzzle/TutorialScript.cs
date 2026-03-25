@@ -7,7 +7,7 @@ public class TutorialScript : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private UIToggles UiToggles;
     [SerializeField] private BlockPuzzleManager manager;
-    private PlayerMouseMovement playerMove;
+    private PlayerMovement playerMove;
 
     [Header("-------- Lv 1 & 2")]
     [SerializeField] private Animator cross;
@@ -20,7 +20,7 @@ public class TutorialScript : MonoBehaviour
 
     private void Start()
     {
-        playerMove = player.GetComponent<PlayerMouseMovement>();
+        playerMove = player.GetComponent<PlayerMovement>();
         CheckTut();
     }
 

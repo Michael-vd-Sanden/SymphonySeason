@@ -7,9 +7,9 @@ public class MoveObject : MonoBehaviour
     [SerializeField] private Vector3[] positions;
 
     [Header("-------------- Background Values (do not change)")]
-    [SerializeField] private bool isMoving = false;
-    [SerializeField] private int pos;
-    [SerializeField] private Vector3 currentPos, targetPos;
+    public bool isMoving = false;
+    private int pos;
+    private Vector3 currentPos, targetPos;
 
     private void Update()
     {
@@ -29,8 +29,10 @@ public class MoveObject : MonoBehaviour
 
     public void StartMoving(bool isUp)
     {
+        Debug.Log("Start move?");
         if(!isMoving)
         {
+            Debug.Log("should move");
             if(isUp && pos < positions.Length - 1) { pos++; }
             else if (!isUp && pos > 0) { pos--; }
 

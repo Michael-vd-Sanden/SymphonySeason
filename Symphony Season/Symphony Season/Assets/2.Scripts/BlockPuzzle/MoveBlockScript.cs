@@ -8,9 +8,9 @@ public class MoveBlockScript : MonoBehaviour
     [SerializeField] private MeshRenderer colourBlockRenderer;
     [SerializeField] private MeshRenderer colourQuestionRenderer, colourNoteRenderer;
     public GameObject questionNotification, noteNotification;
-    private Material colourMaterial;
-    private BlockPuzzleManager manager;
-    private ColourChanger colourChanger;
+    [SerializeField] private BlockPuzzleManager manager;
+    [SerializeField] private ColourChanger colourChanger;
+    [SerializeField] private PlayerMovement playerMovement;
 
     [Header("-------------- Changeble Values")]
     public float playerDistance;
@@ -20,15 +20,14 @@ public class MoveBlockScript : MonoBehaviour
     [SerializeField] private int materialInArray;
 
     [Header("-------------- Background Values (do not change)")]
-    //sets in awake
-    [SerializeField] private PlayerMouseMovement playerMovement;
+    private Material colourMaterial;
     //background values
     public bool objectAbleToMove;
     public bool upAllowed;
     public bool downAllowed;
     //positioning
     private Vector3 objectCurrentPos, objectTargetPos, playerTargetPos, playerCurrentPos;
-    [SerializeField] private bool isMoving;
+    [SerializeField] private bool isMoving = false;
     public bool playerIsFront; //on which side the player is (true = front, false = back)
     //smooth movement
     [SerializeField] AnimationCurve stepEase = new AnimationCurve(new Keyframe(0f, 0f), new Keyframe(1f, 1f));
@@ -38,15 +37,6 @@ public class MoveBlockScript : MonoBehaviour
     private float stepTime;
     public string moveDirection;
     public bool isPressingBlockMove = false, checkedDirections;
-
-    private void Awake()
-    {
-        colourChanger = FindFirstObjectByType<ColourChanger>();
-        ChangeColourBasedOnNote();
-        manager = FindFirstObjectByType<BlockPuzzleManager>();
-        playerMovement = FindFirstObjectByType<PlayerMouseMovement>();
-        isMoving = false;
-    }
 
     private void Update()
     {
@@ -124,7 +114,7 @@ public class MoveBlockScript : MonoBehaviour
         }
     }
 
-    private void ChangeColourBasedOnNote()
+    public void ChangeColourBasedOnNote()
     {
         colourMaterial = colourChanger.ChangeColourBasedOnNote(blockNote);
 

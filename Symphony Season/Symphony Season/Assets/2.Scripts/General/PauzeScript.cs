@@ -2,14 +2,8 @@ using UnityEngine;
 
 public class PauzeScript : MonoBehaviour
 {
-    private SceneSwitching sceneSwitch;
-    private TriggerSetter curtainTriggers;
-
-    private void Awake()
-    {
-        sceneSwitch = FindFirstObjectByType<SceneSwitching>();
-        curtainTriggers = FindFirstObjectByType<TriggerSetter>();
-    }
+    [SerializeField] private SceneSwitching sceneSwitch;
+    [SerializeField] private TriggerSetter curtainTriggers;
 
     public void Pauze()
     {

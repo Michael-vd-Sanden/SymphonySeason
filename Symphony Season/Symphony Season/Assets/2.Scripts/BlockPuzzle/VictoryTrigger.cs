@@ -7,31 +7,32 @@ public class VictoryTrigger : MonoBehaviour
     public UIToggles uiToggles;
     public TriggerSetter CurtainCloser;
     public MoveObject PlayerMover;
-    public GameObject PlayerMat, playerObject;
+    public PlayerFollower playerFollower;
+    public GameObject playerObject;
+    [SerializeField] private BPGameInitiator gameInitiator;
 
     private PlayerInput PlayerInput;
-    private NavMeshAgent NavMeshAgent;
-    private PlayerMouseMovement PMM;
+    private PlayerMovement PMM;
 
 
     private void Awake()
     {
         PlayerInput = playerObject.GetComponent<PlayerInput>();
-        NavMeshAgent = playerObject.GetComponent<NavMeshAgent>();
-        PMM = playerObject.GetComponent<PlayerMouseMovement>();
+        PMM = playerObject.GetComponent<PlayerMovement>();
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            uiToggles.Victory();
-            CurtainCloser.SetTrigger();
-            PlayerInput.enabled = false;
-            NavMeshAgent.enabled = false;
-            PMM.enabled = false;
-            PlayerMover.StartMoving(true);
-            PlayerMat.GetComponent<MeshRenderer>().material.SetFloat("_IsMoving", 1f);
-        }
+            Debug.Log("seen player");
+           // uiToggles.Victory();
+            //CurtainCloser.SetTrigger();
 
+            //gameInitiator.player.agent.enabled = false;
+            //PlayerInput.enabled = false;
+            //PMM.enabled = false;
+            gameInitiator.victoryMover.StartMoving(true);
+            playerFollower.ToggleMoving(1f);
+        }
     }
 }

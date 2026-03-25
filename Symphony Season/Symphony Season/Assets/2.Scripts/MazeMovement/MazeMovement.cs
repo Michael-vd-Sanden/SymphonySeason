@@ -7,7 +7,8 @@ using UnityEngine.AI;
 public class MazeMovement : MonoBehaviour
 {
     [Header("-------------- Required Objects")]
-    public PlayerMouseMovement playerMovement;
+    [SerializeField] private PlayerSettings playerSettings;
+    [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private MazePuzzle mazePuzzle;
     [SerializeField] private GameObject mazeObject;
     [SerializeField] private NavMeshSurface navMash;
@@ -33,7 +34,7 @@ public class MazeMovement : MonoBehaviour
 
     private void Awake()
     {
-        playerMovement.isInMaze = true;
+        playerSettings.isInMaze = true;
         currentAngleID = 0;
         globalRoot = GameObject.FindGameObjectWithTag("GlobalRoot").transform;
         layerAsLayerMask = (1 << layer);
@@ -58,14 +59,14 @@ public class MazeMovement : MonoBehaviour
            { 
                 playerFollow.ToggleMoving(0);
                 navMash.BuildNavMesh();
-                playerMovement.allowedToMove = true;
+                playerSettings.allowedToMove = true;
                 CheckPlayerDirections();
                 mazeIsMoving = false;
             }
         }
         if(playerIsMoving) 
         {
-            if(!playerMovement.isMoving)
+            if(!playerSettings.isMoving)
             {// stopped moving
                 CheckPlayerDirections();
                 playerIsMoving = false;
@@ -75,7 +76,7 @@ public class MazeMovement : MonoBehaviour
 
     public void MovePlayer(string inputDirection)
     {
-        if (playerMovement.allowedToMove && !mazeIsMoving)
+        if (playerSettings.allowedToMove && !mazeIsMoving)
         {
             playerCurrentPos = playerMovement.transform.position;
             switch (inputDirection)
@@ -215,7 +216,7 @@ public class MazeMovement : MonoBehaviour
 
     private void RotateMaze()
     {
-        if (!mazeIsMoving && playerMovement.allowedToMove)
+        if (!mazeIsMoving && playerSettings.allowedToMove)
         {
             switch (direction)
             {
@@ -230,7 +231,7 @@ public class MazeMovement : MonoBehaviour
                     else { currentAngleID = 19; }
                     break;
             }
-            playerMovement.allowedToMove = false;
+            playerSettings.allowedToMove = false;
             mazeIsMoving = true;
             direction = string.Empty;
             startAngle = mazeObject.transform.rotation.eulerAngles.x;

@@ -1,22 +1,25 @@
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class BlockPuzzleManager : MonoBehaviour
 {
     [Header("-------------- Required Objects")]
-    [SerializeField] private PlayerMouseMovement playerMovement;
+    [SerializeField] private PlayerSettings playerSettings;
+    [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private UIToggles uiToggle;
     [SerializeField] private AudioPlayer audioPlayer;
     [SerializeField] private PlayerFollower playerFollow;
-    public PlayerButtonMovement playerBtnMove;
-    private NotePulser notePulse;
+    [SerializeField] private PlayerUIDirections playerUIDirections;
+    [SerializeField] private NotePulser notePulse;
 
     [Header("-------------- Changeble Values")]
     public int hitLayer;
-    private int layerAsLayerMask;
+    
     [SerializeField] private bool isTutorial;
 
     [Header("-------------- Background Values (do not change)")]
+    public int layerAsLayerMask;
     public List<MoveBlockScript> enteredBlocks;
     [SerializeField] private int selectedBlockIndex = 0;
     public MoveBlockScript currentSelectedBlock;
@@ -24,12 +27,6 @@ public class BlockPuzzleManager : MonoBehaviour
     public string noteSelected; //which note btn was pressed
     public Material[] colourMaterials;
     private bool isCheckingForNotes = false;
-
-    private void Awake()
-    {
-        layerAsLayerMask = (1 << hitLayer);
-        notePulse = FindFirstObjectByType<NotePulser>();
-    }
 
     private void Update()
     {
@@ -54,7 +51,7 @@ public class BlockPuzzleManager : MonoBehaviour
     public void RightNote()
     {
         //audioPlayer.PlayEffect(noteSelected); Al in button
-        playerMovement.allowedToMove = false;
+        playerSettings.allowedToMove = false;
         currentSelectedBlock.objectAbleToMove = true;
         currentSelectedBlock.noteNotification.SetActive(true);
         currentSelectedBlock.questionNotification.SetActive(false);
@@ -70,8 +67,8 @@ public class BlockPuzzleManager : MonoBehaviour
     {
         enteredBlocks.Add(block);
         if (enteredBlocks.Count > 0) 
-        { 
-            playerMovement.canBeOverUI= true;
+        {
+            playerSettings.canBeOverUI = true;
         }   
         if(enteredBlocks.Count == 1)
         {
@@ -84,7 +81,7 @@ public class BlockPuzzleManager : MonoBehaviour
         if (enteredBlocks.Count == 0) 
         {
             selectedBlockIndex = 0;
-            playerMovement.canBeOverUI= false;
+            playerSettings.canBeOverUI= false;
             uiToggle.ExitedTrigger();
         }
     }
@@ -136,9 +133,9 @@ public class BlockPuzzleManager : MonoBehaviour
             if (!isTutorial) { notePulse.NoNotes(); }
         }
         currentBlockNote = null;
-        playerMovement.allowedToMove = true;
-        if(!playerMovement.isMouseMovement)
-        { playerBtnMove.CheckPlayerDirections(); }
+        playerSettings.allowedToMove = true;
+        if(!playerSettings.isMouseMovement)
+        { playerUIDirections.CheckPlayerDirections(); }
     }
 
     public void CheckIfAllowedToMove()

@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6240791477400472655
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8947764517837920454}
+  - component: {fileID: 8679656398747889975}
+  m_Layer: 0
+  m_Name: Game Initiator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8947764517837920454
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6240791477400472655}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8679656398747889975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6240791477400472655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c62df1774fb3e8343814c3d5faae4c2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BPGameInitiator
+  loadingScreen: {fileID: 3569302149849085476, guid: 68519fe8a3577ec42bce633a1d652a76, type: 3}
+  orthographicCamera: {fileID: 6153747895037285443, guid: 3c118531b15fa124e9b9142e503b4df5, type: 3}
+  mainCanvas: {fileID: 2189976724103341290, guid: 4584709f1845334429f423eb867d174a, type: 3}
+  holdBtnsCanvas: {fileID: 7896822638820393618, guid: e63b2e0105d21b4469df067d5175bc68, type: 3}
+  player: {fileID: 7670352128027328836, guid: 98250d58d279f9741bd3d225f1987bce, type: 3}
+  victoryMover: {fileID: 602157285410066443, guid: 98250d58d279f9741bd3d225f1987bce, type: 3}
+  playerSprites: {fileID: 4470279578331915959, guid: 220f3f523d1045d4cb6a111745998115, type: 3}
+  blockPuzzleManager: {fileID: 75216096739803366, guid: ebc8a2b9b0d26474184a04bd5e61b141, type: 3}
+  audioPlayer: {fileID: 4800789197660461577, guid: e358a09a94f6e354ab3af8a01a843942, type: 3}
+  victoryTrigger: {fileID: 4000607197570436975, guid: c412f8698ac9fec4fa1fe985dda44ff5, type: 3}
+  environmentSceneName: BP Environment
+  notepipes: {fileID: 4489761956144648150, guid: b41ef5afdae81d244a23b6cac0e51a5d, type: 3}
+  globalRoot: {fileID: 3439099103896870981, guid: f95b0a4b37e681c47b7a31cb7bb010e8, type: 3}
+  playerSettings: {fileID: 11400000, guid: 74b68498a96cf8845a9e462550275e87, type: 2}
