@@ -11,7 +11,6 @@ public class TouchInput : MonoBehaviour
     [SerializeField] public InputActionReference moveAction;
     [SerializeField] private Vector2[] UIMask;
     [SerializeField] private LayerMask layersToHit;
-    [SerializeField] private ButtonInput playerButtonMove;
     private Vector3 screenPos, worldPos, gridPos;
 
     private void castRay()          

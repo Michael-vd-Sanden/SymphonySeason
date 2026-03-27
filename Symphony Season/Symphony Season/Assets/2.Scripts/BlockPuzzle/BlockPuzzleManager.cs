@@ -6,11 +6,8 @@ public class BlockPuzzleManager : MonoBehaviour
 {
     [Header("-------------- Required Objects")]
     [SerializeField] private PlayerSettings playerSettings;
-    [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private UIToggles uiToggle;
     [SerializeField] private AudioPlayer audioPlayer;
-    [SerializeField] private PlayerFollower playerFollow;
-    [SerializeField] private PlayerUIDirections playerUIDirections;
     [SerializeField] private NotePulser notePulse;
 
     [Header("-------------- Changeble Values")]
@@ -96,7 +93,7 @@ public class BlockPuzzleManager : MonoBehaviour
             currentSelectedBlock.questionNotification.SetActive(true);
             isCheckingForNotes = true;
             noteSelected = null;
-            playerFollow.ToggleHolding(1f);
+            playerSettings.isHoldingSomething = true;
             if (!isTutorial) { notePulse.NoteShift(); }
             if(isTutorial) 
             { 
@@ -129,13 +126,13 @@ public class BlockPuzzleManager : MonoBehaviour
             currentSelectedBlock.noteNotification.SetActive(false);
             currentSelectedBlock.objectAbleToMove = false;
             currentSelectedBlock = null;
-            playerFollow.ToggleHolding(0f);
+            playerSettings.isHoldingSomething = false;
             if (!isTutorial) { notePulse.NoNotes(); }
         }
         currentBlockNote = null;
         playerSettings.allowedToMove = true;
         if(!playerSettings.isMouseMovement)
-        { playerUIDirections.CheckPlayerDirections(); }
+        { playerSettings.stoppedMoving = true; }
     }
 
     public void CheckIfAllowedToMove()

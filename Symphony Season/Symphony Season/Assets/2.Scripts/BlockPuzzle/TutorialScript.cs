@@ -4,10 +4,8 @@ using UnityEngine;
 public class TutorialScript : MonoBehaviour
 {
     [Header("-------------- Required Objects")]
-    [SerializeField] private GameObject player;
     [SerializeField] private UIToggles UiToggles;
     [SerializeField] private BlockPuzzleManager manager;
-    private PlayerMovement playerMove;
 
     [Header("-------- Lv 1 & 2")]
     [SerializeField] private Animator cross;
@@ -20,7 +18,6 @@ public class TutorialScript : MonoBehaviour
 
     private void Start()
     {
-        playerMove = player.GetComponent<PlayerMovement>();
         CheckTut();
     }
 

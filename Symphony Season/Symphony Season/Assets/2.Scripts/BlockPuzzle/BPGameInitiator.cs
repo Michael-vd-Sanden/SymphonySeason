@@ -9,6 +9,7 @@ public class BPGameInitiator : MonoBehaviour
     [SerializeField] private Camera orthographicCamera;
     [SerializeField] private Canvas mainCanvas;
     [SerializeField] private Canvas holdBtnsCanvas;
+    public PlayerUIDirections playerUIDirections; 
     public PlayerMovement player;       //public for victoryTrigger
     public MoveObject victoryMover;
     [SerializeField] private PlayerFollower playerSprites;
@@ -55,8 +56,9 @@ public class BPGameInitiator : MonoBehaviour
     private async Task InitializeClasses()  //every start and awake function that has to do with setting things
     {
         player.agent.speed = playerSettings.moveSpeed;
-        player.playerUIDirections.CheckPlayerDirections();
-        player.playerUIDirections.layerAsLayerMask = (1 << player.playerUIDirections.layer);
+
+        playerUIDirections.CheckPlayerDirections();
+        playerUIDirections.layerAsLayerMask = (1 << playerUIDirections.layer);
 
         blockPuzzleManager.layerAsLayerMask = (1 << blockPuzzleManager.hitLayer);
 

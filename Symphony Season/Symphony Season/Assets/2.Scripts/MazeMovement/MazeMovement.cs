@@ -12,8 +12,6 @@ public class MazeMovement : MonoBehaviour
     [SerializeField] private MazePuzzle mazePuzzle;
     [SerializeField] private GameObject mazeObject;
     [SerializeField] private NavMeshSurface navMash;
-    [SerializeField] private NavMeshAgent agent;
-    [SerializeField] private PlayerFollower playerFollow;
     [SerializeField] private GameObject left, right, up, down;
     private Transform globalRoot;
 
@@ -48,7 +46,7 @@ public class MazeMovement : MonoBehaviour
     {
         if(mazeIsMoving) 
         {
-            playerFollow.ToggleMoving(1);
+            playerSettings.isMoving = true;
             currentAngle = mazeObject.transform.rotation;
 
             var step = turnSpeed * Time.deltaTime;
@@ -57,7 +55,7 @@ public class MazeMovement : MonoBehaviour
 
            if (currentAngle == targetAngle)
            { 
-                playerFollow.ToggleMoving(0);
+                playerSettings.isMoving = false;
                 navMash.BuildNavMesh();
                 playerSettings.allowedToMove = true;
                 CheckPlayerDirections();
@@ -202,7 +200,7 @@ public class MazeMovement : MonoBehaviour
     private void CheckIfCanRotate()
     {
         var path = new NavMeshPath();
-        agent.CalculatePath(playerTargetPos, path);
+        playerMovement.agent.CalculatePath(playerTargetPos, path);
         switch (path.status)
         {
             case NavMeshPathStatus.PathComplete:

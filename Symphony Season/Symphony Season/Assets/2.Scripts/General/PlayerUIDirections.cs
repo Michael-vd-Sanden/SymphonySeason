@@ -6,7 +6,6 @@ public class PlayerUIDirections : MonoBehaviour
     [Header("-------------- Required Objects")]
     [SerializeField] private PlayerSettings playerSettings;
     [SerializeField] private UIToggles UIToggles;
-    [SerializeField] private BlockPuzzleManager manager;
     [SerializeField] private Transform globalRoot;
 
     [Header("-------------- Changeble Values")]
@@ -15,9 +14,18 @@ public class PlayerUIDirections : MonoBehaviour
     [Header("-------------- Background Values (do not change)")]
     public int layerAsLayerMask;
 
+    private void Update()
+    {
+        if(playerSettings.stoppedMoving)
+        {
+            CheckPlayerDirections();
+            playerSettings.stoppedMoving = false;
+        }
+    }
+
     public void CheckPlayerDirections()
     {
-        if (manager.currentSelectedBlock == null && !playerSettings.isMouseMovement)
+        if (!playerSettings.isHoldingSomething && !playerSettings.isMouseMovement)
         {
             Transform t = globalRoot;
             Vector3 playerPos = transform.position + new Vector3(0f, -0.5f, 0f);

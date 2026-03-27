@@ -8003,9 +8003,6 @@ MonoBehaviour:
   - {x: 0, y: 6, z: 0}
   - {x: 0, y: 7, z: 0}
   isMoving: 0
-  pos: 0
-  currentPos: {x: 0, y: 0, z: 0}
-  targetPos: {x: 0, y: 0, z: 0}
 --- !u!1 &1259133197
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,7 +5,6 @@ public class UIToggles : MonoBehaviour
 {
     [Header("-------------- Required Objects")]
     [SerializeField] private BlockPuzzleManager manager;
-    [SerializeField] private SceneSwitching sceneSwitching;
     [SerializeField]
     private GameObject pushLeftUpControl, pushLeftDownControl, pushRightUpControl, pushRightDownControl, nextLevelScreen,
         btnsSharp, btnsFlat, btnSwitchFlSH, noteBtnsCanvas;

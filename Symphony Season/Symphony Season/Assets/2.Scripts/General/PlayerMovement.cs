@@ -6,7 +6,6 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("-------------- Required Objects")]
     [SerializeField] private PlayerSettings playerSettings; //Scriptable object
-    public PlayerUIDirections playerUIDirections;
     public NavMeshAgent agent;  
     
 
@@ -24,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
                 playerSettings.currentPos = transform.position;
 
                 if(playerSettings.isInMaze) { playerSettings.allowedToMove = true; }
-                if (!playerSettings.isMouseMovement && !playerSettings.isInMaze) { playerUIDirections.CheckPlayerDirections();}
+                if (!playerSettings.isMouseMovement && !playerSettings.isInMaze) { playerSettings.stoppedMoving = true;}
                 playerSettings.isMoving = false;
             }
         }

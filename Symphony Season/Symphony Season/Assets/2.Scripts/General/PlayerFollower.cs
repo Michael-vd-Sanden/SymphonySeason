@@ -7,23 +7,35 @@ public class PlayerFollower : MonoBehaviour
     [SerializeField] private Material playerMaterial;
 
     [Header("-------------- Background Values (do not change)")]
-    private bool hasToggled = false;
+    private bool hasToggledMoving = false;
+    private bool hasToggledHolding = false;
 
     void Update()
     {
         if(playerSettings.isMoving) 
         {
             SetPositionToPlayer();
-            if (!hasToggled) { ToggleMoving(1f); }
-            hasToggled = true;
+            if (!hasToggledMoving) { ToggleMoving(1f); }
+            hasToggledMoving = true;
 
             if (playerSettings.isMovingLeft) { ToggleLeft(1f); }
             else if (!playerSettings.isMovingLeft) { ToggleLeft(0f); }
         }
         else if(!playerSettings.isMoving) 
         {
-            if (hasToggled) { ToggleMoving(0f); }
-            hasToggled = false;
+            if (hasToggledMoving) { ToggleMoving(0f); }
+            hasToggledMoving = false;
+        }
+
+        if(playerSettings.isHoldingSomething && !hasToggledHolding)
+        {
+            ToggleHolding(1f);
+            hasToggledHolding = true;
+        }
+        else if (!playerSettings.isHoldingSomething && hasToggledHolding)
+        {
+            ToggleHolding(0f);
+            hasToggledHolding = false;
         }
     }
 

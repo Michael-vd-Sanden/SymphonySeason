@@ -21,6 +21,7 @@ public class PlayerSettings : ScriptableObject
     [NonSerialized] public bool isHoldingSomething;
     [NonSerialized] public bool allowedToMove;
     [NonSerialized] public bool isMoving;
+    [NonSerialized] public bool stoppedMoving; //toggle for checks
     [NonSerialized] public bool isMovingLeft;
     [NonSerialized] public bool canBeOverUI;
     [NonSerialized] public bool isPressingMove;

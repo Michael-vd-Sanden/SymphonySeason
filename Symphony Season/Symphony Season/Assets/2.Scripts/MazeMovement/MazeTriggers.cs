@@ -2,12 +2,7 @@ using UnityEngine;
 
 public class MazeTriggers : MonoBehaviour
 {
-    private MazePuzzle mazePuzzle;
-
-    private void Awake()
-    {
-        mazePuzzle = FindFirstObjectByType<MazePuzzle>();
-    }
+    public MazePuzzle mazePuzzle;
 
     private void OnTriggerEnter(Collider other)
     {
