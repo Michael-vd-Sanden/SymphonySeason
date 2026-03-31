@@ -16,6 +16,7 @@ public class BPGameInitiator : MonoBehaviour
     [SerializeField] private BlockPuzzleManager blockPuzzleManager;
     [SerializeField] private AudioPlayer audioPlayer;
     [SerializeField] private VictoryTrigger victoryTrigger;
+    [SerializeField] private PlayerData playerData;
 
     [Header("-------------- Objects")]
     [SerializeField] private string environmentSceneName;
@@ -51,6 +52,7 @@ public class BPGameInitiator : MonoBehaviour
         blockPuzzleManager= Instantiate(blockPuzzleManager);
         audioPlayer= Instantiate(audioPlayer);
         victoryTrigger= Instantiate(victoryTrigger);
+        playerData = Instantiate(playerData);
     }
 
     private async Task InitializeClasses()  //every start and awake function that has to do with setting things

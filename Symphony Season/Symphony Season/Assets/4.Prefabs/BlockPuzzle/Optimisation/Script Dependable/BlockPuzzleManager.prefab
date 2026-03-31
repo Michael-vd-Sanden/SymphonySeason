@@ -48,7 +48,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIToggles
   manager: {fileID: 75216096739803366}
-  sceneSwitching: {fileID: 3399286826754372817, guid: 83886b63660cf634dae0c3c0378f6cb0, type: 3}
   pushLeftUpControl: {fileID: 6130881641570212562, guid: 69828647bf20ba047be0bd0eb8e0b819, type: 3}
   pushLeftDownControl: {fileID: 7597732342403260264, guid: 96ad8135d2451084593a5ce9598ad2d2, type: 3}
   pushRightUpControl: {fileID: 2950934650628878137, guid: 43d72632c06b73b47952c206c209b043, type: 3}
@@ -86,14 +85,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac9fc40bad7b1b34eab43b34b6713aec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlockPuzzleManager
-  playerSettings: {fileID: 11400000, guid: 74b68498a96cf8845a9e462550275e87, type: 2}
-  playerMovement: {fileID: 7670352128027328836, guid: 98250d58d279f9741bd3d225f1987bce, type: 3}
+  playerData: {fileID: 7907902846623082481, guid: d4f320960c5e08241b6444eb420e8a09, type: 3}
   uiToggle: {fileID: 6239203860616035901}
   audioPlayer: {fileID: 4800789197660461577, guid: e358a09a94f6e354ab3af8a01a843942, type: 3}
-  playerFollow: {fileID: 4470279578331915959, guid: 220f3f523d1045d4cb6a111745998115, type: 3}
-  playerUIDirections: {fileID: 2444371439802382816, guid: 98250d58d279f9741bd3d225f1987bce, type: 3}
+  notePulse: {fileID: 0}
   hitLayer: 6
   isTutorial: 0
+  layerAsLayerMask: 0
   enteredBlocks: []
   selectedBlockIndex: 0
   currentSelectedBlock: {fileID: 0}

@@ -5,7 +5,7 @@ using UnityEngine;
 public class BlockPuzzleManager : MonoBehaviour
 {
     [Header("-------------- Required Objects")]
-    [SerializeField] private PlayerSettings playerSettings;
+    [SerializeField] private PlayerData playerData;
     [SerializeField] private UIToggles uiToggle;
     [SerializeField] private AudioPlayer audioPlayer;
     [SerializeField] private NotePulser notePulse;
@@ -48,7 +48,7 @@ public class BlockPuzzleManager : MonoBehaviour
     public void RightNote()
     {
         //audioPlayer.PlayEffect(noteSelected); Al in button
-        playerSettings.allowedToMove = false;
+        playerData.allowedToMove = false;
         currentSelectedBlock.objectAbleToMove = true;
         currentSelectedBlock.noteNotification.SetActive(true);
         currentSelectedBlock.questionNotification.SetActive(false);
@@ -65,7 +65,7 @@ public class BlockPuzzleManager : MonoBehaviour
         enteredBlocks.Add(block);
         if (enteredBlocks.Count > 0) 
         {
-            playerSettings.canBeOverUI = true;
+            playerData.canBeOverUI = true;
         }   
         if(enteredBlocks.Count == 1)
         {
@@ -78,7 +78,7 @@ public class BlockPuzzleManager : MonoBehaviour
         if (enteredBlocks.Count == 0) 
         {
             selectedBlockIndex = 0;
-            playerSettings.canBeOverUI= false;
+            playerData.canBeOverUI= false;
             uiToggle.ExitedTrigger();
         }
     }
@@ -93,7 +93,7 @@ public class BlockPuzzleManager : MonoBehaviour
             currentSelectedBlock.questionNotification.SetActive(true);
             isCheckingForNotes = true;
             noteSelected = null;
-            playerSettings.isHoldingSomething = true;
+            playerData.isHoldingSomething = true;
             if (!isTutorial) { notePulse.NoteShift(); }
             if(isTutorial) 
             { 
@@ -126,13 +126,13 @@ public class BlockPuzzleManager : MonoBehaviour
             currentSelectedBlock.noteNotification.SetActive(false);
             currentSelectedBlock.objectAbleToMove = false;
             currentSelectedBlock = null;
-            playerSettings.isHoldingSomething = false;
+            playerData.isHoldingSomething = false;
             if (!isTutorial) { notePulse.NoNotes(); }
         }
         currentBlockNote = null;
-        playerSettings.allowedToMove = true;
-        if(!playerSettings.isMouseMovement)
-        { playerSettings.stoppedMoving = true; }
+        playerData.allowedToMove = true;
+        if(!playerData.isMouseMovement)
+        { playerData.stoppedMoving = true; }
     }
 
     public void CheckIfAllowedToMove()

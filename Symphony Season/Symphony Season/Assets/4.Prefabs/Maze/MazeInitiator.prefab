@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6057933099570103314
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3016782725033334402}
+  - component: {fileID: 7359773091437111264}
+  m_Layer: 0
+  m_Name: MazeInitiator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3016782725033334402
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6057933099570103314}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7359773091437111264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6057933099570103314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfd9c9ca0798a9b49b4e87e18d4fb4f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MazeInitiator
+  loadingScreen: {fileID: 3569302149849085476, guid: 68519fe8a3577ec42bce633a1d652a76, type: 3}
+  eventSystem: {fileID: 4972717765810796751, guid: 9b3f1b8cd6e4fca4f9750fe10b3b2e85, type: 3}
+  player: {fileID: 7670352128027328836, guid: 98250d58d279f9741bd3d225f1987bce, type: 3}
+  playerData: {fileID: 7907902846623082481, guid: d4f320960c5e08241b6444eb420e8a09, type: 3}
+  playerSprites: {fileID: 2012863213825433702, guid: ecdc59335a1a71246a593ee2ca4a6855, type: 3}
+  mazeMovement: {fileID: 2581541159570491591, guid: 9900aac92b44f3240b7ffbb32078425f, type: 3}
+  environmentSceneName: 
+  mazeObject: {fileID: 3885709736346458181, guid: 9f3a0f87d46adb64f86943928d487d70, type: 3}
+  visualEffects: {fileID: 3496223163528371430, guid: f458fbf529a58e94b9f64e82a42d1883, type: 3}
+  navmesh: {fileID: 3500007356792400333, guid: b262504e51fe0dc498c8757a268ae5c8, type: 3}
+  questionCanvas: {fileID: 4981986603630861776, guid: 0e8cfee9d5855424bbefbfb787d64580, type: 3}
+  globalRoot: {fileID: 3439099103896870981, guid: f95b0a4b37e681c47b7a31cb7bb010e8, type: 3}
+  playerSettings: {fileID: 11400000, guid: 74b68498a96cf8845a9e462550275e87, type: 2}

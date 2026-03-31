@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerUIDirections : MonoBehaviour
 {
     [Header("-------------- Required Objects")]
-    [SerializeField] private PlayerSettings playerSettings;
+    [SerializeField] private PlayerData playerData;
     [SerializeField] private UIToggles UIToggles;
     [SerializeField] private Transform globalRoot;
 
@@ -16,16 +16,16 @@ public class PlayerUIDirections : MonoBehaviour
 
     private void Update()
     {
-        if(playerSettings.stoppedMoving)
+        if(playerData.stoppedMoving)
         {
             CheckPlayerDirections();
-            playerSettings.stoppedMoving = false;
+            playerData.stoppedMoving = false;
         }
     }
 
     public void CheckPlayerDirections()
     {
-        if (!playerSettings.isHoldingSomething && !playerSettings.isMouseMovement)
+        if (!playerData.isHoldingSomething && !playerData.isMouseMovement)
         {
             Transform t = globalRoot;
             Vector3 playerPos = transform.position + new Vector3(0f, -0.5f, 0f);

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class TouchInput : MonoBehaviour
 {
+    [SerializeField] private PlayerData playerData;
     [SerializeField] private PlayerSettings playerSettings;
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] public InputActionReference moveAction;
@@ -16,7 +17,7 @@ public class TouchInput : MonoBehaviour
     private void castRay()          
     {
         Ray ray = Camera.main.ScreenPointToRay(screenPos);
-        if (playerSettings.canBeOverUI)
+        if (playerData.canBeOverUI)
         {
             foreach (Vector2 pos in UIMask)
             {
@@ -35,7 +36,7 @@ public class TouchInput : MonoBehaviour
                 worldPos = navMeshHit.position + playerSettings.baseOffset;
                 gridPos = new Vector3(Mathf.FloorToInt(worldPos.x), Mathf.FloorToInt(worldPos.y), Mathf.FloorToInt(worldPos.z));
                 //Debug.Log(gridPos);
-                playerSettings.destination = gridPos;
+                playerData.destination = gridPos;
 
                 playerMovement.CheckIfCanReachDestination();
             }
@@ -63,7 +64,7 @@ public class TouchInput : MonoBehaviour
     private void Move(InputAction.CallbackContext obj)   
     {
         screenPos = obj.ReadValue<Vector2>();
-        if (playerSettings.allowedToMove && !playerSettings.isInMaze && playerSettings.isMouseMovement)
+        if (playerData.allowedToMove && !playerData.isInMaze && playerData.isMouseMovement)
         {
             castRay();
         }

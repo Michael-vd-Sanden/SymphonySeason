@@ -4,14 +4,14 @@ using static UnityEngine.Rendering.DebugUI;
 public class ButtonInput : MonoBehaviour
 {
     [Header("-------------- Required Objects")]
-    [SerializeField] private PlayerSettings playerSettings;
+    [SerializeField] private PlayerData playerData;
     [SerializeField] private PlayerMovement pMovement;
     //[SerializeField] private BlockPuzzleManager manager;
     private Vector3 playerDestination;
 
     private void Update()
     {
-        if(playerSettings.isPressingMove) 
+        if(playerData.isPressingMove) 
         {
             MovePlayer();
         }
@@ -19,11 +19,11 @@ public class ButtonInput : MonoBehaviour
 
     public void MovePlayer()
     {
-        if (!playerSettings.isHoldingSomething && !playerSettings.isMoving && !playerSettings.isMouseMovement)
+        if (!playerData.isHoldingSomething && !playerData.isMoving && !playerData.isMouseMovement)
         {
             Vector3 temp = new Vector3(0f, 0f, 0f);
-            playerSettings.currentPos = transform.position;
-            switch (playerSettings.moveDirection)
+            playerData.currentPos = transform.position;
+            switch (playerData.moveDirection)
             {
                 case "LeftUp":
                     temp = new Vector3(0f, 0f, 1f);
@@ -38,7 +38,7 @@ public class ButtonInput : MonoBehaviour
                     temp = new Vector3(0f, 0f, -1f);
                     break;
             }
-            playerDestination = playerSettings.currentPos + temp;
+            playerDestination = playerData.currentPos + temp;
             pMovement.MoveOutsideScript(playerDestination);
         }
     }
@@ -46,10 +46,10 @@ public class ButtonInput : MonoBehaviour
     public void onPressMove(string direction)
     {
 
-        if (!playerSettings.isHoldingSomething)
+        if (!playerData.isHoldingSomething)
         {
-            playerSettings.moveDirection = direction;
-            playerSettings.isPressingMove = true;
+            playerData.moveDirection = direction;
+            playerData.isPressingMove = true;
         }
         else
         {
@@ -60,9 +60,9 @@ public class ButtonInput : MonoBehaviour
 
     public void onReleaseMove()
     {
-        if (!playerSettings.isHoldingSomething)
+        if (!playerData.isHoldingSomething)
         {
-            playerSettings.isPressingMove = false;
+            playerData.isPressingMove = false;
         }
         else
         {

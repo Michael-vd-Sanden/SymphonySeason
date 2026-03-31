@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerFollower : MonoBehaviour
 {
     [Header("-------------- Required Objects")]
+    [SerializeField] private PlayerData playerData;
     [SerializeField] private PlayerSettings playerSettings;
     [SerializeField] private Material playerMaterial;
 
@@ -12,27 +13,27 @@ public class PlayerFollower : MonoBehaviour
 
     void Update()
     {
-        if(playerSettings.isMoving) 
+        if(playerData.isMoving) 
         {
             SetPositionToPlayer();
             if (!hasToggledMoving) { ToggleMoving(1f); }
             hasToggledMoving = true;
 
-            if (playerSettings.isMovingLeft) { ToggleLeft(1f); }
-            else if (!playerSettings.isMovingLeft) { ToggleLeft(0f); }
+            if (playerData.isMovingLeft) { ToggleLeft(1f); }
+            else if (!playerData.isMovingLeft) { ToggleLeft(0f); }
         }
-        else if(!playerSettings.isMoving) 
+        else if(!playerData.isMoving) 
         {
             if (hasToggledMoving) { ToggleMoving(0f); }
             hasToggledMoving = false;
         }
 
-        if(playerSettings.isHoldingSomething && !hasToggledHolding)
+        if(playerData.isHoldingSomething && !hasToggledHolding)
         {
             ToggleHolding(1f);
             hasToggledHolding = true;
         }
-        else if (!playerSettings.isHoldingSomething && hasToggledHolding)
+        else if (!playerData.isHoldingSomething && hasToggledHolding)
         {
             ToggleHolding(0f);
             hasToggledHolding = false;
@@ -41,9 +42,9 @@ public class PlayerFollower : MonoBehaviour
 
     private void SetPositionToPlayer()
     {
-        transform.position = new Vector3(playerSettings.currentPos.x + playerSettings.modelOffset.x, 
-            playerSettings.currentPos.y + playerSettings.modelOffset.y, 
-            playerSettings.currentPos.z + playerSettings.modelOffset.z);
+        transform.position = new Vector3(playerData.currentPos.x + playerSettings.modelOffset.x, 
+            playerData.currentPos.y + playerSettings.modelOffset.y, 
+            playerData.currentPos.z + playerSettings.modelOffset.z);
     }
 
     public void ToggleLeft(float toggle)

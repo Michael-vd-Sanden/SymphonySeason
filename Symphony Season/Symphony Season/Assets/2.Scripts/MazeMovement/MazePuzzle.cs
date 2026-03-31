@@ -73,6 +73,11 @@ public class MazePuzzle : MonoBehaviour
 
     public void AnswerQuestion(string answer)
     {
+        if(answer.EndsWith("1"))
+        {
+            answer = answer.Replace("1", "");
+            Debug.Log(answer);
+        }
         if(answer == questions[questionNumber].name) 
         {
             Debug.Log("correct");

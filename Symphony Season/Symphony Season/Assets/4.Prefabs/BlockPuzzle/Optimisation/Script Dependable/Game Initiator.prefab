@@ -48,12 +48,14 @@ MonoBehaviour:
   orthographicCamera: {fileID: 6153747895037285443, guid: 3c118531b15fa124e9b9142e503b4df5, type: 3}
   mainCanvas: {fileID: 2189976724103341290, guid: 4584709f1845334429f423eb867d174a, type: 3}
   holdBtnsCanvas: {fileID: 7896822638820393618, guid: e63b2e0105d21b4469df067d5175bc68, type: 3}
+  playerUIDirections: {fileID: 2444371439802382816, guid: 98250d58d279f9741bd3d225f1987bce, type: 3}
   player: {fileID: 7670352128027328836, guid: 98250d58d279f9741bd3d225f1987bce, type: 3}
   victoryMover: {fileID: 602157285410066443, guid: 98250d58d279f9741bd3d225f1987bce, type: 3}
   playerSprites: {fileID: 4470279578331915959, guid: 220f3f523d1045d4cb6a111745998115, type: 3}
   blockPuzzleManager: {fileID: 75216096739803366, guid: ebc8a2b9b0d26474184a04bd5e61b141, type: 3}
   audioPlayer: {fileID: 4800789197660461577, guid: e358a09a94f6e354ab3af8a01a843942, type: 3}
   victoryTrigger: {fileID: 4000607197570436975, guid: c412f8698ac9fec4fa1fe985dda44ff5, type: 3}
+  playerData: {fileID: 7907902846623082481, guid: d4f320960c5e08241b6444eb420e8a09, type: 3}
   environmentSceneName: BP Environment
   notepipes: {fileID: 4489761956144648150, guid: b41ef5afdae81d244a23b6cac0e51a5d, type: 3}
   globalRoot: {fileID: 3439099103896870981, guid: f95b0a4b37e681c47b7a31cb7bb010e8, type: 3}

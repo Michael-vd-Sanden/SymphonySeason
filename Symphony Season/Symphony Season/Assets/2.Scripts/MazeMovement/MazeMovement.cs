@@ -7,46 +7,34 @@ using UnityEngine.AI;
 public class MazeMovement : MonoBehaviour
 {
     [Header("-------------- Required Objects")]
-    [SerializeField] private PlayerSettings playerSettings;
+    [SerializeField] private PlayerData playerData;
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private MazePuzzle mazePuzzle;
     [SerializeField] private GameObject mazeObject;
     [SerializeField] private NavMeshSurface navMash;
     [SerializeField] private GameObject left, right, up, down;
-    private Transform globalRoot;
+    [SerializeField] private Transform globalRoot;
 
     [Header("-------------- Changeble Values")]
     [SerializeField] private float turnSpeed = 1.0f;
-    [SerializeField] private int layer;
+    public int layer;
     [SerializeField] private float hitDistance = 1.0f;
 
     [Header("-------------- Background Values (do not change)")]
     [SerializeField] List<Quaternion> availableAngles;
-    [SerializeField] private int currentAngleID;
+    public int currentAngleID, layerAsLayerMask;
     [SerializeField] private bool mazeIsMoving, playerIsMoving;
     private float offsetAngle, startAngle;
     private Quaternion currentAngle, targetAngle;
-    private int layerAsLayerMask, directionAmountActive;
+    [SerializeField] private int directionAmountActive;
     private string direction;
     private Vector3 playerCurrentPos, playerTargetPos;
-
-    private void Awake()
-    {
-        playerSettings.isInMaze = true;
-        currentAngleID = 0;
-        globalRoot = GameObject.FindGameObjectWithTag("GlobalRoot").transform;
-        layerAsLayerMask = (1 << layer);
-    }
-    private void Start()
-    {
-        CheckPlayerDirections();
-    }
 
     private void Update()
     {
         if(mazeIsMoving) 
         {
-            playerSettings.isMoving = true;
+            playerData.isMoving = true;
             currentAngle = mazeObject.transform.rotation;
 
             var step = turnSpeed * Time.deltaTime;
@@ -55,16 +43,16 @@ public class MazeMovement : MonoBehaviour
 
            if (currentAngle == targetAngle)
            { 
-                playerSettings.isMoving = false;
+                playerData.isMoving = false;
                 navMash.BuildNavMesh();
-                playerSettings.allowedToMove = true;
+                playerData.allowedToMove = true;
                 CheckPlayerDirections();
                 mazeIsMoving = false;
-            }
+           }
         }
         if(playerIsMoving) 
         {
-            if(!playerSettings.isMoving)
+            if(!playerData.isMoving)
             {// stopped moving
                 CheckPlayerDirections();
                 playerIsMoving = false;
@@ -74,7 +62,7 @@ public class MazeMovement : MonoBehaviour
 
     public void MovePlayer(string inputDirection)
     {
-        if (playerSettings.allowedToMove && !mazeIsMoving)
+        if (playerData.allowedToMove && !mazeIsMoving)
         {
             playerCurrentPos = playerMovement.transform.position;
             switch (inputDirection)
@@ -104,7 +92,7 @@ public class MazeMovement : MonoBehaviour
         }
     }
 
-    private void CheckPlayerDirections()
+    public void CheckPlayerDirections()
     {
         Transform t = globalRoot;
         Vector3 playerPos = playerMovement.transform.position + new Vector3(0f, -2.5f, 0f);
@@ -139,19 +127,19 @@ public class MazeMovement : MonoBehaviour
 
                     if (hit.distance <= hitDistance)
                     {//too close
-                        //Debug.Log("hit " + hit.collider.name);
-                        //Debug.DrawRay(playerPos, rayDirect * hitDistance, Color.red, 4f);
+                        Debug.Log("hit " + hit.collider.name);
+                        Debug.DrawRay(playerPos, rayDirect * hitDistance, Color.red, 4f);
                         able = true;
                     }
                     else
                     {
-                        //Debug.DrawRay(playerPos, rayDirect * hitDistance, Color.green, 4f);
+                        Debug.DrawRay(playerPos, rayDirect * hitDistance, Color.green, 4f);
                         able = false;
                     }
                 }
             else
                 {
-                    //Debug.DrawRay(playerPos, rayDirect * hitDistance, Color.green, 4f);
+                    Debug.DrawRay(playerPos, rayDirect * hitDistance, Color.green, 4f);
                     able = false;
                 }
 
@@ -214,7 +202,7 @@ public class MazeMovement : MonoBehaviour
 
     private void RotateMaze()
     {
-        if (!mazeIsMoving && playerSettings.allowedToMove)
+        if (!mazeIsMoving && playerData.allowedToMove)
         {
             switch (direction)
             {
@@ -229,7 +217,7 @@ public class MazeMovement : MonoBehaviour
                     else { currentAngleID = 19; }
                     break;
             }
-            playerSettings.allowedToMove = false;
+            playerData.allowedToMove = false;
             mazeIsMoving = true;
             direction = string.Empty;
             startAngle = mazeObject.transform.rotation.eulerAngles.x;
