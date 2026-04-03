@@ -1,16 +1,21 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LoadingScreen : MonoBehaviour
 {
-    [SerializeField] private GameObject screenVisual;
+    [SerializeField] private SceneLoader loader;
 
-    public void Show()
+    private void Start()
     {
-        screenVisual.SetActive(true);
+        SceneManager.LoadSceneAsync(loader.SceneToLoad);
     }
 
-    public void Hide()
+    private void Update()
     {
-        screenVisual.SetActive(false);
+        if(loader.SceneHasLoaded) 
+        {
+            loader.SceneHasLoaded = false;
+            SceneManager.UnloadSceneAsync("LoadingScene");
+        }
     }
 }

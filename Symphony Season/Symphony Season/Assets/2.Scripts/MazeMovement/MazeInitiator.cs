@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class MazeInitiator : MonoBehaviour
 {
-    [SerializeField] private LoadingScreen loadingScreen;
     [Header("-------------- Classes")]
     //[SerializeField] private Camera mainCamera;
     [SerializeField] private GameObject eventSystem;
@@ -16,6 +15,7 @@ public class MazeInitiator : MonoBehaviour
 
     [Header("-------------- Objects")]
     [SerializeField] private string environmentSceneName;
+    [SerializeField] private string loadingSceneName;
     [SerializeField] private GameObject mazeObject;
     [SerializeField] private GameObject visualEffects;
     [SerializeField] private GameObject navmesh;
@@ -24,27 +24,28 @@ public class MazeInitiator : MonoBehaviour
 
     [Header("-------------- Scriptable Objects")]
     [SerializeField] private PlayerSettings playerSettings;
+    [SerializeField] private SceneLoader sceneLoader;
 
     private async void Start()
     {
-        loadingScreen = Instantiate(loadingScreen);
-        playerSprites = Instantiate(playerSprites); //camera is child of playersprites
-        loadingScreen.Show();
-
         BindObjects();
         await InitializeClasses();
         await CreateObjects();
         await PrepareLevel();
-        loadingScreen.Hide();
+
+        sceneLoader.SceneHasLoaded = true;
     }
 
     private void BindObjects()  //making the classes
     {
         eventSystem = Instantiate(eventSystem);
-        player = Instantiate(player);
+        // player = Instantiate(player);
+        //player = player.Initiate();
         //audioPlayer = Instantiate(audioPlayer);
-        playerData = Instantiate(playerData);
-        mazeMovement = Instantiate(mazeMovement);
+        //playerData = playerData.Initiate();
+        //playerData = Instantiate(playerData);
+         //mazeMovement = mazeMovement.Initiate();
+        //mazeMovement = Instantiate(mazeMovement);
     }
 
     private async Task InitializeClasses()  //every start and awake function that has to do with setting things
@@ -60,7 +61,8 @@ public class MazeInitiator : MonoBehaviour
 
     private async Task CreateObjects()  //making the big objects
     { //returns the task automatically, don't have to return it manually
-        //SceneManager.LoadScene(environmentSceneName, LoadSceneMode.Additive);
+      //SceneManager.LoadScene(environmentSceneName, LoadSceneMode.Additive);
+        playerSprites = Instantiate(playerSprites); //camera is child of playersprites
         mazeObject = Instantiate(mazeObject);
         visualEffects = Instantiate(visualEffects);
         navmesh = Instantiate(navmesh);
@@ -71,7 +73,7 @@ public class MazeInitiator : MonoBehaviour
 
     private async Task PrepareLevel()   //every start and awake function that has to do with posistioning and appearance
     {
-        player.gameObject.transform.localScale *= 2;
+        player.gameObject.transform.localScale = new Vector3(2f, 2f, 2f);
         mazeObject.transform.position = new Vector3(18f, 11f, 0f);
 
         await Awaitable.FixedUpdateAsync();

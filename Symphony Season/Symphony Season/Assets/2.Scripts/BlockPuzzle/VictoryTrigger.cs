@@ -6,6 +6,7 @@ public class VictoryTrigger : MonoBehaviour
 {
     public UIToggles uiToggles;
     public TriggerSetter CurtainCloser;
+    public GameObject nextlvScreen;
     public MoveObject PlayerMover;
     public PlayerFollower playerFollower;
     public GameObject playerObject;
@@ -26,7 +27,8 @@ public class VictoryTrigger : MonoBehaviour
         {
             Debug.Log("seen player");
            // uiToggles.Victory();
-            //CurtainCloser.SetTrigger();
+           nextlvScreen.SetActive(true);
+           CurtainCloser.SetTrigger();
 
             //gameInitiator.player.agent.enabled = false;
             //PlayerInput.enabled = false;

@@ -4,11 +4,16 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public PlayerMovement thisPlayerMovement;
     [Header("-------------- Required Objects")]
     [SerializeField] private PlayerData playerData;
     [SerializeField] private PlayerSettings playerSettings;
     public NavMeshAgent agent;  
     
+    public PlayerMovement Initiate()
+    {
+        return thisPlayerMovement = Instantiate(this);
+    }
 
     private void Update()
     {

@@ -48,18 +48,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIToggles
   manager: {fileID: 75216096739803366}
-  pushLeftUpControl: {fileID: 6130881641570212562, guid: 69828647bf20ba047be0bd0eb8e0b819, type: 3}
-  pushLeftDownControl: {fileID: 7597732342403260264, guid: 96ad8135d2451084593a5ce9598ad2d2, type: 3}
-  pushRightUpControl: {fileID: 2950934650628878137, guid: 43d72632c06b73b47952c206c209b043, type: 3}
-  pushRightDownControl: {fileID: 7049887699970668684, guid: fa6b3ae1c98f7074e96e3a516bbd74c5, type: 3}
-  nextLevelScreen: {fileID: 1889523535340107157, guid: c591a0cd761e2664e93fec1905562974, type: 3}
+  pushLeftUpControl: {fileID: 0}
+  pushLeftDownControl: {fileID: 0}
+  pushRightUpControl: {fileID: 0}
+  pushRightDownControl: {fileID: 0}
+  nextLevelScreen: {fileID: 0}
   btnsSharp: {fileID: 0}
   btnsFlat: {fileID: 0}
   btnSwitchFlSH: {fileID: 0}
   noteBtnsCanvas: {fileID: 0}
-  holdControl: {fileID: 2560039906422885764, guid: 2fb396eaa98dad340b155ba21dd95560, type: 3}
-  releaseControl: {fileID: 8166328666403003368, guid: ab1437e1091d2834abe5827aee5fbeac, type: 3}
-  switchControl: {fileID: 8779975421334483635, guid: 9e0962b4f12494646932e40cbf6ba160, type: 3}
+  holdControl: {fileID: 0}
+  releaseControl: {fileID: 0}
+  switchControl: {fileID: 0}
   noteBtnsObjects:
   - {fileID: 0}
   - {fileID: 0}
@@ -85,9 +85,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac9fc40bad7b1b34eab43b34b6713aec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlockPuzzleManager
-  playerData: {fileID: 7907902846623082481, guid: d4f320960c5e08241b6444eb420e8a09, type: 3}
+  playerData: {fileID: 0}
   uiToggle: {fileID: 6239203860616035901}
-  audioPlayer: {fileID: 4800789197660461577, guid: e358a09a94f6e354ab3af8a01a843942, type: 3}
+  audioPlayer: {fileID: 0}
   notePulse: {fileID: 0}
   hitLayer: 6
   isTutorial: 0

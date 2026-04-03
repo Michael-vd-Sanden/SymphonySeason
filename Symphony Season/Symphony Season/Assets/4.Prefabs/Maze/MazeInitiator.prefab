@@ -44,13 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd9c9ca0798a9b49b4e87e18d4fb4f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MazeInitiator
-  loadingScreen: {fileID: 3569302149849085476, guid: 68519fe8a3577ec42bce633a1d652a76, type: 3}
   eventSystem: {fileID: 4972717765810796751, guid: 9b3f1b8cd6e4fca4f9750fe10b3b2e85, type: 3}
   player: {fileID: 7670352128027328836, guid: 98250d58d279f9741bd3d225f1987bce, type: 3}
   playerData: {fileID: 7907902846623082481, guid: d4f320960c5e08241b6444eb420e8a09, type: 3}
   playerSprites: {fileID: 2012863213825433702, guid: ecdc59335a1a71246a593ee2ca4a6855, type: 3}
   mazeMovement: {fileID: 2581541159570491591, guid: 9900aac92b44f3240b7ffbb32078425f, type: 3}
   environmentSceneName: 
+  loadingSceneName: LoadingScene
   mazeObject: {fileID: 3885709736346458181, guid: 9f3a0f87d46adb64f86943928d487d70, type: 3}
   visualEffects: {fileID: 3496223163528371430, guid: f458fbf529a58e94b9f64e82a42d1883, type: 3}
   navmesh: {fileID: 3500007356792400333, guid: b262504e51fe0dc498c8757a268ae5c8, type: 3}

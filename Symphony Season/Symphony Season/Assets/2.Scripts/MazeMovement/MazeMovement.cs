@@ -6,6 +6,7 @@ using UnityEngine.AI;
 
 public class MazeMovement : MonoBehaviour
 {
+    public MazeMovement thisMazeMovement;
     [Header("-------------- Required Objects")]
     [SerializeField] private PlayerData playerData;
     [SerializeField] private PlayerMovement playerMovement;
@@ -29,6 +30,11 @@ public class MazeMovement : MonoBehaviour
     [SerializeField] private int directionAmountActive;
     private string direction;
     private Vector3 playerCurrentPos, playerTargetPos;
+
+    public MazeMovement Initiate()
+    {
+        return thisMazeMovement = Instantiate(this);
+    }
 
     private void Update()
     {
@@ -64,6 +70,7 @@ public class MazeMovement : MonoBehaviour
     {
         if (playerData.allowedToMove && !mazeIsMoving)
         {
+            Debug.Log("try to move " + inputDirection);
             playerCurrentPos = playerMovement.transform.position;
             switch (inputDirection)
             {

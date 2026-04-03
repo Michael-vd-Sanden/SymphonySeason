@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3531413462835990145}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8, y: 1, z: 0}
   m_LocalScale: {x: 0.2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
@@ -124,9 +124,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b8bdae4f88b4b0468fadecbdbac18fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VictoryTrigger
-  uiToggles: {fileID: 6239203860616035901, guid: ebc8a2b9b0d26474184a04bd5e61b141, type: 3}
-  CurtainCloser: {fileID: 8500907077614323026, guid: 214ea60dc7a839b4e9f3de896833f6d4, type: 3}
-  PlayerMover: {fileID: 602157285410066443, guid: 98250d58d279f9741bd3d225f1987bce, type: 3}
-  playerFollower: {fileID: 4470279578331915959, guid: 220f3f523d1045d4cb6a111745998115, type: 3}
-  playerObject: {fileID: 5330800566747399252, guid: 98250d58d279f9741bd3d225f1987bce, type: 3}
-  gameInitiator: {fileID: 8679656398747889975, guid: 11924c9abc27ccb45b892c14230a221f, type: 3}
+  uiToggles: {fileID: 0}
+  CurtainCloser: {fileID: 0}
+  PlayerMover: {fileID: 0}
+  playerFollower: {fileID: 0}
+  playerObject: {fileID: 0}
+  gameInitiator: {fileID: 0}
