@@ -8,6 +8,8 @@ TagManager:
   - GlobalRoot
   - Start
   - End
+  - MazeObject
+  - NavMesh
   layers:
   - Default
   - TransparentFX

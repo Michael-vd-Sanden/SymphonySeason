@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5978915949932377096
+--- !u!1 &5442376145741839659
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,10 +8,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4010584625267144535}
-  - component: {fileID: 2581541159570491591}
-  - component: {fileID: 4163612876751199739}
-  - component: {fileID: 4342644420387975848}
+  - component: {fileID: 7197865130701722222}
+  - component: {fileID: 2482223519092275555}
+  - component: {fileID: 6387023118206602295}
+  - component: {fileID: 1415636823786159942}
   m_Layer: 0
   m_Name: MazeManager
   m_TagString: Untagged
@@ -19,43 +19,43 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4010584625267144535
+--- !u!4 &7197865130701722222
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5978915949932377096}
+  m_GameObject: {fileID: 5442376145741839659}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -3.69966, y: 0, z: -5.63041}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2581541159570491591
+--- !u!114 &2482223519092275555
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5978915949932377096}
+  m_GameObject: {fileID: 5442376145741839659}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b66b6a9754432ab4f9aa5467246b708f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MazeMovement
-  playerData: {fileID: 7907902846623082481, guid: d4f320960c5e08241b6444eb420e8a09, type: 3}
-  playerMovement: {fileID: 7670352128027328836, guid: 98250d58d279f9741bd3d225f1987bce, type: 3}
-  mazePuzzle: {fileID: 4163612876751199739}
-  mazeObject: {fileID: 3885709736346458181, guid: 9f3a0f87d46adb64f86943928d487d70, type: 3}
-  navMash: {fileID: 7294737713568711462, guid: b262504e51fe0dc498c8757a268ae5c8, type: 3}
-  left: {fileID: 3737107835370634129, guid: 68b5c433d3587a94f85127a8c19124a9, type: 3}
-  right: {fileID: 2297393521793963019, guid: a972c14cd10083c4281248b74f76d551, type: 3}
-  up: {fileID: 2886776727759510638, guid: 53baa61c1fefd95449b61e27c5797f19, type: 3}
-  down: {fileID: 4957527977274494559, guid: fb6ec02e0e14bae4f9201effb9f55492, type: 3}
-  globalRoot: {fileID: 5246042904127324806, guid: f95b0a4b37e681c47b7a31cb7bb010e8, type: 3}
+  playerData: {fileID: 0}
+  playerMovement: {fileID: 0}
+  mazePuzzle: {fileID: 6387023118206602295}
+  mazeObject: {fileID: 0}
+  navMesh: {fileID: 0}
+  left: {fileID: 0}
+  right: {fileID: 0}
+  up: {fileID: 0}
+  down: {fileID: 0}
+  globalRoot: {fileID: 0}
   turnSpeed: 25
   layer: 3
   hitDistance: 2
@@ -81,83 +81,85 @@ MonoBehaviour:
   - {x: 0.8910066, y: 0, z: 0, w: -0.4539904}
   - {x: 0.809017, y: 0, z: 0, w: -0.5877852}
   currentAngleID: 0
+  layerAsLayerMask: 0
   mazeIsMoving: 0
   playerIsMoving: 0
---- !u!114 &4163612876751199739
+  directionAmountActive: 0
+--- !u!114 &6387023118206602295
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5978915949932377096}
+  m_GameObject: {fileID: 5442376145741839659}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7318ab953fbde94d93a69fc223ba143, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MazePuzzle
-  cameraObj: {fileID: 8893536233710454628, guid: 847324f6b1e376142a35928830b61eec, type: 3}
-  popUpScreen: {fileID: 1852726698573689231, guid: 86cc3c4c43e5e6445869fa615ae66d96, type: 3}
-  movementControls: {fileID: 804822421421983367, guid: 3acb5ad74e442104bb15a556051929de, type: 3}
+  cameraObj: {fileID: 0}
+  popUpScreen: {fileID: 0}
+  movementControls: {fileID: 0}
   questions:
-  - {fileID: 2391562707253915403, guid: 7256a4e4d11bc0c41a4036b7254d9422, type: 3}
-  - {fileID: 4809665838870200353, guid: f640306d99f67dd4dbbb0ed6f4fe1d37, type: 3}
-  - {fileID: 5189225184086565238, guid: b88c651f33af56646a463dcd20c44b03, type: 3}
-  - {fileID: 3260149610845216391, guid: d7c5f46155f18d246a89ca551b7dd856, type: 3}
-  - {fileID: 1110410163285151076, guid: 1b0ef31ad1662c44d98de5e0dae99557, type: 3}
-  - {fileID: 6181478220652477886, guid: 8d9053d6c0ad6d74dad7019577916e9b, type: 3}
-  - {fileID: 6308996050511426417, guid: db6c5172add8b2642ab26b872a78e755, type: 3}
-  - {fileID: 5438128754520092730, guid: cc8a035c95706da48aaae5108b9de3cc, type: 3}
-  - {fileID: 5932739097735751445, guid: b074c41d3fb996a4080d210faf9ce42b, type: 3}
-  - {fileID: 2392690008470491826, guid: dbfc878286228274d95b2d05533d3a4e, type: 3}
-  - {fileID: 5078041204630693310, guid: 96d0fbd6f276b974796407b705b2f901, type: 3}
-  - {fileID: 1472572058659485294, guid: 465062c6d653d0f4b996e83b0e0d302c, type: 3}
-  - {fileID: 6102515717403259295, guid: ec9dd8f3116e1404abe097fccaa54685, type: 3}
-  - {fileID: 6340202791830354198, guid: a4e9b343c30bb894ba3af3da6335b2c9, type: 3}
-  - {fileID: 5790460390061249059, guid: 91426cddf28b95648b79a0f23661c2f5, type: 3}
-  - {fileID: 6423844585068221504, guid: 7d26944be6352bd429c39f3e2d280999, type: 3}
-  - {fileID: 5494635642777500318, guid: ce82ec045711ed847968b7a315ffe42b, type: 3}
-  - {fileID: 8072172674318138421, guid: 3618d904b1f20f74180c49e1349f8b30, type: 3}
-  - {fileID: 4462838137546075359, guid: e403065c8814ded4aaa16cdce9c23e43, type: 3}
-  - {fileID: 1954722845386765601, guid: cbe6920ca87b6cf479dcc2618ad8287d, type: 3}
-  - {fileID: 5127470224640990364, guid: f127c30b38b277e4b851fd56bd24bcc7, type: 3}
-  - {fileID: 921234249548186413, guid: d377f298acf68a140b9046be3fcb358f, type: 3}
-  - {fileID: 116203903158482852, guid: a9d9cfc139b6ed74a9f30bbbbdff559c, type: 3}
-  - {fileID: 6787014925630058713, guid: 701e01ad51a15cc489f5dabb3d4eb745, type: 3}
-  - {fileID: 1877922479705169040, guid: c951f7a7043552a4c89636f5a216fb98, type: 3}
-  - {fileID: 91017818755992931, guid: 8c4857d3905a45f47a0bed8ff76935b8, type: 3}
-  - {fileID: 868835974293360866, guid: 27af062fd1f4f1544aa0ff59df60d1d2, type: 3}
-  - {fileID: 3343294843584129867, guid: 33e652bfa306450418e7f40390ba9486, type: 3}
-  - {fileID: 2639460098936422892, guid: 0e4dc1e3e1e99ec4d95f7559f4a15d9e, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   changeCamPosTo: {x: 1, y: -3, z: 5}
   rotateCamPosTo: {x: 0.1227878, y: 0.6963642, z: -0.1227878, w: 0.6963642}
   turnspeed: 300
   questionNumber: 0
-  isCamRotating: 0
+  isCamRotating: 1
   isQuestionActive: 0
---- !u!114 &4342644420387975848
+--- !u!114 &1415636823786159942
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5978915949932377096}
+  m_GameObject: {fileID: 5442376145741839659}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c429203901eb0b64db9299be82624923, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OnOffArray
   StateOne:
-  - {fileID: 2818438550067777970, guid: a77f671a9ea6b9d488293d96eec84723, type: 3}
-  - {fileID: 4026250824575824252, guid: 37c53a1a2b71ea444999d727b2e1fb8d, type: 3}
-  - {fileID: 8696042009810348915, guid: e0fb8693b4a7f27418d91ac73a41d1e0, type: 3}
-  - {fileID: 3948162138534911540, guid: 23cdfdbdd20a6294e9416f23c902f60f, type: 3}
-  - {fileID: 5039950481723085267, guid: 21cb66a1ede4252439d5841ce9863db7, type: 3}
-  - {fileID: 2695300513940258586, guid: 5b5a02591118b584691ff31f540e8983, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   StateTwo:
-  - {fileID: 2909786789797501993, guid: 79f13e2448848f443a9ebabe1b584ec9, type: 3}
-  - {fileID: 5292014829850612010, guid: 7fcbb9900a9e3024da7b9ef2a46a94c7, type: 3}
-  - {fileID: 5293741177030544145, guid: 01641a081e38e3c48a3152e488ee2fa5, type: 3}
-  - {fileID: 3187778129113116087, guid: 8466be8fd33784247b7f221e3c16e001, type: 3}
-  - {fileID: 7217269916984263592, guid: b95b8240c630b9144aae2ffd6833cd4b, type: 3}
-  - {fileID: 8747467153569826536, guid: 710c5784985c46049bfdb4c1f161de87, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   ArrayLength: 6

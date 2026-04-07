@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1868238639138551934
+--- !u!1 &5255442576328987263
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4200008255996398643}
-  - component: {fileID: 7730580961872060338}
+  - component: {fileID: 9157642753181299779}
+  - component: {fileID: 2538655226738670856}
   m_Layer: 0
-  m_Name: MazeInitiator
+  m_Name: MoveUIToggles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4200008255996398643
+--- !u!4 &9157642753181299779
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1868238639138551934}
+  m_GameObject: {fileID: 5255442576328987263}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,22 +32,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7730580961872060338
+--- !u!114 &2538655226738670856
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1868238639138551934}
+  m_GameObject: {fileID: 5255442576328987263}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfd9c9ca0798a9b49b4e87e18d4fb4f2, type: 3}
+  m_Script: {fileID: 11500000, guid: c2c28993871506148a82d13f0d2ce643, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MazeInitiator
-  player: {fileID: 0}
-  playerData: {fileID: 0}
-  playerSprites: {fileID: 0}
-  mazeMovement: {fileID: 0}
-  levelSceneName: MazeLV1
-  playerSettings: {fileID: 11400000, guid: 74b68498a96cf8845a9e462550275e87, type: 2}
-  sceneLoader: {fileID: 11400000, guid: 4dd3e79ad35851547a04c7cb859cf4a5, type: 2}
+  m_EditorClassIdentifier: Assembly-CSharp::MoveUIToggles
+  pushLeftUpControl: {fileID: 0}
+  pushLeftDownControl: {fileID: 0}
+  pushRightUpControl: {fileID: 0}
+  pushRightDownControl: {fileID: 0}

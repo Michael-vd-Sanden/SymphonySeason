@@ -6,7 +6,8 @@ public class BlockPuzzleManager : MonoBehaviour
 {
     [Header("-------------- Required Objects")]
     [SerializeField] private PlayerData playerData;
-    [SerializeField] private UIToggles uiToggle;
+    [SerializeField] private BPUiToggles uiToggle;
+    [SerializeField] private MoveUIToggles moveUiToggles;
     [SerializeField] private AudioPlayer audioPlayer;
     [SerializeField] private NotePulser notePulse;
 
@@ -87,7 +88,7 @@ public class BlockPuzzleManager : MonoBehaviour
     {
         if(enteredBlocks.Count > 0) 
         {
-            uiToggle.TurnOffDirections();
+            moveUiToggles.TurnOffDirections();
             currentSelectedBlock = enteredBlocks[selectedBlockIndex];
             currentBlockNote = currentSelectedBlock.blockNote;
             currentSelectedBlock.questionNotification.SetActive(true);

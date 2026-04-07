@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 public class VictoryTrigger : MonoBehaviour
 {
-    public UIToggles uiToggles;
+    public BPUiToggles uiToggles;
     public TriggerSetter CurtainCloser;
     public GameObject nextlvScreen;
     public MoveObject PlayerMover;

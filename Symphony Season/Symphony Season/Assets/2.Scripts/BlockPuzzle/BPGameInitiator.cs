@@ -85,7 +85,6 @@ public class BPGameInitiator : MonoBehaviour
 
     private async Task PrepareLevel()   //every start and awake function that has to do with posistioning and appearance
     {
-        player.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
         popupRotators = FindObjectsByType<PopupRotator>(FindObjectsSortMode.None);
         foreach (PopupRotator r in popupRotators) { r.SetRotator(); }
 

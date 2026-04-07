@@ -4,7 +4,8 @@ using UnityEngine;
 public class TutorialScript : MonoBehaviour
 {
     [Header("-------------- Required Objects")]
-    [SerializeField] private UIToggles UiToggles;
+    [SerializeField] private BPUiToggles UiToggles;
+    [SerializeField] private MoveUIToggles moveUIToggles;
     [SerializeField] private BlockPuzzleManager manager;
 
     [Header("-------- Lv 1 & 2")]
@@ -36,7 +37,7 @@ public class TutorialScript : MonoBehaviour
 
     public void PressedHoldWithoutNotes()
     {
-        UiToggles.TurnOffDirections();
+        moveUIToggles.TurnOffDirections();
         UiToggles.holdControl.SetActive(false);
         UiToggles.releaseControl.SetActive(true);
 

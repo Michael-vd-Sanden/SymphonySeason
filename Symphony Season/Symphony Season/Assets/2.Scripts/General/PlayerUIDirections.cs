@@ -5,7 +5,7 @@ public class PlayerUIDirections : MonoBehaviour
 {
     [Header("-------------- Required Objects")]
     [SerializeField] private PlayerData playerData;
-    [SerializeField] private UIToggles UIToggles;
+    [SerializeField] private MoveUIToggles moveUIToggles;
     [SerializeField] private Transform globalRoot;
 
     [Header("-------------- Changeble Values")]
@@ -79,16 +79,16 @@ public class PlayerUIDirections : MonoBehaviour
                 switch (check)
                 {
                     case 0:
-                        UIToggles.ActivatePlayerDirections("LeftUp", able);
+                        moveUIToggles.ActivatePlayerDirections("LeftUp", able);
                         break;
                     case 1:
-                        UIToggles.ActivatePlayerDirections("RightUp", able);
+                        moveUIToggles.ActivatePlayerDirections("RightUp", able);
                         break;
                     case 2:
-                        UIToggles.ActivatePlayerDirections("LeftDown", able);
+                        moveUIToggles.ActivatePlayerDirections("LeftDown", able);
                         break;
                     case 3:
-                        UIToggles.ActivatePlayerDirections("RightDown", able);
+                        moveUIToggles.ActivatePlayerDirections("RightDown", able);
                         break;
                 }
             }

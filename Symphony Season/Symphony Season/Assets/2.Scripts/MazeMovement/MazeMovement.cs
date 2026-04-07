@@ -6,13 +6,12 @@ using UnityEngine.AI;
 
 public class MazeMovement : MonoBehaviour
 {
-    public MazeMovement thisMazeMovement;
     [Header("-------------- Required Objects")]
     [SerializeField] private PlayerData playerData;
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private MazePuzzle mazePuzzle;
-    [SerializeField] private GameObject mazeObject;
-    [SerializeField] private NavMeshSurface navMash;
+    public GameObject mazeObject;
+    public NavMeshSurface navMesh;
     [SerializeField] private GameObject left, right, up, down;
     [SerializeField] private Transform globalRoot;
 
@@ -31,11 +30,6 @@ public class MazeMovement : MonoBehaviour
     private string direction;
     private Vector3 playerCurrentPos, playerTargetPos;
 
-    public MazeMovement Initiate()
-    {
-        return thisMazeMovement = Instantiate(this);
-    }
-
     private void Update()
     {
         if(mazeIsMoving) 
@@ -50,7 +44,7 @@ public class MazeMovement : MonoBehaviour
            if (currentAngle == targetAngle)
            { 
                 playerData.isMoving = false;
-                navMash.BuildNavMesh();
+                navMesh.BuildNavMesh();
                 playerData.allowedToMove = true;
                 CheckPlayerDirections();
                 mazeIsMoving = false;
