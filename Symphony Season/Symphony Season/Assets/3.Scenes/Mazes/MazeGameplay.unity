@@ -813,6 +813,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 395099898}
     - target: {fileID: 7730580961872060338, guid: 75447937ae26e674db10a3c3a76dcb1d, type: 3}
+      propertyPath: sceneLoader
+      value: 
+      objectReference: {fileID: 11400000, guid: ad2e1f6741553e64ea4ae84b7892d0fd, type: 2}
+    - target: {fileID: 7730580961872060338, guid: 75447937ae26e674db10a3c3a76dcb1d, type: 3}
       propertyPath: mazeMovement
       value: 
       objectReference: {fileID: 392888253}

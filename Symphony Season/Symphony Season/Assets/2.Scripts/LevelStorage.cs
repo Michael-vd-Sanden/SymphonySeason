@@ -18,7 +18,7 @@ public class LevelStorage : MonoBehaviour
         else if (HardMode) { HardMode = false; }
     }
 
-    public void StartNextScene()
+    public void StartNextScene()    //called when clicked play btn (removed in scene)
     {
         if (!hasStarted) { StartCoroutine(NextScene()); }
     }

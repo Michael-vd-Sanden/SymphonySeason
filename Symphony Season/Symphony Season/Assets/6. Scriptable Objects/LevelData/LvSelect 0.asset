@@ -9,8 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa1e3101038bf0e4d9188820e030c848, type: 3}
-  m_Name: SceneLoader
-  m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
-  SceneToLoad: BP Gameplay
-  SceneHasLoaded: 0
+  m_Script: {fileID: 11500000, guid: f439fa7ea2bc0a74c83628d3b3b74828, type: 3}
+  m_Name: LvSelect 0
+  m_EditorClassIdentifier: Assembly-CSharp::LevelData
+  levelID: 0
+  levelType: 0
+  difficulty: 0
+  completed: 0
+  completionTime: 0

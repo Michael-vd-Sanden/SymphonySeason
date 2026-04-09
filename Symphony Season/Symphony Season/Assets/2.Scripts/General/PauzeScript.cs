@@ -21,6 +21,6 @@ public class PauzeScript : MonoBehaviour
     {
         UnPauze();
         sceneSwitch.ChangeSceneName("MainMenu");
-        sceneSwitch.ChangeScene();
+        sceneSwitch.LoadScene();
     }
 }

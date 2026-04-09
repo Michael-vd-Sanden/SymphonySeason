@@ -11,12 +11,9 @@ public class MazeInitiator : MonoBehaviour
     [SerializeField] private PlayerFollower playerSprites;
     [SerializeField] private MazeMovement mazeMovement;
 
-    [Header("-------------- Objects")]
-    [SerializeField] private string levelSceneName;
-
     [Header("-------------- Scriptable Objects")]
     [SerializeField] private PlayerSettings playerSettings;
-    [SerializeField] private SceneLoader sceneLoader;
+    [SerializeField] private LevelHolder levelHolder;
 
     private async void Start()
     {
@@ -25,7 +22,7 @@ public class MazeInitiator : MonoBehaviour
         await CreateObjects();
         await PrepareLevel();
 
-        sceneLoader.SceneHasLoaded = true;
+        levelHolder.newSceneHasLoaded = true;
     }
 
     private void BindObjects()  //making the classes
@@ -53,7 +50,7 @@ public class MazeInitiator : MonoBehaviour
     private async Task CreateObjects()  //making the big objects
     { //returns the task automatically, don't have to return it manually
       //SceneManager.LoadScene(environmentSceneName, LoadSceneMode.Additive);
-        SceneManager.LoadScene(levelSceneName, LoadSceneMode.Additive);
+        SceneManager.LoadScene(levelHolder.sceneNameToLoadExtra, LoadSceneMode.Additive);
 
         await Task.Yield();
     }

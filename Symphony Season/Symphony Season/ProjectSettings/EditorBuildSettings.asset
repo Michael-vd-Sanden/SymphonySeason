@@ -54,7 +54,7 @@ EditorBuildSettings:
     path: Assets/3.Scenes/LoadingScene.unity
     guid: 0e4dca7f8d5199e44acdd9401972d51b
   - enabled: 1
-    path: Assets/3.Scenes/Mazes/MazeLV1.unity
+    path: Assets/3.Scenes/Mazes/Maze 0.unity
     guid: dc0ec0dd93d890f49b5649bb7d44999d
   - enabled: 1
     path: Assets/3.Scenes/Mazes/MazeGameplay.unity

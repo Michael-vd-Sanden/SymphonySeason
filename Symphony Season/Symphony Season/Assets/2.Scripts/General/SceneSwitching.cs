@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class SceneSwitching : MonoBehaviour
 {
     [Header("-------------- Required Objects")]
-    public SceneLoader sceneLoader;
+    public LevelHolder sceneLoader;
 
     [Header("-------------- Changeble Values")]
     public string nextScene;
@@ -13,18 +13,18 @@ public class SceneSwitching : MonoBehaviour
 
     public void ChangeSceneName (string name)
     {
-        sceneLoader.SceneToLoad = name;
+        sceneLoader.sceneNameToLoad = name;
     }
 
-    public void ChangeScene()
+    public void LoadScene()
     {
         SceneManager.LoadScene("LoadingScene");
     }
 
     public void NextScene()
     {
-        sceneLoader.SceneToLoad = nextScene;
-        ChangeScene();
+        sceneLoader.sceneNameToLoad = nextScene;
+        LoadScene();
     }
 
     public void ExitGame()

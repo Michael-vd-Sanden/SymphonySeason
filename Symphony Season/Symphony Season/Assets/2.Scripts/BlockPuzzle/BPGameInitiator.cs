@@ -28,7 +28,7 @@ public class BPGameInitiator : MonoBehaviour
 
     [Header("-------------- Scriptable Objects")]
     [SerializeField] private PlayerSettings playerSettings;
-    [SerializeField] private SceneLoader sceneLoader;
+    [SerializeField] private LevelHolder sceneLoader;
     
 
     private async void Start()
@@ -42,7 +42,7 @@ public class BPGameInitiator : MonoBehaviour
         await CreateObjects();
         await PrepareLevel();
 
-        sceneLoader.SceneHasLoaded = true;
+        sceneLoader.newSceneHasLoaded = true;
         curtainTransition.SetTrigger();
     }
 

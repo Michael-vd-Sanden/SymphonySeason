@@ -688,7 +688,7 @@ MonoBehaviour:
   m_enableAutoSizing: 1
   m_fontSizeMin: 0
   m_fontSizeMax: 2
-  m_fontStyle: 1
+  m_fontStyle: 3
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -778,9 +778,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1315587692}
-        m_TargetAssemblyTypeName: LevelStorage, Assembly-CSharp
-        m_MethodName: StartNextScene
+      - m_Target: {fileID: 1315587694}
+        m_TargetAssemblyTypeName: LevelSelection, Assembly-CSharp
+        m_MethodName: ChangeLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5414,6 +5414,18 @@ MonoBehaviour:
           m_StringArgument: Rotator
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1315587694}
+        m_TargetAssemblyTypeName: LevelSelection, Assembly-CSharp
+        m_MethodName: SwitchDifficulty
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &964267253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8505,6 +8517,7 @@ GameObject:
   - component: {fileID: 1315587691}
   - component: {fileID: 1315587692}
   - component: {fileID: 1315587693}
+  - component: {fileID: 1315587694}
   m_Layer: 0
   m_Name: MenuManager
   m_TagString: Untagged
@@ -8599,7 +8612,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b26d8d8a1e5a04ea6f29e701742928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneSwitching
+  sceneLoader: {fileID: 11400000, guid: ad2e1f6741553e64ea4ae84b7892d0fd, type: 2}
   nextScene: 
+--- !u!114 &1315587694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315587688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba0e498c4f217f9459cc2fe4f37d1201, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelSelection
+  levelIndex: {fileID: 1315587691}
+  levelHolder: {fileID: 11400000, guid: ad2e1f6741553e64ea4ae84b7892d0fd, type: 2}
+  sceneSwitching: {fileID: 1315587693}
+  levelData:
+  - {fileID: 11400000, guid: 223fd41bf564e6e4f8ce49933465a7b6, type: 2}
+  - {fileID: 11400000, guid: c94accf95a913104fb6789bdd8fba722, type: 2}
+  - {fileID: 11400000, guid: c149cced428a0c241a4eabf9b825d576, type: 2}
+  - {fileID: 11400000, guid: c114133a8b0922c409b019069180d169, type: 2}
+  currentLv: {fileID: 0}
+  isHard: 0
 --- !u!1 &1343804476
 GameObject:
   m_ObjectHideFlags: 0
@@ -12810,7 +12846,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2804125848391406913, guid: e6ee6d3e4e3ee694d9b4afca019c8ec7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5331853234336730283, guid: e6ee6d3e4e3ee694d9b4afca019c8ec7, type: 3}
       propertyPath: m_Pivot.x

@@ -3,18 +3,18 @@ using UnityEngine.SceneManagement;
 
 public class LoadingScreen : MonoBehaviour
 {
-    [SerializeField] private SceneLoader loader;
+    [SerializeField] private LevelHolder levelHolder;
 
     private void Start()
     {
-        SceneManager.LoadSceneAsync(loader.SceneToLoad);
+        SceneManager.LoadSceneAsync(levelHolder.sceneNameToLoad);
     }
 
     private void Update()
     {
-        if(loader.SceneHasLoaded) 
+        if(levelHolder.newSceneHasLoaded) 
         {
-            loader.SceneHasLoaded = false;
+            levelHolder.newSceneHasLoaded = false;
             SceneManager.UnloadSceneAsync("LoadingScene");
         }
     }
