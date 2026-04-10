@@ -1,40 +1,32 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
 
 public class VictoryTrigger : MonoBehaviour
 {
-    public BPUiToggles uiToggles;
-    public TriggerSetter CurtainCloser;
-    public GameObject nextlvScreen;
-    public MoveObject PlayerMover;
-    public PlayerFollower playerFollower;
-    public GameObject playerObject;
-    [SerializeField] private BPGameInitiator gameInitiator;
+    [SerializeField] private MoveUIToggles moveUIToggles;
+    [SerializeField] private BPUiToggles bpUIToggles;
+    [SerializeField] private TriggerSetter curtainCloser;
+    [SerializeField] private MoveObject playerMover;
+    [SerializeField] private NavMeshAgent playerAgent;
 
-    private PlayerInput PlayerInput;
-    private PlayerMovement PMM;
+    [SerializeField] private PlayerData playerData;
 
-
-    private void Awake()
-    {
-        PlayerInput = playerObject.GetComponent<PlayerInput>();
-        PMM = playerObject.GetComponent<PlayerMovement>();
-    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            Debug.Log("seen player");
-           // uiToggles.Victory();
-           nextlvScreen.SetActive(true);
-           CurtainCloser.SetTrigger();
+            moveUIToggles.TurnOffDirections();   //turn off move arrows    
+          
+            curtainCloser.SetTrigger();          //close curtain
+            bpUIToggles.Victory();               //victory screen active
 
-            //gameInitiator.player.agent.enabled = false;
-            //PlayerInput.enabled = false;
-            //PMM.enabled = false;
-            gameInitiator.victoryMover.StartMoving(true);
-            playerFollower.ToggleMoving(1f);
+            playerAgent.enabled = false;
+            playerMover.StartMoving(true);
+            playerData.isMoving = true;
+            playerData.isPressingMove = false;  //so it doesn't try to calculate path
+            playerData.destination = playerMover.targetPos;
         }
     }
 }

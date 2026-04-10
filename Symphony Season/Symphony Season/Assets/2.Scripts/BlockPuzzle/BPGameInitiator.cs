@@ -5,23 +5,14 @@ using UnityEngine.SceneManagement;
 public class BPGameInitiator : MonoBehaviour
 {
     [Header("-------------- Classes")]
-    [SerializeField] private Camera orthographicCamera;
-    [SerializeField] private Canvas mainCanvas;
-    [SerializeField] private Canvas holdBtnsCanvas;
-    public PlayerUIDirections playerUIDirections; 
-    public PlayerMovement player;       //public for victoryTrigger
-    public MoveObject victoryMover;
+    [SerializeField] PlayerUIDirections playerUIDirections; 
+    [SerializeField] PlayerMovement player;
     [SerializeField] private PlayerFollower playerSprites;
     [SerializeField] private BlockPuzzleManager blockPuzzleManager;
-    [SerializeField] private AudioPlayer audioPlayer;
-    [SerializeField] private VictoryTrigger victoryTrigger;
-    [SerializeField] private PlayerData playerData;
     [SerializeField] private TriggerSetter curtainTransition;
 
     [Header("-------------- Objects")]
     [SerializeField] private string environmentSceneName;
-    [SerializeField] private GameObject notepipes;
-    [SerializeField] private GameObject globalRoot;
 
     private PopupRotator[] popupRotators;
     private MoveBlockScript[] moveBlocks;
@@ -33,30 +24,12 @@ public class BPGameInitiator : MonoBehaviour
 
     private async void Start()
     {
-        //loadingScreen = Instantiate(loadingScreen);
-        //orthographicCamera = Instantiate(orthographicCamera);
-        //loadingScreen.Show();
-
-        BindObjects();
         await InitializeClasses();
         await CreateObjects();
         await PrepareLevel();
 
         sceneLoader.newSceneHasLoaded = true;
         curtainTransition.SetTrigger();
-    }
-
-    private void BindObjects()  //making the classes
-    {
-        /*
-        mainCanvas= Instantiate(mainCanvas);
-        holdBtnsCanvas= Instantiate(holdBtnsCanvas);
-        player = Instantiate(player);
-        playerSprites = Instantiate(playerSprites);
-        blockPuzzleManager= Instantiate(blockPuzzleManager);
-        audioPlayer= Instantiate(audioPlayer);
-        victoryTrigger= Instantiate(victoryTrigger);
-        playerData = Instantiate(playerData);*/
     }
 
     private async Task InitializeClasses()  //every start and awake function that has to do with setting things
@@ -78,8 +51,6 @@ public class BPGameInitiator : MonoBehaviour
     private async Task CreateObjects()  //making the big objects
     { //returns the task automatically, don't have to return it manually
         SceneManager.LoadScene(environmentSceneName, LoadSceneMode.Additive);
-       // notepipes = Instantiate(notepipes);
-        //globalRoot = Instantiate(globalRoot);
         await Task.Yield();
     }
 
@@ -92,10 +63,10 @@ public class BPGameInitiator : MonoBehaviour
         moveBlocks = FindObjectsByType<MoveBlockScript>(FindObjectsSortMode.None);
         foreach (MoveBlockScript m in moveBlocks) { m.ChangeColourBasedOnNote(); }
 
+        await Awaitable.FixedUpdateAsync();
         playerUIDirections.CheckPlayerDirections();
 
-        await Awaitable.WaitForSecondsAsync(1f);        //This is always better than Task.Delay()
-        Debug.Log("waited");
+        //await Awaitable.WaitForSecondsAsync(1f);        //This is always better than Task.Delay()
+        await Task.Yield();
     }
-
 }

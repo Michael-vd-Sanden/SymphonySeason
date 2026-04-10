@@ -207,7 +207,7 @@ PrefabInstance:
     - target: {fileID: 6239203860616035901, guid: ebc8a2b9b0d26474184a04bd5e61b141, type: 3}
       propertyPath: nextLevelScreen
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1950732775}
     - target: {fileID: 6239203860616035901, guid: ebc8a2b9b0d26474184a04bd5e61b141, type: 3}
       propertyPath: pushLeftUpControl
       value: 
@@ -294,7 +294,23 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 406090820}
     - target: {fileID: 4000607197570436975, guid: c412f8698ac9fec4fa1fe985dda44ff5, type: 3}
+      propertyPath: playerData
+      value: 
+      objectReference: {fileID: 5812831746552759747}
+    - target: {fileID: 4000607197570436975, guid: c412f8698ac9fec4fa1fe985dda44ff5, type: 3}
       propertyPath: PlayerMover
+      value: 
+      objectReference: {fileID: 4482368029917983027}
+    - target: {fileID: 4000607197570436975, guid: c412f8698ac9fec4fa1fe985dda44ff5, type: 3}
+      propertyPath: bpUIToggles
+      value: 
+      objectReference: {fileID: 406090820}
+    - target: {fileID: 4000607197570436975, guid: c412f8698ac9fec4fa1fe985dda44ff5, type: 3}
+      propertyPath: playerAgent
+      value: 
+      objectReference: {fileID: 4482368029917983031}
+    - target: {fileID: 4000607197570436975, guid: c412f8698ac9fec4fa1fe985dda44ff5, type: 3}
+      propertyPath: playerMover
       value: 
       objectReference: {fileID: 4482368029917983027}
     - target: {fileID: 4000607197570436975, guid: c412f8698ac9fec4fa1fe985dda44ff5, type: 3}
@@ -306,7 +322,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 975286467}
     - target: {fileID: 4000607197570436975, guid: c412f8698ac9fec4fa1fe985dda44ff5, type: 3}
+      propertyPath: victoryMover
+      value: 
+      objectReference: {fileID: 4482368029917983027}
+    - target: {fileID: 4000607197570436975, guid: c412f8698ac9fec4fa1fe985dda44ff5, type: 3}
       propertyPath: CurtainCloser
+      value: 
+      objectReference: {fileID: 1747226803}
+    - target: {fileID: 4000607197570436975, guid: c412f8698ac9fec4fa1fe985dda44ff5, type: 3}
+      propertyPath: curtainCloser
       value: 
       objectReference: {fileID: 1747226803}
     - target: {fileID: 4000607197570436975, guid: c412f8698ac9fec4fa1fe985dda44ff5, type: 3}
@@ -314,9 +338,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8679656399243218827}
     - target: {fileID: 4000607197570436975, guid: c412f8698ac9fec4fa1fe985dda44ff5, type: 3}
+      propertyPath: moveUIToggles
+      value: 
+      objectReference: {fileID: 452358028}
+    - target: {fileID: 4000607197570436975, guid: c412f8698ac9fec4fa1fe985dda44ff5, type: 3}
       propertyPath: playerFollower
       value: 
       objectReference: {fileID: 1554917473}
+    - target: {fileID: 4000607197570436975, guid: c412f8698ac9fec4fa1fe985dda44ff5, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 4482368029917983029}
     - target: {fileID: 8146424759510601900, guid: c412f8698ac9fec4fa1fe985dda44ff5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8
@@ -357,22 +389,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8385772481185990516, guid: c412f8698ac9fec4fa1fe985dda44ff5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c412f8698ac9fec4fa1fe985dda44ff5, type: 3}
---- !u!114 &529966070 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4000607197570436975, guid: c412f8698ac9fec4fa1fe985dda44ff5, type: 3}
-  m_PrefabInstance: {fileID: 529966069}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b8bdae4f88b4b0468fadecbdbac18fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::VictoryTrigger
 --- !u!1001 &533132112
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -430,11 +455,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b41ef5afdae81d244a23b6cac0e51a5d, type: 3}
---- !u!1 &533132113 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4489761956144648150, guid: b41ef5afdae81d244a23b6cac0e51a5d, type: 3}
-  m_PrefabInstance: {fileID: 533132112}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &595186721 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7861621992335061050, guid: 220f3f523d1045d4cb6a111745998115, type: 3}
@@ -492,6 +512,10 @@ PrefabInstance:
       propertyPath: nextScene
       value: MazeGameplay
       objectReference: {fileID: 0}
+    - target: {fileID: 3399286826754372817, guid: 83886b63660cf634dae0c3c0378f6cb0, type: 3}
+      propertyPath: sceneLoader
+      value: 
+      objectReference: {fileID: 11400000, guid: ad2e1f6741553e64ea4ae84b7892d0fd, type: 2}
     - target: {fileID: 5901667596632835745, guid: 83886b63660cf634dae0c3c0378f6cb0, type: 3}
       propertyPath: m_Name
       value: Next Level
@@ -641,11 +665,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e63b2e0105d21b4469df067d5175bc68, type: 3}
---- !u!223 &762455678 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 7896822638820393618, guid: e63b2e0105d21b4469df067d5175bc68, type: 3}
-  m_PrefabInstance: {fileID: 762455677}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &975286467 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5330800566747399252, guid: 98250d58d279f9741bd3d225f1987bce, type: 3}
@@ -822,11 +841,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4584709f1845334429f423eb867d174a, type: 3}
---- !u!223 &1471411195 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 2189976724103341290, guid: 4584709f1845334429f423eb867d174a, type: 3}
-  m_PrefabInstance: {fileID: 1471411194}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1493561460
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -884,11 +898,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f95b0a4b37e681c47b7a31cb7bb010e8, type: 3}
---- !u!1 &1493561461 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3439099103896870981, guid: f95b0a4b37e681c47b7a31cb7bb010e8, type: 3}
-  m_PrefabInstance: {fileID: 1493561460}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1493561462 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5246042904127324806, guid: f95b0a4b37e681c47b7a31cb7bb010e8, type: 3}
@@ -1341,10 +1350,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 602157285410066443, guid: 98250d58d279f9741bd3d225f1987bce, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1718992863727830519, guid: 98250d58d279f9741bd3d225f1987bce, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -1478,6 +1483,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81bd26e50295cb04fbea0a15016ca94b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerButtonMovement
+--- !u!195 &4482368029917983031 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 4028481835534134485, guid: 98250d58d279f9741bd3d225f1987bce, type: 3}
+  m_PrefabInstance: {fileID: 4482368029917983026}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5812831746552759746
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1648,23 +1658,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c62df1774fb3e8343814c3d5faae4c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BPGameInitiator
-  orthographicCamera: {fileID: 1731742312}
-  mainCanvas: {fileID: 1471411195}
-  holdBtnsCanvas: {fileID: 762455678}
   playerUIDirections: {fileID: 4482368029917983028}
   player: {fileID: 4482368029917983029}
-  victoryMover: {fileID: 4482368029917983027}
   playerSprites: {fileID: 1554917473}
   blockPuzzleManager: {fileID: 406090817}
-  audioPlayer: {fileID: 1849995181}
-  victoryTrigger: {fileID: 529966070}
-  playerData: {fileID: 5812831746552759747}
   curtainTransition: {fileID: 1747226803}
   environmentSceneName: BP Environment
-  notepipes: {fileID: 533132113}
-  globalRoot: {fileID: 1493561461}
   playerSettings: {fileID: 11400000, guid: 74b68498a96cf8845a9e462550275e87, type: 2}
-  sceneLoader: {fileID: 11400000, guid: 4dd3e79ad35851547a04c7cb859cf4a5, type: 2}
+  sceneLoader: {fileID: 11400000, guid: ad2e1f6741553e64ea4ae84b7892d0fd, type: 2}
 --- !u!4 &8947764517259191930
 Transform:
   m_ObjectHideFlags: 0

@@ -21,13 +21,8 @@ public class LevelIndex : MonoBehaviour
     //}
     public GameObject UpButton;
     public GameObject DownButton;
-    private bool isRunning;
+    public bool isRunning;
 
-    public void Awake()
-    {
-        DioramaAnimators[FloorIndex].SetTrigger("Pulsing");
-        isRunning = false;
-    }
     public void Update()
     {
         if (FloorIndex > -1 && FloorIndex <1)

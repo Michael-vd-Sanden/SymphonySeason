@@ -45,10 +45,10 @@ EditorBuildSettings:
     path: Assets/3.Scenes/BlockPuzzles/1.BP Tutorials/BP Tut6.unity
     guid: db9584a7fbad86e4fbb76727162d4c3d
   - enabled: 1
-    path: Assets/3.Scenes/1.Template Scenes/BP Gameplay.unity
+    path: Assets/3.Scenes/BlockPuzzles/BP Gameplay.unity
     guid: 6923246aa1700d640a57b4592b2aadcf
   - enabled: 1
-    path: Assets/3.Scenes/1.Template Scenes/BP Environment.unity
+    path: Assets/3.Scenes/BlockPuzzles/BP Environment.unity
     guid: 26800ca8de50df0448365baed515cbdc
   - enabled: 1
     path: Assets/3.Scenes/LoadingScene.unity
