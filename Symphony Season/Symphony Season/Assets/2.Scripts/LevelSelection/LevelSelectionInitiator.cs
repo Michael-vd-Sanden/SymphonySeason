@@ -5,6 +5,10 @@ public class LevelSelectionInitiator : MonoBehaviour
 {
     [Header("-------------- Classes")]
     [SerializeField] private LevelIndex levelIndex;
+    [SerializeField] private LvUIController lvUIController;
+    [SerializeField] private TriggerSetter curtainTransition;
+    [SerializeField] private TextureChanger textureChanger;
+    [SerializeField] private MoveObject cameraMover;
 
     [Header("-------------- Scriptable Objects")]
     [SerializeField] private LevelHolder levelHolder;
@@ -20,8 +24,12 @@ public class LevelSelectionInitiator : MonoBehaviour
 
     private async Task InitializeClasses() //every start and awake function that has to do with setting things
     {
-        levelIndex.DioramaAnimators[levelIndex.FloorIndex].SetTrigger("Pulsing");
-        levelIndex.isRunning = false;
+        lvUIController.dioramaAnimators[levelIndex.floorIndex].SetTrigger("Pulsing");
+        lvUIController.isRunning = false;
+
+        curtainTransition.SetTrigger();
+
+        textureChanger.NextTexture(textureChanger.FrontMat, textureChanger.LevelScreenshotsFront[levelIndex.floorIndex]);
 
         await Task.Yield();
     }
@@ -33,7 +41,9 @@ public class LevelSelectionInitiator : MonoBehaviour
 
     private async Task PrepareLevel() //every start and awake function that has to do with posistioning and appearance
     {
-        //await Awaitable.WaitForSecondsAsync(1f);
+        cameraMover.MoveTo(levelIndex.floorIndex);
+
+        await Awaitable.WaitForSecondsAsync(3f); // to give cameraMover some time
         await Task.Yield();
     }
 }

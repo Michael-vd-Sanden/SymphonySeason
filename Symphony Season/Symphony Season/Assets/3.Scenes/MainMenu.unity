@@ -1206,8 +1206,8 @@ MonoBehaviour:
           m_StringArgument: Rotator
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1315587691}
-        m_TargetAssemblyTypeName: LevelIndex, Assembly-CSharp
+      - m_Target: {fileID: 1315587695}
+        m_TargetAssemblyTypeName: LvUIController, Assembly-CSharp
         m_MethodName: LevelShift
         m_Mode: 3
         m_Arguments:
@@ -5354,7 +5354,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1315587692}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: LevelStorage, Assembly-CSharp
         m_MethodName: HardModeShift
         m_Mode: 1
@@ -5366,7 +5366,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1315587691}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: LevelIndex, Assembly-CSharp
         m_MethodName: LevelShift
         m_Mode: 3
@@ -6269,8 +6269,8 @@ MonoBehaviour:
           m_StringArgument: Rotator
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1315587691}
-        m_TargetAssemblyTypeName: LevelIndex, Assembly-CSharp
+      - m_Target: {fileID: 1315587695}
+        m_TargetAssemblyTypeName: LvUIController, Assembly-CSharp
         m_MethodName: LevelShift
         m_Mode: 3
         m_Arguments:
@@ -8015,6 +8015,9 @@ MonoBehaviour:
   - {x: 0, y: 6, z: 0}
   - {x: 0, y: 7, z: 0}
   isMoving: 0
+  pos: 0
+  currentPos: {x: 0, y: 0, z: 0}
+  targetPos: {x: 0, y: 0, z: 0}
 --- !u!1 &1259133197
 GameObject:
   m_ObjectHideFlags: 0
@@ -8514,10 +8517,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1315587690}
-  - component: {fileID: 1315587691}
-  - component: {fileID: 1315587692}
   - component: {fileID: 1315587693}
   - component: {fileID: 1315587694}
+  - component: {fileID: 1315587695}
   m_Layer: 0
   m_Name: MenuManager
   m_TagString: Untagged
@@ -8540,67 +8542,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1315587691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1315587688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50829ad407edec545918fa950691e3b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LevelIndex
-  FloorIndex: 0
-  FloorMaximum: 7
-  FloorText: {fileID: 8611797}
-  LevelTextures: {fileID: 8583502550552858583}
-  DioramaAnimators:
-  - {fileID: 755762585}
-  - {fileID: 1362332105}
-  - {fileID: 1018234937}
-  - {fileID: 852440915}
-  - {fileID: 1777278540}
-  - {fileID: 989341795}
-  - {fileID: 1927089860}
-  - {fileID: 2022671660}
-  UpButton: {fileID: 1055916490}
-  DownButton: {fileID: 109884892}
-  isRunning: 0
---- !u!114 &1315587692
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1315587688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6866ddfe5eb35824ab89c6b23fb44c06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LevelStorage
-  HardMode: 0
-  Levels:
-  - BP Tut1
-  - BP Tut2
-  - BP Tut3
-  - BP Tut4
-  - BP Tut5
-  - BP Tut6
-  - BP 1_Easy
-  - BP 2_Easy
-  HardModeLevels:
-  - '-'
-  - '-'
-  - '-'
-  - '-'
-  - '-'
-  - '-'
-  - BP 1_Hard
-  - BP 2_Hard
-  LevelIndex: {fileID: 1315587691}
-  CurtainCloser: {fileID: 4317550454937060798}
 --- !u!114 &1315587693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8627,16 +8568,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba0e498c4f217f9459cc2fe4f37d1201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSelection
-  levelIndex: {fileID: 1315587691}
+  levelIndex: {fileID: 11400000, guid: cf7b1ce0d04c7f34689473b062eb0220, type: 2}
   levelHolder: {fileID: 11400000, guid: ad2e1f6741553e64ea4ae84b7892d0fd, type: 2}
   sceneSwitching: {fileID: 1315587693}
+  transitionSetter: {fileID: 4317550454937060798}
   levelData:
-  - {fileID: 11400000, guid: 223fd41bf564e6e4f8ce49933465a7b6, type: 2}
+  - {fileID: 11400000, guid: cf0f1540456ab7d41813a4b54c551518, type: 2}
   - {fileID: 11400000, guid: c94accf95a913104fb6789bdd8fba722, type: 2}
   - {fileID: 11400000, guid: c149cced428a0c241a4eabf9b825d576, type: 2}
   - {fileID: 11400000, guid: c114133a8b0922c409b019069180d169, type: 2}
+  hasTransition: 1
+  transitionWaitTime: 2
   currentLv: {fileID: 0}
   isHard: 0
+--- !u!114 &1315587695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315587688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d419cc7aba971e488eb74c08948b6ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LvUIController
+  dioramaAnimators:
+  - {fileID: 755762585}
+  - {fileID: 1362332105}
+  - {fileID: 1018234937}
+  - {fileID: 852440915}
+  - {fileID: 1777278540}
+  - {fileID: 989341795}
+  - {fileID: 1927089860}
+  - {fileID: 2022671660}
+  upBtn: {fileID: 1055916490}
+  downBtn: {fileID: 109884892}
+  floorText: {fileID: 8611797}
+  levelTextures: {fileID: 8583502550552858583}
+  moveCamera: {fileID: 1250913174}
+  lvIndex: {fileID: 11400000, guid: cf7b1ce0d04c7f34689473b062eb0220, type: 2}
+  isRunning: 0
 --- !u!1 &1343804476
 GameObject:
   m_ObjectHideFlags: 0
@@ -11000,7 +10972,7 @@ GameObject:
   - component: {fileID: 1927089861}
   - component: {fileID: 1927089860}
   m_Layer: 0
-  m_Name: Scaler7
+  m_Name: Scaler6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12013,7 +11985,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c6b7afa737641c44b0cf8657d8f48ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSelectionInitiator
-  levelIndex: {fileID: 1315587691}
+  levelIndex: {fileID: 11400000, guid: cf7b1ce0d04c7f34689473b062eb0220, type: 2}
+  lvUIController: {fileID: 1315587695}
+  curtainTransition: {fileID: 4317550454937060798}
+  textureChanger: {fileID: 8583502550552858583}
+  cameraMover: {fileID: 1250913174}
   levelHolder: {fileID: 11400000, guid: ad2e1f6741553e64ea4ae84b7892d0fd, type: 2}
 --- !u!4 &239386851746708105
 Transform:
@@ -12867,22 +12843,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1910189095}
     m_Modifications:
-    - target: {fileID: 1442023252886640479, guid: e6ee6d3e4e3ee694d9b4afca019c8ec7, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.93939
-      objectReference: {fileID: 0}
-    - target: {fileID: 1442023252886640479, guid: e6ee6d3e4e3ee694d9b4afca019c8ec7, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.93939
-      objectReference: {fileID: 0}
-    - target: {fileID: 1442023252886640479, guid: e6ee6d3e4e3ee694d9b4afca019c8ec7, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.93939
-      objectReference: {fileID: 0}
-    - target: {fileID: 1700781919508148653, guid: e6ee6d3e4e3ee694d9b4afca019c8ec7, type: 3}
-      propertyPath: Animators.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 2286411090420358702, guid: e6ee6d3e4e3ee694d9b4afca019c8ec7, type: 3}
       propertyPath: m_Camera
       value: 
@@ -12890,10 +12850,6 @@ PrefabInstance:
     - target: {fileID: 2804125848391406913, guid: e6ee6d3e4e3ee694d9b4afca019c8ec7, type: 3}
       propertyPath: m_Name
       value: CurtainTransition
-      objectReference: {fileID: 0}
-    - target: {fileID: 2804125848391406913, guid: e6ee6d3e4e3ee694d9b4afca019c8ec7, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5331853234336730283, guid: e6ee6d3e4e3ee694d9b4afca019c8ec7, type: 3}
       propertyPath: m_Pivot.x
@@ -12925,18 +12881,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5331853234336730283, guid: e6ee6d3e4e3ee694d9b4afca019c8ec7, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5331853234336730283, guid: e6ee6d3e4e3ee694d9b4afca019c8ec7, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5331853234336730283, guid: e6ee6d3e4e3ee694d9b4afca019c8ec7, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5331853234336730283, guid: e6ee6d3e4e3ee694d9b4afca019c8ec7, type: 3}
-      propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5331853234336730283, guid: e6ee6d3e4e3ee694d9b4afca019c8ec7, type: 3}
@@ -12987,29 +12931,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5331853234336730283, guid: e6ee6d3e4e3ee694d9b4afca019c8ec7, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6321192721813465763, guid: e6ee6d3e4e3ee694d9b4afca019c8ec7, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.93939
-      objectReference: {fileID: 0}
-    - target: {fileID: 6321192721813465763, guid: e6ee6d3e4e3ee694d9b4afca019c8ec7, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.93939
-      objectReference: {fileID: 0}
-    - target: {fileID: 6321192721813465763, guid: e6ee6d3e4e3ee694d9b4afca019c8ec7, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.93939
-      objectReference: {fileID: 0}
-    - target: {fileID: 7684816786541735949, guid: e6ee6d3e4e3ee694d9b4afca019c8ec7, type: 3}
-      propertyPath: m_PresetInfoIsWorld
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 1804200281485849405, guid: e6ee6d3e4e3ee694d9b4afca019c8ec7, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6ee6d3e4e3ee694d9b4afca019c8ec7, type: 3}
@@ -13702,7 +13625,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: b25db66dc1416bf479fbc67466e2da81, type: 3}
   - {fileID: 2800000, guid: 124cd2b02d1c7da438a6d1aaf676f561, type: 3}
   NextOne: []
-  LevelIndexer: {fileID: 1315587691}
+  LevelIndexer: {fileID: 11400000, guid: cf7b1ce0d04c7f34689473b062eb0220, type: 2}
 --- !u!23 &8641622816786839480
 MeshRenderer:
   m_ObjectHideFlags: 0

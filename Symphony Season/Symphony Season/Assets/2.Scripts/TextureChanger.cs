@@ -11,31 +11,26 @@ public class TextureChanger : MonoBehaviour
     public Texture2D[] NextOne;
     public LevelIndex LevelIndexer;
 
-    private void Awake()
-    {
-        NextTexture(FrontMat, LevelScreenshotsFront[LevelIndexer.FloorIndex]);
-    }
-
     public void TextureChange()
     {
         if (ChangeBackMat && !HardMode)
         {
-            NextTexture(BackMat, LevelScreenshotsFront[LevelIndexer.FloorIndex]);
+            NextTexture(BackMat, LevelScreenshotsFront[LevelIndexer.floorIndex]);
             ChangeBackMat = false;
         }
         else if (!ChangeBackMat && !HardMode)
         {
-            NextTexture(FrontMat, LevelScreenshotsFront[LevelIndexer.FloorIndex]);
+            NextTexture(FrontMat, LevelScreenshotsFront[LevelIndexer.floorIndex]);
             ChangeBackMat = true;
         }
         else if (ChangeBackMat && HardMode)
         {
-            NextTexture(BackMat, LevelScreenshotsHardMode[LevelIndexer.FloorIndex]);
+            NextTexture(BackMat, LevelScreenshotsHardMode[LevelIndexer.floorIndex]);
             ChangeBackMat = false;
         }
         else if (!ChangeBackMat && HardMode)
         {
-            NextTexture(FrontMat, LevelScreenshotsHardMode[LevelIndexer.FloorIndex]);
+            NextTexture(FrontMat, LevelScreenshotsHardMode[LevelIndexer.floorIndex]);
             ChangeBackMat = true;
         }
 
@@ -46,7 +41,7 @@ public class TextureChanger : MonoBehaviour
         if (!HardMode) { HardMode = true; }
         else { HardMode = false; }
     }
-    private void NextTexture(Material MatToUse, Texture2D TextureToUse)
+    public void NextTexture(Material MatToUse, Texture2D TextureToUse)
     {
         MatToUse.mainTexture = TextureToUse;
     }
