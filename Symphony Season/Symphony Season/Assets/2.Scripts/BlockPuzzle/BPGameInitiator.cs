@@ -10,12 +10,15 @@ public class BPGameInitiator : MonoBehaviour
     [SerializeField] private PlayerFollower playerSprites;
     [SerializeField] private BlockPuzzleManager blockPuzzleManager;
     [SerializeField] private TriggerSetter curtainTransition;
+    [SerializeField] private ColourChanger blockColourChanger;
+    [SerializeField] private NoteSetter noteSetter;
 
     [Header("-------------- Objects")]
     [SerializeField] private string environmentSceneName;
 
     private PopupRotator[] popupRotators;
     private MoveBlockScript[] moveBlocks;
+    [SerializeField] private GameObject[] noteObjects;
 
     [Header("-------------- Scriptable Objects")]
     [SerializeField] private PlayerSettings playerSettings;
@@ -45,6 +48,17 @@ public class BPGameInitiator : MonoBehaviour
         playerSprites.ToggleMoving(0f);
         playerSprites.ToggleHolding(0f);
 
+        moveBlocks = FindObjectsByType<MoveBlockScript>(FindObjectsSortMode.None);
+        foreach (MoveBlockScript m in moveBlocks) 
+        {
+            m.playerMovement = player;
+            m.manager = blockPuzzleManager;
+            m.colourChanger = blockColourChanger;
+            noteSetter.CheckNoteIndex(m.blockNote);
+        }
+        foreach (int n in noteSetter.noteIndexes) 
+        { noteObjects[n].SetActive(true); }
+
         await Task.Yield();
     }
 
@@ -59,14 +73,34 @@ public class BPGameInitiator : MonoBehaviour
         popupRotators = FindObjectsByType<PopupRotator>(FindObjectsSortMode.None);
         foreach (PopupRotator r in popupRotators) { r.SetRotator(); }
 
-        //replace when fixing change colours
-        moveBlocks = FindObjectsByType<MoveBlockScript>(FindObjectsSortMode.None);
-        foreach (MoveBlockScript m in moveBlocks) { m.ChangeColourBasedOnNote(); }
+        foreach (MoveBlockScript m in moveBlocks) { ChangeColourBasedOnNote(m); }
 
         await Awaitable.FixedUpdateAsync();
         playerUIDirections.CheckPlayerDirections();
 
         //await Awaitable.WaitForSecondsAsync(1f);        //This is always better than Task.Delay()
         await Task.Yield();
+    }
+
+
+    public void ChangeColourBasedOnNote(MoveBlockScript b)       //move
+    {
+        b.colourMaterial = b.colourChanger.ChangeColourBasedOnNote(b.blockNote);
+
+        var materialTemp = b.colourBlockRenderer.materials;
+        materialTemp[b.materialInArray] = b.colourMaterial;
+        b.colourBlockRenderer.materials = materialTemp;
+
+        var material2Temp = b.colourQuestionRenderer.materials;
+        //material2Temp[0].EnableKeyword("_EMISSION");
+        //material2Temp[0].color = colourMaterial.GetColor("_EmissionColor");
+        material2Temp[0] = b.colourMaterial;
+        b.colourQuestionRenderer.materials = material2Temp;
+
+        var material3Temp = b.colourNoteRenderer.materials;
+        // material3Temp[0].EnableKeyword("_EMISSION");
+        //material3Temp[0].color = colourMaterial.GetColor("_EmissionColor");
+        material3Temp[0] = b.colourMaterial;
+        b.colourNoteRenderer.materials = material3Temp;
     }
 }

@@ -5,36 +5,35 @@ using UnityEngine.AI;
 public class MoveBlockScript : MonoBehaviour
 {
     [Header("-------------- Required Objects")]
-    [SerializeField] private MeshRenderer colourBlockRenderer;
-    [SerializeField] private MeshRenderer colourQuestionRenderer, colourNoteRenderer;
+    public PlayerMovement playerMovement;   //set in initiator
+    public MeshRenderer colourBlockRenderer, colourQuestionRenderer, colourNoteRenderer;
     public GameObject questionNotification, noteNotification;
-    [SerializeField] private BlockPuzzleManager manager;
-    [SerializeField] private ColourChanger colourChanger;
-    [SerializeField] private PlayerMovement playerMovement;
+    public BlockPuzzleManager manager;    //set in initiator
+    public ColourChanger colourChanger;     //set in initiator
 
     [Header("-------------- Changeble Values")]
     public float playerDistance;
     public float wallDistance;
     public bool isRightDirection; //set for every object
     public string blockNote;
-    [SerializeField] private int materialInArray;
+    public int materialInArray;
 
     [Header("-------------- Background Values (do not change)")]
-    private Material colourMaterial;
+    public Material colourMaterial;
     //background values
     public bool objectAbleToMove;
     public bool upAllowed;
     public bool downAllowed;
     //positioning
-    private Vector3 objectCurrentPos, objectTargetPos, playerTargetPos, playerCurrentPos;
-    [SerializeField] private bool isMoving = false;
+    public Vector3 objectCurrentPos, objectTargetPos, playerTargetPos, playerCurrentPos;
+    public bool isMoving = false;
     public bool playerIsFront; //on which side the player is (true = front, false = back)
     //smooth movement
     [SerializeField] AnimationCurve stepEase = new AnimationCurve(new Keyframe(0f, 0f), new Keyframe(1f, 1f));
     [SerializeField] AnimationCurve stepHeightShape = new AnimationCurve(new Keyframe(0f, 0f), new Keyframe(0.5f, 1f), new Keyframe(1f, 0f));
     [SerializeField] float stepHeight = 0.3f;
     [SerializeField] float stepDuration = 0.3f;
-    private float stepTime;
+    public float stepTime;
     public string moveDirection;
     public bool isPressingBlockMove = false, checkedDirections;
 
@@ -42,7 +41,7 @@ public class MoveBlockScript : MonoBehaviour
     {
         if (isPressingBlockMove && checkedDirections) 
         {
-            SetTargetPos();
+            manager.SetBlockTargetPos(this);
         }
         if(isMoving)
         {
@@ -63,39 +62,6 @@ public class MoveBlockScript : MonoBehaviour
         manager.ExitedTrigger(this);
     }
 
-    public void SetTargetPos()
-    {//move 1 space
-        //Debug.Log("pushed " + direction.ToString());
-        if (objectAbleToMove && !isMoving)
-        {
-            checkedDirections = false;
-            objectCurrentPos = this.gameObject.transform.position;
-            playerCurrentPos = playerMovement.transform.position;
-
-            stepTime = 0f;
-            switch (moveDirection)
-            {
-                case "RightUp":
-                    objectTargetPos = objectCurrentPos + new Vector3(1f, 0f, 0f);
-                    playerTargetPos = playerCurrentPos + new Vector3(1f, 0f, 0f);
-                    break;
-                case "LeftUp":
-                    objectTargetPos = objectCurrentPos + new Vector3(0f, 0f, 1f);
-                    playerTargetPos = playerCurrentPos + new Vector3(0f, 0f, 1f);
-                    break;
-                case "RightDown":
-                    objectTargetPos = objectCurrentPos + new Vector3(0f, 0f, -1f);
-                    playerTargetPos = playerCurrentPos + new Vector3(0f, 0f, -1f);
-                    break;
-                case "LeftDown":
-                    objectTargetPos = objectCurrentPos + new Vector3(-1f, 0f, 0f);
-                    playerTargetPos = playerCurrentPos + new Vector3(-1f, 0f, 0f);
-                    break;
-            }
-            isMoving = true; 
-        }
-    }
-
     private void Move()
     {
         stepTime += Time.deltaTime;
@@ -112,26 +78,5 @@ public class MoveBlockScript : MonoBehaviour
             isMoving = false;
             manager.CheckIfAllowedToMove();
         }
-    }
-
-    public void ChangeColourBasedOnNote()
-    {
-        colourMaterial = colourChanger.ChangeColourBasedOnNote(blockNote);
-
-        var materialTemp = colourBlockRenderer.materials;
-        materialTemp[materialInArray] = colourMaterial;
-        colourBlockRenderer.materials = materialTemp;
-
-        var material2Temp = colourQuestionRenderer.materials;
-        //material2Temp[0].EnableKeyword("_EMISSION");
-        //material2Temp[0].color = colourMaterial.GetColor("_EmissionColor");
-        material2Temp[0] = colourMaterial;
-        colourQuestionRenderer.materials = material2Temp;
-
-        var material3Temp = colourNoteRenderer.materials;
-        // material3Temp[0].EnableKeyword("_EMISSION");
-        //material3Temp[0].color = colourMaterial.GetColor("_EmissionColor");
-        material3Temp[0] = colourMaterial;
-        colourNoteRenderer.materials = material3Temp;
     }
 }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 75216096739803366}
   - component: {fileID: 5852370558567133769}
   - component: {fileID: 6147384210025093473}
+  - component: {fileID: 5337439916295164768}
   m_Layer: 0
   m_Name: BlockPuzzleManager
   m_TagString: Untagged
@@ -47,11 +48,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe29a7f7874a76945894f3907b18cc24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIToggles
+  moveToggles: {fileID: 0}
   manager: {fileID: 75216096739803366}
-  pushLeftUpControl: {fileID: 0}
-  pushLeftDownControl: {fileID: 0}
-  pushRightUpControl: {fileID: 0}
-  pushRightDownControl: {fileID: 0}
   nextLevelScreen: {fileID: 0}
   btnsSharp: {fileID: 0}
   btnsFlat: {fileID: 0}
@@ -87,6 +85,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BlockPuzzleManager
   playerData: {fileID: 0}
   uiToggle: {fileID: 6239203860616035901}
+  moveUiToggles: {fileID: 0}
   audioPlayer: {fileID: 0}
   notePulse: {fileID: 0}
   hitLayer: 6
@@ -130,6 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe009d45e77dd0e4fb1e820700308584, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NotePulser
+  BlockPuzzleManager: {fileID: 0}
   NoteAnimators:
   - {fileID: 0}
   - {fileID: 0}
@@ -161,5 +161,17 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   noteIndexes: 
-  Notes: []
   note: 
+--- !u!114 &5337439916295164768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8430709819411014873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb9d0e9aabed80847beb31248b7e41ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NoteSetter
+  noteIndexes: 

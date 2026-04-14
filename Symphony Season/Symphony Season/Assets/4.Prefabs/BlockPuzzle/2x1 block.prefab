@@ -262,22 +262,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56ddb74d52f2238439566418c3895bcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveBlockScript
+  playerMovement: {fileID: 0}
   colourBlockRenderer: {fileID: 7685247133889815266}
   colourQuestionRenderer: {fileID: 5786529378805485977}
   colourNoteRenderer: {fileID: 9030437201698071636}
   questionNotification: {fileID: 2553657282420760928}
   noteNotification: {fileID: 6586865981214656877}
-  manager: {fileID: 75216096739803366, guid: ebc8a2b9b0d26474184a04bd5e61b141, type: 3}
-  colourChanger: {fileID: 5852370558567133769, guid: ebc8a2b9b0d26474184a04bd5e61b141, type: 3}
-  playerMovement: {fileID: 7670352128027328836, guid: 98250d58d279f9741bd3d225f1987bce, type: 3}
+  manager: {fileID: 0}
+  colourChanger: {fileID: 0}
   playerDistance: 2.5
   wallDistance: 1.5
   isRightDirection: 0
   blockNote: 
   materialInArray: 2
+  colourMaterial: {fileID: 0}
   objectAbleToMove: 0
   upAllowed: 0
   downAllowed: 0
+  objectCurrentPos: {x: 0, y: 0, z: 0}
+  objectTargetPos: {x: 0, y: 0, z: 0}
+  playerTargetPos: {x: 0, y: 0, z: 0}
+  playerCurrentPos: {x: 0, y: 0, z: 0}
   isMoving: 0
   playerIsFront: 0
   stepEase:
@@ -339,6 +344,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   stepHeight: 0
   stepDuration: 0.5
+  stepTime: 0
   moveDirection: 
   isPressingBlockMove: 0
   checkedDirections: 0

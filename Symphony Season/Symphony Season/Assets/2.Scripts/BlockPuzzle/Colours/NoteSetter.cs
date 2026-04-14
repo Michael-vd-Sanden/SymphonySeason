@@ -1,51 +1,13 @@
-using UnityEngine;
 using System.Collections.Generic;
-using System;
+using UnityEditor.Experimental.GraphView;
+using UnityEngine;
 
-public class NotePulser : MonoBehaviour
+public class NoteSetter : MonoBehaviour
 {
-    [Header("-------------- Required Objects")]
-    private BlockPuzzleManager BlockPuzzleManager;
-    public Animator[] NoteAnimators;
-
     [Header("-------------- Background Values (do not change)")]
-    [SerializeField] private List<int> noteIndexes;
-    public List<String> Notes; 
-    public string note; //van blockpuzzlemanager
+    public List<int> noteIndexes;
 
-    
-    public void Awake()
-    {
-        BlockPuzzleManager = GetComponent<BlockPuzzleManager>();
-        Notes.Add("C");
-        Notes.Add("C#");
-        Notes.Add("Db");
-        Notes.Add("D");
-        Notes.Add("D#");
-        Notes.Add("Eb");
-        Notes.Add("E");
-        Notes.Add("F");
-        Notes.Add("F#");
-        Notes.Add("Gb");
-        Notes.Add("G");
-        Notes.Add("G#");
-        Notes.Add("Ab");
-        Notes.Add("A");
-        Notes.Add("A#");
-        Notes.Add("Bb");
-        Notes.Add("B");
-    }
-
-    //aangeroepen wanneer je op hold button klikt
-    public void NoteShift()
-    {
-        //NoNotes();
-        //NoteIndex = Notes.IndexOf(BlockPuzzleManager.currentBlockNote);
-        note = BlockPuzzleManager.currentBlockNote;
-        CheckNoteIndex();
-    }
-
-    private void CheckNoteIndex()
+    public void CheckNoteIndex(string note)
     {
         switch (note)
         {
@@ -113,15 +75,5 @@ public class NotePulser : MonoBehaviour
                 noteIndexes.Add(28);
                 break;
         }
-        foreach (int n in noteIndexes) 
-        { NoteAnimators[n].SetTrigger("Pulsing"); }
-    }
-
-    //let go
-    public void NoNotes()
-    {
-        foreach (int n in noteIndexes)
-        { NoteAnimators[n].SetTrigger("NotPulsing"); }
-        noteIndexes.Clear();
     }
 }

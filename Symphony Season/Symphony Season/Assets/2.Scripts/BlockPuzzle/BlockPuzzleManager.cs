@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class BlockPuzzleManager : MonoBehaviour
 {
@@ -134,6 +135,39 @@ public class BlockPuzzleManager : MonoBehaviour
         playerData.allowedToMove = true;
         if(!playerData.isMouseMovement)
         { playerData.stoppedMoving = true; }
+    }
+
+    public void SetBlockTargetPos(MoveBlockScript b)
+    {//move 1 space
+        //Debug.Log("pushed " + direction.ToString());
+        if (b.objectAbleToMove && !b.isMoving)
+        {
+            b.checkedDirections = false;
+            b.objectCurrentPos = this.gameObject.transform.position;
+            b.playerCurrentPos = b.playerMovement.transform.position;
+
+            b.stepTime = 0f;
+            switch (b.moveDirection)
+            {
+                case "RightUp":
+                    b.objectTargetPos = b.objectCurrentPos + new Vector3(1f, 0f, 0f);
+                    b.playerTargetPos = b.playerCurrentPos + new Vector3(1f, 0f, 0f);
+                    break;
+                case "LeftUp":
+                    b.objectTargetPos = b.objectCurrentPos + new Vector3(0f, 0f, 1f);
+                    b.playerTargetPos = b.playerCurrentPos + new Vector3(0f, 0f, 1f);
+                    break;
+                case "RightDown":
+                    b.objectTargetPos = b.objectCurrentPos + new Vector3(0f, 0f, -1f);
+                    b.playerTargetPos = b.playerCurrentPos + new Vector3(0f, 0f, -1f);
+                    break;
+                case "LeftDown":
+                    b.objectTargetPos = b.objectCurrentPos + new Vector3(-1f, 0f, 0f);
+                    b.playerTargetPos = b.playerCurrentPos + new Vector3(-1f, 0f, 0f);
+                    break;
+            }
+            b.isMoving = true;
+        }
     }
 
     public void CheckIfAllowedToMove()

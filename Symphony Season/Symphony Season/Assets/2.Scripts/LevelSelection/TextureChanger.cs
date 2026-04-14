@@ -45,5 +45,4 @@ public class TextureChanger : MonoBehaviour
     {
         MatToUse.mainTexture = TextureToUse;
     }
-
 }
