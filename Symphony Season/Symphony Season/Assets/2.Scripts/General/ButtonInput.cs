@@ -45,16 +45,10 @@ public class ButtonInput : MonoBehaviour
 
     public void onPressMove(string direction)
     {
-
-        if (!playerData.isHoldingSomething)
+        if (!playerData.isHoldingSomething && playerData.allowedToMove)
         {
             playerData.moveDirection = direction;
             playerData.isPressingMove = true;
-        }
-        else
-        {
-            //manager.currentSelectedBlock.moveDirection = direction;
-            //manager.currentSelectedBlock.isPressingBlockMove = true;
         }
     }
 
@@ -63,10 +57,6 @@ public class ButtonInput : MonoBehaviour
         if (!playerData.isHoldingSomething)
         {
             playerData.isPressingMove = false;
-        }
-        else
-        {
-            //manager.currentSelectedBlock.isPressingBlockMove = false;
         }
     }  
 }

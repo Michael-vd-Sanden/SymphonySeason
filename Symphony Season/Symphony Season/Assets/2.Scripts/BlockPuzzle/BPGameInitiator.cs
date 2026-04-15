@@ -12,6 +12,7 @@ public class BPGameInitiator : MonoBehaviour
     [SerializeField] private TriggerSetter curtainTransition;
     [SerializeField] private ColourChanger blockColourChanger;
     [SerializeField] private NoteSetter noteSetter;
+    [SerializeField] private PlayerData playerData;
 
     [Header("-------------- Objects")]
     [SerializeField] private string environmentSceneName;
@@ -38,6 +39,7 @@ public class BPGameInitiator : MonoBehaviour
     private async Task InitializeClasses()  //every start and awake function that has to do with setting things
     {
         player.agent.speed = playerSettings.moveSpeed;
+        playerData.allowedToMove = true;
 
         playerUIDirections.layerAsLayerMask = (1 << playerUIDirections.layer);
         

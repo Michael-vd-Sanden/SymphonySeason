@@ -7,8 +7,7 @@ public class BPUiToggles : MonoBehaviour
     [SerializeField] private MoveUIToggles moveToggles;
     [SerializeField] private BlockPuzzleManager manager;
     [SerializeField]
-    private GameObject nextLevelScreen,
-        btnsSharp, btnsFlat, btnSwitchFlSH, noteBtnsCanvas;
+    private GameObject nextLevelScreen, btnSwitchFlSH, baseNoteBtns;
     public GameObject holdControl, releaseControl, switchControl;
     [SerializeField] private GameObject[] noteBtnsObjects;
 
@@ -20,20 +19,14 @@ public class BPUiToggles : MonoBehaviour
     public void ExitedTrigger() 
     { 
         holdControl.SetActive(false);
-        noteBtnsCanvas.SetActive(false);
+        baseNoteBtns.SetActive(false);
         foreach(GameObject g in noteBtnsObjects) { g.SetActive(false); }
     }
 
     public void DeactivateNoteBtns()
     {
-        noteBtnsCanvas.SetActive(false) ;
+        baseNoteBtns.SetActive(false) ;
         foreach (GameObject g in noteBtnsObjects) { g.SetActive(false); }
-    }
-
-    public void SwitchSharpOrSflat()
-    {
-        btnsFlat.SetActive(!btnsFlat.activeSelf);
-        btnsSharp.SetActive(!btnsSharp.activeSelf);
     }
 
     public void PressedHoldBtn()
@@ -42,7 +35,7 @@ public class BPUiToggles : MonoBehaviour
         if (btnSwitchFlSH != null) { btnSwitchFlSH.SetActive(true); }
         holdControl.SetActive(false);
         releaseControl.SetActive(true);
-        noteBtnsCanvas.SetActive(true);
+        baseNoteBtns.SetActive(true);
         foreach (GameObject g in noteBtnsObjects) { g.SetActive(true); }
         manager.HoldBlock();
 
@@ -99,7 +92,7 @@ public class BPUiToggles : MonoBehaviour
     {
         //Debug.Log("pressed switch");
         moveToggles.TurnOffDirections();
-        noteBtnsCanvas.SetActive(true);
+        baseNoteBtns.SetActive(true);
         foreach (GameObject g in noteBtnsObjects) { g.SetActive(true); }
         manager.SwitchBlock();
     }
@@ -110,7 +103,7 @@ public class BPUiToggles : MonoBehaviour
         moveToggles.TurnOffDirections();
         releaseControl.SetActive(false);
         switchControl.SetActive(false);
-        noteBtnsCanvas.SetActive(false);
+        baseNoteBtns.SetActive(false);
         foreach (GameObject g in noteBtnsObjects) { g.SetActive(false); }
         holdControl.SetActive(true);
 

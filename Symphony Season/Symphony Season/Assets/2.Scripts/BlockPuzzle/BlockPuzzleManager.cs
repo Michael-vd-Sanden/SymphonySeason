@@ -50,7 +50,7 @@ public class BlockPuzzleManager : MonoBehaviour
     public void RightNote()
     {
         //audioPlayer.PlayEffect(noteSelected); Al in button
-        playerData.allowedToMove = false;
+        playerData.allowedToMove = true;
         currentSelectedBlock.objectAbleToMove = true;
         currentSelectedBlock.noteNotification.SetActive(true);
         currentSelectedBlock.questionNotification.SetActive(false);
@@ -96,6 +96,7 @@ public class BlockPuzzleManager : MonoBehaviour
             isCheckingForNotes = true;
             noteSelected = null;
             playerData.isHoldingSomething = true;
+            playerData.allowedToMove = false;
             if (!isTutorial) { notePulse.NoteShift(); }
             if(isTutorial) 
             { 
@@ -137,13 +138,30 @@ public class BlockPuzzleManager : MonoBehaviour
         { playerData.stoppedMoving = true; }
     }
 
+    public void onPressMove(string direction)
+    {
+        if (playerData.isHoldingSomething && playerData.allowedToMove)
+        {
+            currentSelectedBlock.moveDirection = direction;
+            currentSelectedBlock.isPressingBlockMove = true;   
+        }
+    }
+
+    public void onReleaseMove()
+    {
+        if (playerData.isHoldingSomething)
+        {
+            currentSelectedBlock.isPressingBlockMove = false;
+        }
+    }
+
     public void SetBlockTargetPos(MoveBlockScript b)
     {//move 1 space
         //Debug.Log("pushed " + direction.ToString());
         if (b.objectAbleToMove && !b.isMoving)
         {
             b.checkedDirections = false;
-            b.objectCurrentPos = this.gameObject.transform.position;
+            b.objectCurrentPos = b.gameObject.transform.position;
             b.playerCurrentPos = b.playerMovement.transform.position;
 
             b.stepTime = 0f;

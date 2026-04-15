@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b26d8d8a1e5a04ea6f29e701742928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneSwitching
-  sceneLoader: {fileID: 11400000, guid: 4dd3e79ad35851547a04c7cb859cf4a5, type: 2}
-  nextScene: BP 2_Easy
+  sceneLoader: {fileID: 11400000, guid: ad2e1f6741553e64ea4ae84b7892d0fd, type: 2}
+  nextScene: 
