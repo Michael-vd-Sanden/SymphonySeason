@@ -41,16 +41,16 @@ public class LvUIController : MonoBehaviour
             }
             else
             {
-                floorText.LevelTextShift(lvIndex.floorIndex);
-                dioramaAnimators[prevFloorIndex].SetTrigger("NotPulsing");
-                dioramaAnimators[lvIndex.floorIndex].SetTrigger("Pulsing");
-                levelTextures.TextureChange();
-
                 downBtn.SetActive(true);
                 upBtn.SetActive(true);
             }
 
-            //isRunning = false;
+            floorText.LevelTextShift(lvIndex.floorIndex);
+            if (lvIndex.floorIndex != prevFloorIndex) { dioramaAnimators[prevFloorIndex].SetTrigger("NotPulsing"); }
+            dioramaAnimators[lvIndex.floorIndex].SetTrigger("Pulsing");
+            levelTextures.TextureChange();
+
+            isRunning = false;
         }
     }
 

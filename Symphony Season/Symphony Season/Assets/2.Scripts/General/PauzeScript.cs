@@ -4,6 +4,7 @@ public class PauzeScript : MonoBehaviour
 {
     [SerializeField] private SceneSwitching sceneSwitch;
     [SerializeField] private TriggerSetter curtainTriggers;
+    [SerializeField] private LevelIndex levelIndex;
 
     public void Pauze()
     {
@@ -20,7 +21,7 @@ public class PauzeScript : MonoBehaviour
     public void MainMenu()
     {
         UnPauze();
-        sceneSwitch.ChangeSceneName("MainMenu");
+        sceneSwitch.ChangeSceneName(levelIndex.sceneName);
         sceneSwitch.LoadScene();
     }
 }

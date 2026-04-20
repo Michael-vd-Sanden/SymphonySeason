@@ -24,8 +24,9 @@ public class LevelSelectionInitiator : MonoBehaviour
 
     private async Task InitializeClasses() //every start and awake function that has to do with setting things
     {
-        lvUIController.dioramaAnimators[levelIndex.floorIndex].SetTrigger("Pulsing");
-        lvUIController.isRunning = false;
+        //lvUIController.dioramaAnimators[levelIndex.floorIndex].SetTrigger("Pulsing");
+        //lvUIController.isRunning = false;
+        lvUIController.LevelShift(0);
 
         curtainTransition.SetTrigger();
 

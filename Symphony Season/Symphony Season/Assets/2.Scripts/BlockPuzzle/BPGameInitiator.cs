@@ -56,7 +56,7 @@ public class BPGameInitiator : MonoBehaviour
             m.playerMovement = player;
             m.manager = blockPuzzleManager;
             m.colourChanger = blockColourChanger;
-            noteSetter.CheckNoteIndex(m.blockNote);
+            noteSetter.CheckNoteIndex(m.blockNote, noteSetter.noteIndexes);
         }
         foreach (int n in noteSetter.noteIndexes) 
         { noteObjects[n].SetActive(true); }

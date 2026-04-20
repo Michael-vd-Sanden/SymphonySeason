@@ -2015,6 +2015,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PauzeScript
   sceneSwitch: {fileID: 0}
   curtainTriggers: {fileID: 0}
+  levelIndex: {fileID: 0}
 --- !u!1 &5197329365868667235
 GameObject:
   m_ObjectHideFlags: 0

@@ -124,6 +124,17 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 331844018353772783, guid: b41ef5afdae81d244a23b6cac0e51a5d, type: 3}
   m_PrefabInstance: {fileID: 533132112}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &177941367 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6875061057006907523, guid: 4584709f1845334429f423eb867d174a, type: 3}
+  m_PrefabInstance: {fileID: 1471411194}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53a1090b81e32844abe4f678e122c704, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PauzeScript
 --- !u!1001 &181547862
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1176,6 +1187,10 @@ PrefabInstance:
     - target: {fileID: 2972159061318402735, guid: 83886b63660cf634dae0c3c0378f6cb0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3399286826754372817, guid: 83886b63660cf634dae0c3c0378f6cb0, type: 3}
+      propertyPath: nextScene
+      value: BP1 Easy
       objectReference: {fileID: 0}
     - target: {fileID: 5901667596632835745, guid: 83886b63660cf634dae0c3c0378f6cb0, type: 3}
       propertyPath: m_Name
@@ -2435,6 +2450,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1849995181}
     - target: {fileID: 6875061057006907523, guid: 4584709f1845334429f423eb867d174a, type: 3}
+      propertyPath: levelIndex
+      value: 
+      objectReference: {fileID: 11400000, guid: cf7b1ce0d04c7f34689473b062eb0220, type: 2}
+    - target: {fileID: 6875061057006907523, guid: 4584709f1845334429f423eb867d174a, type: 3}
       propertyPath: sceneSwitch
       value: 
       objectReference: {fileID: 702102622}
@@ -3406,20 +3425,32 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2052617061473393479, guid: 214ea60dc7a839b4e9f3de896833f6d4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2052617061473393479, guid: 214ea60dc7a839b4e9f3de896833f6d4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2052617061473393479, guid: 214ea60dc7a839b4e9f3de896833f6d4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 702102622}
+      objectReference: {fileID: 177941367}
     - target: {fileID: 2052617061473393479, guid: 214ea60dc7a839b4e9f3de896833f6d4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 702102622}
     - target: {fileID: 2052617061473393479, guid: 214ea60dc7a839b4e9f3de896833f6d4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangeSceneName
+      value: MainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 2052617061473393479, guid: 214ea60dc7a839b4e9f3de896833f6d4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: ChangeScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 2052617061473393479, guid: 214ea60dc7a839b4e9f3de896833f6d4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PauzeScript, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6374453149805586183, guid: 214ea60dc7a839b4e9f3de896833f6d4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -4108,7 +4139,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 8947764517259191930}
   - {fileID: 406090816}
-  - {fileID: 1471411194}
   - {fileID: 762455677}
   - {fileID: 4482368029917983026}
   - {fileID: 1554917472}
@@ -4122,5 +4152,6 @@ SceneRoots:
   - {fileID: 1143413576}
   - {fileID: 8545115472826845126}
   - {fileID: 671528997}
+  - {fileID: 1471411194}
   - {fileID: 702102621}
   - {fileID: 570923335}
