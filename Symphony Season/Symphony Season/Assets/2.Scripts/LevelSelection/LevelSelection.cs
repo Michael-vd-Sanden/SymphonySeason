@@ -44,6 +44,19 @@ public class LevelSelection : MonoBehaviour
         sceneSwitching.LoadScene();
     }
 
+    public async void HomeLevel(LevelData lv)
+    {
+        levelHolder.SetSceneName(lv);
+
+        if (hasTransition)
+        {
+            transitionSetter.SetTrigger();
+            await Awaitable.WaitForSecondsAsync(transitionWaitTime);
+        }
+
+        sceneSwitching.LoadScene();
+    }
+
     public void SwitchDifficulty()
     {
         isHard = !isHard;

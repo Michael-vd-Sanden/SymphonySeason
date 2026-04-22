@@ -11,13 +11,19 @@ public class TouchInput : MonoBehaviour
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] public InputActionReference moveAction;
     [SerializeField] private Vector2[] UIMask;
-    [SerializeField] private LayerMask layersToHit;
+    [SerializeField] private int layersToHit;
     private Vector3 screenPos, worldPos, gridPos;
+    private int layerAsLayerMask;
+
+    private void Awake()
+    {
+        layerAsLayerMask = (1 << layersToHit);
+    }
 
     private void castRay()          
     {
         Ray ray = Camera.main.ScreenPointToRay(screenPos);
-        if (playerData.canBeOverUI)
+       /* if (playerData.canBeOverUI)
         {
             foreach (Vector2 pos in UIMask)
             {
@@ -27,9 +33,9 @@ public class TouchInput : MonoBehaviour
                     return;
                 }
             }
-        }
+        }*/
 
-        if (Physics.Raycast(ray, out RaycastHit hitData, 100, layersToHit))
+        if (Physics.Raycast(ray, out RaycastHit hitData, 100, layerAsLayerMask))
         {
             if (NavMesh.SamplePosition(hitData.point, out NavMeshHit navMeshHit, playerSettings.sampleDistance, NavMesh.AllAreas))
             {

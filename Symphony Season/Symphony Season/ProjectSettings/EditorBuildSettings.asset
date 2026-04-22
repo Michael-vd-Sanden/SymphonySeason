@@ -51,7 +51,7 @@ EditorBuildSettings:
     path: Assets/3.Scenes/LoadingScene.unity
     guid: 0e4dca7f8d5199e44acdd9401972d51b
   - enabled: 1
-    path: Assets/3.Scenes/TowerSelections/Tower BP0.unity
+    path: Assets/3.Scenes/TowerSelections/Tower BP1.unity
     guid: 31e0dfb519be78f438291901ef264c73
   - enabled: 1
     path: Assets/3.Scenes/Mazes/Maze 0.unity

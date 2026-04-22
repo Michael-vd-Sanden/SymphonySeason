@@ -8568,12 +8568,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba0e498c4f217f9459cc2fe4f37d1201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSelection
-  levelIndex: {fileID: 11400000, guid: cf7b1ce0d04c7f34689473b062eb0220, type: 2}
+  levelIndex: {fileID: 11400000, guid: aa0c97b903fdfa74d9dbe6d06acafd56, type: 2}
   levelHolder: {fileID: 11400000, guid: ad2e1f6741553e64ea4ae84b7892d0fd, type: 2}
   sceneSwitching: {fileID: 1315587693}
   transitionSetter: {fileID: 4317550454937060798}
   levelData:
-  - {fileID: 11400000, guid: cf0f1540456ab7d41813a4b54c551518, type: 2}
+  - {fileID: 11400000, guid: 80ec50555a732e84eaa2ad72a4316383, type: 2}
   - {fileID: 11400000, guid: c94accf95a913104fb6789bdd8fba722, type: 2}
   - {fileID: 11400000, guid: c149cced428a0c241a4eabf9b825d576, type: 2}
   - {fileID: 11400000, guid: c114133a8b0922c409b019069180d169, type: 2}
@@ -8607,7 +8607,7 @@ MonoBehaviour:
   floorText: {fileID: 8611797}
   levelTextures: {fileID: 8583502550552858583}
   moveCamera: {fileID: 1250913174}
-  lvIndex: {fileID: 11400000, guid: cf7b1ce0d04c7f34689473b062eb0220, type: 2}
+  lvIndex: {fileID: 11400000, guid: aa0c97b903fdfa74d9dbe6d06acafd56, type: 2}
   isRunning: 0
 --- !u!1 &1343804476
 GameObject:
@@ -11985,7 +11985,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c6b7afa737641c44b0cf8657d8f48ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelSelectionInitiator
-  levelIndex: {fileID: 11400000, guid: cf7b1ce0d04c7f34689473b062eb0220, type: 2}
+  levelIndex: {fileID: 11400000, guid: aa0c97b903fdfa74d9dbe6d06acafd56, type: 2}
   lvUIController: {fileID: 1315587695}
   curtainTransition: {fileID: 4317550454937060798}
   textureChanger: {fileID: 8583502550552858583}
@@ -13625,7 +13625,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: b25db66dc1416bf479fbc67466e2da81, type: 3}
   - {fileID: 2800000, guid: 124cd2b02d1c7da438a6d1aaf676f561, type: 3}
   NextOne: []
-  LevelIndexer: {fileID: 11400000, guid: cf7b1ce0d04c7f34689473b062eb0220, type: 2}
+  LevelIndexer: {fileID: 11400000, guid: aa0c97b903fdfa74d9dbe6d06acafd56, type: 2}
 --- !u!23 &8641622816786839480
 MeshRenderer:
   m_ObjectHideFlags: 0

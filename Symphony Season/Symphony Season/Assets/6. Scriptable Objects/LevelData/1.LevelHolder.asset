@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f45f706b51341dd43b795510a45ec997, type: 3}
   m_Name: 1.LevelHolder
   m_EditorClassIdentifier: Assembly-CSharp::LevelHolder
-  sceneNameToLoad: BP1 Easy
+  sceneNameToLoad: MainMenu
   sceneNameToLoadExtra: Maze 0
   newSceneHasLoaded: 1
   levelSelectionLevels:
-  - Tower BP0
+  - MainMenu
+  - Tower BP1
   blockPuzzleLevels:
   - BP0 Easy
   - BP0 Hard

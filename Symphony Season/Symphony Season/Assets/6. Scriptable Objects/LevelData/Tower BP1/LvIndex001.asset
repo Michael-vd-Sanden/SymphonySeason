@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50829ad407edec545918fa950691e3b7, type: 3}
   m_Name: LvIndex001
   m_EditorClassIdentifier: Assembly-CSharp::LevelIndex
-  sceneName: Tower BP0
-  floorIndex: 1
+  sceneName: Tower BP1
+  floorIndex: 0
   floorMaximum: 2
