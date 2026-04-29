@@ -10,6 +10,7 @@ public class MoveBlockScript : MonoBehaviour
     public GameObject questionNotification, noteNotification;
     public BlockPuzzleManager manager;    //set in initiator
     public ColourChanger colourChanger;     //set in initiator
+    public GameObject pushUpControl, pushDownControl;
 
     [Header("-------------- Changeble Values")]
     public float playerDistance;
@@ -60,6 +61,15 @@ public class MoveBlockScript : MonoBehaviour
     {
         //Debug.Log(c.name.ToString() + " left");
         manager.ExitedTrigger(this);
+    }
+
+    public void PressedMove(string direction)
+    {
+        manager.onPressMove(direction);
+    }
+    public void ReleasedMove()
+    {
+        manager.onReleaseMove();
     }
 
     private void Move()

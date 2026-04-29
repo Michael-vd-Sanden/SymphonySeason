@@ -8,7 +8,6 @@ public class BlockPuzzleManager : MonoBehaviour
     [Header("-------------- Required Objects")]
     [SerializeField] private PlayerData playerData;
     [SerializeField] private BPUiToggles uiToggle;
-    [SerializeField] private MoveUIToggles moveUiToggles;
     [SerializeField] private AudioPlayer audioPlayer;
     [SerializeField] private NotePulser notePulse;
 
@@ -50,8 +49,10 @@ public class BlockPuzzleManager : MonoBehaviour
     public void RightNote()
     {
         //audioPlayer.PlayEffect(noteSelected); Al in button
-        playerData.allowedToMove = true;
         currentSelectedBlock.objectAbleToMove = true;
+        currentSelectedBlock.pushUpControl.SetActive(true);
+        currentSelectedBlock.pushDownControl.SetActive(true);
+
         currentSelectedBlock.noteNotification.SetActive(true);
         currentSelectedBlock.questionNotification.SetActive(false);
         CheckIfAllowedToMove();
@@ -89,7 +90,6 @@ public class BlockPuzzleManager : MonoBehaviour
     {
         if(enteredBlocks.Count > 0) 
         {
-            moveUiToggles.TurnOffDirections();
             currentSelectedBlock = enteredBlocks[selectedBlockIndex];
             currentBlockNote = currentSelectedBlock.blockNote;
             currentSelectedBlock.questionNotification.SetActive(true);
@@ -128,6 +128,9 @@ public class BlockPuzzleManager : MonoBehaviour
             currentSelectedBlock.questionNotification.SetActive(false);
             currentSelectedBlock.noteNotification.SetActive(false);
             currentSelectedBlock.objectAbleToMove = false;
+            currentSelectedBlock.pushDownControl.SetActive(false);
+            currentSelectedBlock.pushUpControl.SetActive(false);
+
             currentSelectedBlock = null;
             playerData.isHoldingSomething = false;
             if (!isTutorial) { notePulse.NoNotes(); }
@@ -140,8 +143,24 @@ public class BlockPuzzleManager : MonoBehaviour
 
     public void onPressMove(string direction)
     {
-        if (playerData.isHoldingSomething && playerData.allowedToMove)
+        if (playerData.isHoldingSomething && currentSelectedBlock.objectAbleToMove)
         {
+            ///fix met niew ding
+            switch (isRight: currentSelectedBlock.isRightDirection, dir: direction)
+            {
+                case (isRight: true, dir: "Up"):
+                    direction = "RightUp";
+                    break;
+                case (isRight: true, dir: "Down"):
+                    direction = "LeftDown";
+                    break;
+                case (isRight: false, dir: "Up"):
+                    direction = "LeftUp";
+                    break;
+                case (isRight: false, dir: "Down"):
+                    direction = "RightDown";
+                    break;
+            }
             currentSelectedBlock.moveDirection = direction;
             currentSelectedBlock.isPressingBlockMove = true;   
         }

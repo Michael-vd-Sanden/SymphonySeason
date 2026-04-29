@@ -317,11 +317,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8073623515855288861, guid: b41ef5afdae81d244a23b6cac0e51a5d, type: 3}
   m_PrefabInstance: {fileID: 533132112}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &205846813 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 366793722015178464, guid: 220f3f523d1045d4cb6a111745998115, type: 3}
-  m_PrefabInstance: {fileID: 1554917472}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &214964409 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6426004455412733446, guid: cbf4c6575939bd541bc996030f1ea404, type: 3}
@@ -746,19 +741,19 @@ PrefabInstance:
     - target: {fileID: 6239203860616035901, guid: ebc8a2b9b0d26474184a04bd5e61b141, type: 3}
       propertyPath: pushLeftUpControl
       value: 
-      objectReference: {fileID: 1496199110}
+      objectReference: {fileID: 0}
     - target: {fileID: 6239203860616035901, guid: ebc8a2b9b0d26474184a04bd5e61b141, type: 3}
       propertyPath: pushRightUpControl
       value: 
-      objectReference: {fileID: 595186721}
+      objectReference: {fileID: 0}
     - target: {fileID: 6239203860616035901, guid: ebc8a2b9b0d26474184a04bd5e61b141, type: 3}
       propertyPath: pushLeftDownControl
       value: 
-      objectReference: {fileID: 205846813}
+      objectReference: {fileID: 0}
     - target: {fileID: 6239203860616035901, guid: ebc8a2b9b0d26474184a04bd5e61b141, type: 3}
       propertyPath: pushRightDownControl
       value: 
-      objectReference: {fileID: 1933451081}
+      objectReference: {fileID: 0}
     - target: {fileID: 6239203860616035901, guid: ebc8a2b9b0d26474184a04bd5e61b141, type: 3}
       propertyPath: 'noteBtnsObjects.Array.data[0]'
       value: 
@@ -1103,11 +1098,6 @@ Transform:
   - {fileID: 136673961}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &595186721 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7861621992335061050, guid: 220f3f523d1045d4cb6a111745998115, type: 3}
-  m_PrefabInstance: {fileID: 1554917472}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &595982167 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6432220167293860011, guid: cbf4c6575939bd541bc996030f1ea404, type: 3}
@@ -2558,11 +2548,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5246042904127324806, guid: f95b0a4b37e681c47b7a31cb7bb010e8, type: 3}
   m_PrefabInstance: {fileID: 1493561460}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1496199110 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3524245040455373387, guid: 220f3f523d1045d4cb6a111745998115, type: 3}
-  m_PrefabInstance: {fileID: 1554917472}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1508885844 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7845558905610983455, guid: cbf4c6575939bd541bc996030f1ea404, type: 3}
@@ -3565,11 +3550,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6034811686613585978, guid: 67d995d065895b54ca0631457e272fc7, type: 3}
   m_PrefabInstance: {fileID: 1932934271}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1933451081 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 474272885480989647, guid: 220f3f523d1045d4cb6a111745998115, type: 3}
-  m_PrefabInstance: {fileID: 1554917472}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1950732775 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9108734501452709094, guid: 214ea60dc7a839b4e9f3de896833f6d4, type: 3}
@@ -3781,6 +3761,10 @@ PrefabInstance:
       propertyPath: moveUIToggles
       value: 
       objectReference: {fileID: 452358028}
+    - target: {fileID: 3678373008844980110, guid: 98250d58d279f9741bd3d225f1987bce, type: 3}
+      propertyPath: playerData
+      value: 
+      objectReference: {fileID: 5812831746552759747}
     - target: {fileID: 4218727586666637655, guid: 98250d58d279f9741bd3d225f1987bce, type: 3}
       propertyPath: playerData
       value: 
@@ -3943,19 +3927,19 @@ PrefabInstance:
     - target: {fileID: 2538655226738670856, guid: 4a30c5577635c814e9a6f19414d06923, type: 3}
       propertyPath: pushLeftUpControl
       value: 
-      objectReference: {fileID: 1496199110}
+      objectReference: {fileID: 0}
     - target: {fileID: 2538655226738670856, guid: 4a30c5577635c814e9a6f19414d06923, type: 3}
       propertyPath: pushRightUpControl
       value: 
-      objectReference: {fileID: 595186721}
+      objectReference: {fileID: 0}
     - target: {fileID: 2538655226738670856, guid: 4a30c5577635c814e9a6f19414d06923, type: 3}
       propertyPath: pushLeftDownControl
       value: 
-      objectReference: {fileID: 205846813}
+      objectReference: {fileID: 0}
     - target: {fileID: 2538655226738670856, guid: 4a30c5577635c814e9a6f19414d06923, type: 3}
       propertyPath: pushRightDownControl
       value: 
-      objectReference: {fileID: 1933451081}
+      objectReference: {fileID: 0}
     - target: {fileID: 5255442576328987263, guid: 4a30c5577635c814e9a6f19414d06923, type: 3}
       propertyPath: m_Name
       value: MoveUIToggles
@@ -4026,6 +4010,7 @@ MonoBehaviour:
   noteSetter: {fileID: 406090818}
   playerData: {fileID: 5812831746552759747}
   environmentSceneName: BP Environment
+  cam: {fileID: 0}
   noteObjects:
   - {fileID: 888585965}
   - {fileID: 1866878538}

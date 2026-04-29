@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 8283144578824103956}
   - component: {fileID: 7670352128027328836}
   - component: {fileID: 4218727586666637655}
+  - component: {fileID: 3678373008844980110}
   - component: {fileID: 2444371439802382816}
   - component: {fileID: 602157285410066443}
   m_Layer: 0
@@ -269,6 +270,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerButtonMovement
   playerData: {fileID: 0}
   pMovement: {fileID: 7670352128027328836}
+--- !u!114 &3678373008844980110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5330800566747399252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5287f190b15a09743b03aec236433830, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TouchInput
+  playerData: {fileID: 0}
+  playerSettings: {fileID: 11400000, guid: 74b68498a96cf8845a9e462550275e87, type: 2}
+  playerMovement: {fileID: 7670352128027328836}
+  moveAction: {fileID: -2987801270570978133, guid: 6876523846f0dd14b8c2c75c1f2926e8, type: 3}
+  UIMask: []
+  layersToHit: 3
 --- !u!114 &2444371439802382816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,5 +321,6 @@ MonoBehaviour:
   positions:
   - {x: 10, y: 1, z: 0}
   isMoving: 0
+  pos: 0
   currentPos: {x: 0, y: 0, z: 0}
   targetPos: {x: 0, y: 0, z: 0}

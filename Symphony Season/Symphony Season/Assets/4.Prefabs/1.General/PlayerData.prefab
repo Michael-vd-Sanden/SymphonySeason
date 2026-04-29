@@ -48,7 +48,7 @@ MonoBehaviour:
   destination: {x: 0, y: 0, z: 0}
   moveDirection: 
   isInMaze: 0
-  isMouseMovement: 0
+  isMouseMovement: 1
   isHoldingSomething: 0
   allowedToMove: 0
   isMoving: 0

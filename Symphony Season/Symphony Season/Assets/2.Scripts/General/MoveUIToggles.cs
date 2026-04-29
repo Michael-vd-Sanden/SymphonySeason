@@ -6,7 +6,7 @@ public class MoveUIToggles : MonoBehaviour
     private GameObject pushLeftUpControl, pushLeftDownControl, pushRightUpControl, pushRightDownControl;
     
     public void ActivatePlayerDirections(string direction, bool active)
-    {
+    {/*
         switch (direction)
         {
             case "LeftUp":
@@ -25,38 +25,15 @@ public class MoveUIToggles : MonoBehaviour
                 if (active) { pushRightDownControl.SetActive(true); }
                 else { pushRightDownControl.SetActive(false); }
                 break;
-        }
+        }*/
     }
 
     public void TurnOffDirections()
     {
+        /*
         pushLeftDownControl.SetActive(false);
         pushLeftUpControl.SetActive(false);
         pushRightDownControl.SetActive(false);
-        pushRightUpControl.SetActive(false);
-    }
-
-
-
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.W))
-        {
-            ActivatePlayerDirections("LeftUp", true);
-        }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            ActivatePlayerDirections("LeftDown", true);
-        }
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            ActivatePlayerDirections("RightDown", true);
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            ActivatePlayerDirections("RightUp", true);
-        }
-        //TurnOffDirections();
-
+        pushRightUpControl.SetActive(false);*/
     }
 }

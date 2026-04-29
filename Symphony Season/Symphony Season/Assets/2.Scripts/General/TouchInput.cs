@@ -23,17 +23,6 @@ public class TouchInput : MonoBehaviour
     private void castRay()          
     {
         Ray ray = Camera.main.ScreenPointToRay(screenPos);
-       /* if (playerData.canBeOverUI)
-        {
-            foreach (Vector2 pos in UIMask)
-            {
-                if (screenPos.x >= pos.x && screenPos.y <= pos.y)
-                { //inside UIMask
-                  // Debug.Log("in UIMask");
-                    return;
-                }
-            }
-        }*/
 
         if (Physics.Raycast(ray, out RaycastHit hitData, 100, layerAsLayerMask))
         {

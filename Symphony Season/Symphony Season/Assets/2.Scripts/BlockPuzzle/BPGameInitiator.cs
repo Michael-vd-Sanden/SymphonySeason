@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class BPGameInitiator : MonoBehaviour
@@ -17,6 +18,7 @@ public class BPGameInitiator : MonoBehaviour
     [Header("-------------- Objects")]
     [SerializeField] private string environmentSceneName;
 
+    [SerializeField] private Camera cam;
     private PopupRotator[] popupRotators;
     private MoveBlockScript[] moveBlocks;
     [SerializeField] private GameObject[] noteObjects;
@@ -57,12 +59,37 @@ public class BPGameInitiator : MonoBehaviour
             m.manager = blockPuzzleManager;
             m.colourChanger = blockColourChanger;
             noteSetter.CheckNoteIndex(m.blockNote, noteSetter.noteIndexes);
+
+            Canvas c = m.GetComponentInChildren<Canvas>();
+            c.worldCamera = cam;
+
+            /*EventTrigger trigger = m.GetComponent<EventTrigger>();
+            AddListener(trigger, EventTriggerType.PointerEnter, onClickListener);
+            AddListener(trigger, EventTriggerType.PointerExit, onClickListener);*/
+            
         }
         foreach (int n in noteSetter.noteIndexes) 
         { noteObjects[n].SetActive(true); }
 
         await Task.Yield();
     }
+
+   /* private static void AddListener(EventTrigger trigger, EventTriggerType type, System.Action<PointerEventData> listener)
+    {
+        EventTrigger.Entry entry = new EventTrigger.Entry();
+        entry.eventID= type;
+        entry.callback.AddListener(data => listener.Invoke((PointerEventData)data));
+        trigger.triggers.Add(entry);
+    }
+
+    void onClickListener (PointerEventData eventData)
+    {
+        if(eventData.pointerEnter)
+        {
+            Debug.Log("enter");
+        }
+        Debug.Log("maybe");
+    }*/
 
     private async Task CreateObjects()  //making the big objects
     { //returns the task automatically, don't have to return it manually

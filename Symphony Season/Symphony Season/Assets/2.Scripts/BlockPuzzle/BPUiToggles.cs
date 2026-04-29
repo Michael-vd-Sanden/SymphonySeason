@@ -4,7 +4,6 @@ using UnityEngine;
 public class BPUiToggles : MonoBehaviour
 {
     [Header("-------------- Required Objects")]
-    [SerializeField] private MoveUIToggles moveToggles;
     [SerializeField] private BlockPuzzleManager manager;
     [SerializeField]
     private GameObject nextLevelScreen, btnSwitchFlSH, baseNoteBtns;
@@ -31,7 +30,6 @@ public class BPUiToggles : MonoBehaviour
 
     public void PressedHoldBtn()
     {
-        moveToggles.TurnOffDirections();
         if (btnSwitchFlSH != null) { btnSwitchFlSH.SetActive(true); }
         holdControl.SetActive(false);
         releaseControl.SetActive(true);
@@ -47,23 +45,11 @@ public class BPUiToggles : MonoBehaviour
 
     public void ActivateBlockDirections()
     {
-        moveToggles.TurnOffDirections();
-
         MoveBlockScript block = manager.currentSelectedBlock;
-        if (block.isRightDirection)
-        { //right up direction
-            if (block.upAllowed)
-            { moveToggles.ActivatePlayerDirections("RightUp", true); }
-            if (block.downAllowed)
-            { moveToggles.ActivatePlayerDirections("LeftDown", true); }      
-        }
-        else
-        {//left up direction
-            if (block.upAllowed)
-            { moveToggles.ActivatePlayerDirections("LeftUp", true); }
-            if (block.downAllowed)
-            { moveToggles.ActivatePlayerDirections("RightDown", true); }
-        }
+        if(block.upAllowed) { block.pushUpControl.SetActive(true); }
+        else { block.pushUpControl.SetActive(false); }
+        if(block.downAllowed) { block.pushDownControl.SetActive(true);}
+        else { block.pushDownControl.SetActive(false);}
 
         switch(block.moveDirection)
         {
@@ -91,7 +77,9 @@ public class BPUiToggles : MonoBehaviour
     public void PressedSwitchBtn()
     {
         //Debug.Log("pressed switch");
-        moveToggles.TurnOffDirections();
+        manager.currentSelectedBlock.pushUpControl.SetActive(false);
+        manager.currentSelectedBlock.pushDownControl.SetActive(false);
+
         baseNoteBtns.SetActive(true);
         foreach (GameObject g in noteBtnsObjects) { g.SetActive(true); }
         manager.SwitchBlock();
@@ -99,8 +87,10 @@ public class BPUiToggles : MonoBehaviour
 
     public void PressedReleaseBtn()
     {
+        manager.currentSelectedBlock.pushUpControl.SetActive(false);
+        manager.currentSelectedBlock.pushDownControl.SetActive(false);
+
         if (btnSwitchFlSH != null) { btnSwitchFlSH.SetActive(false); }
-        moveToggles.TurnOffDirections();
         releaseControl.SetActive(false);
         switchControl.SetActive(false);
         baseNoteBtns.SetActive(false);
