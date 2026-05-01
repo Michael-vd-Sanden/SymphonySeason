@@ -17,14 +17,19 @@ public class PlayerMovement : MonoBehaviour
             playerData.currentPos = transform.position;
             if ((playerData.currentPos.x - playerSettings.targetMargin.x < playerData.destination.x && playerData.currentPos.x + playerSettings.targetMargin.x > playerData.destination.x)
                 && (playerData.currentPos.z - playerSettings.targetMargin.z < playerData.destination.z && playerData.currentPos.z + playerSettings.targetMargin.z > playerData.destination.z))
+                //&& (playerData.currentPos.y - playerSettings.targetMargin.y < playerData.destination.y && playerData.currentPos.y + playerSettings.targetMargin.y > playerData.destination.y))
             { //Checks if close enough to destination
                 //sets postition to destination
                 transform.position = new Vector3(playerData.destination.x, playerData.currentPos.y, playerData.destination.z);
                 playerData.currentPos = transform.position;
 
-                if(playerData.isInMaze) { playerData.allowedToMove = true; }
-                if (!playerData.isMouseMovement && !playerData.isInMaze) { playerData.stoppedMoving = true;}
-                playerData.isMoving = false;
+                if (!playerData.isMouseMovement && !playerData.isInMaze) { playerData.stoppedMoving = true; }
+                if (playerData.isInMaze) 
+                { 
+                    if(playerData.moveDirection == "Left" || playerData.moveDirection == "Right") { }
+                    else { playerData.isMoving = false; playerData.allowedToMove = true; }
+                }
+                else { playerData.isMoving = false; }
             }
         }
     }
@@ -35,14 +40,16 @@ public class PlayerMovement : MonoBehaviour
         agent.CalculatePath(playerData.destination, path);
         switch (path.status)
         {
-            case NavMeshPathStatus.PathComplete:
+            case NavMeshPathStatus.PathComplete: //can make path
                 playerData.isMoving = true;
                 agent.SetDestination(playerData.destination);
                 playerData.currentPos = transform.position;
                 
-                if(playerData.destination.x < playerData.currentPos.x || playerData.destination.z > playerData.currentPos.z)
+                if(playerData.destination.x < playerData.currentPos.x || playerData.destination.z > playerData.currentPos.z) //check if moving L or R
                 { playerData.isMovingLeft = true; }
                 else { playerData.isMovingLeft = false; }
+
+                Debug.Log("make path");
                 break;
             default:
                 //Debug.Log("Can't move there");
@@ -55,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
         if (!playerData.isMoving)
         {
             playerData.destination = pos;
+            Debug.Log("playerdata.destination: " + pos);
             CheckIfCanReachDestination();
         }
     }

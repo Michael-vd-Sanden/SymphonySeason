@@ -16,16 +16,23 @@ public class PlayerFollower : MonoBehaviour
         if(playerData.isMoving) 
         {
             SetPositionToPlayer();
-            if (!hasToggledMoving) { ToggleMoving(1f); }
-            hasToggledMoving = true;
+            if (!hasToggledMoving) 
+            { 
+                ToggleMoving(1f);
+                hasToggledMoving = true;
+            }
 
             if (playerData.isMovingLeft) { ToggleLeft(1f); }
             else if (!playerData.isMovingLeft) { ToggleLeft(0f); }
         }
         else if(!playerData.isMoving) 
         {
-            if (hasToggledMoving) { ToggleMoving(0f); }
-            hasToggledMoving = false;
+            if (hasToggledMoving) 
+            { 
+                ToggleMoving(0f);
+                hasToggledMoving = false;
+            }
+            
         }
 
         if(playerData.isHoldingSomething && !hasToggledHolding)

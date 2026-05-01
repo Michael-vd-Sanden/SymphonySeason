@@ -28,13 +28,14 @@ public class MazeMovement : MonoBehaviour
     private Quaternion currentAngle, targetAngle;
     [SerializeField] private int directionAmountActive;
     private string direction;
-    private Vector3 playerCurrentPos, playerTargetPos;
+    public Vector3 playerCurrentPos, playerTargetPos;
 
     private void Update()
     {
         if(mazeIsMoving) 
         {
             playerData.isMoving = true;
+            playerData.currentPos = playerMovement.transform.position;
             currentAngle = mazeObject.transform.rotation;
 
             var step = turnSpeed * Time.deltaTime;
@@ -42,7 +43,7 @@ public class MazeMovement : MonoBehaviour
 
 
            if (currentAngle == targetAngle)
-           { 
+           {//got to position when moving L or R
                 playerData.isMoving = false;
                 navMesh.BuildNavMesh();
                 playerData.allowedToMove = true;
@@ -127,8 +128,8 @@ public class MazeMovement : MonoBehaviour
                 {
 
                     if (hit.distance <= hitDistance)
-                    {//too close
-                        Debug.Log("hit " + hit.collider.name);
+                    {//can move
+                        //Debug.Log("hit " + hit.collider.name);
                         Debug.DrawRay(playerPos, rayDirect * hitDistance, Color.red, 4f);
                         able = true;
                     }

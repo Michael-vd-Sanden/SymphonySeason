@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1868238639138551934
+--- !u!1 &2267880295373465543
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4200008255996398643}
-  - component: {fileID: 7730580961872060338}
+  - component: {fileID: 228513967810340973}
+  - component: {fileID: 7145908595272152188}
   m_Layer: 0
-  m_Name: MazeInitiator
+  m_Name: PlayerData
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4200008255996398643
+--- !u!4 &228513967810340973
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1868238639138551934}
+  m_GameObject: {fileID: 2267880295373465543}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,21 +32,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7730580961872060338
+--- !u!114 &7145908595272152188
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1868238639138551934}
+  m_GameObject: {fileID: 2267880295373465543}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfd9c9ca0798a9b49b4e87e18d4fb4f2, type: 3}
+  m_Script: {fileID: 11500000, guid: cd2f6ad2b569e5e41ad8b152ba8b0e3c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MazeInitiator
-  player: {fileID: 0}
-  playerData: {fileID: 0}
-  playerSprites: {fileID: 0}
-  mazeMovement: {fileID: 0}
-  playerSettings: {fileID: 11400000, guid: f5bf4f61d6d630e40aa62eb4ab4bde8a, type: 2}
-  levelHolder: {fileID: 11400000, guid: ad2e1f6741553e64ea4ae84b7892d0fd, type: 2}
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerData
+  currentPos: {x: 0, y: 0, z: 0}
+  destination: {x: 0, y: 0, z: 0}
+  moveDirection: 
+  isInMaze: 1
+  isMouseMovement: 0
+  isHoldingSomething: 0
+  allowedToMove: 1
+  isMoving: 0
+  stoppedMoving: 0
+  isMovingLeft: 0
+  canBeOverUI: 0
+  isPressingMove: 0

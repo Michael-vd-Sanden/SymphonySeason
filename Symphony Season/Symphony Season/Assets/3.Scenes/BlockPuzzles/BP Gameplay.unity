@@ -3278,7 +3278,7 @@ MonoBehaviour:
   noteSetter: {fileID: 406090818}
   playerData: {fileID: 5812831746552759747}
   environmentSceneName: BP Environment
-  cam: {fileID: 0}
+  cam: {fileID: 1731742312}
   noteObjects:
   - {fileID: 888585965}
   - {fileID: 1866878538}
