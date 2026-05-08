@@ -10,6 +10,7 @@ public class BoatMovement : MonoBehaviour
     [SerializeField] private InputActionReference moveAction;
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private GameObject oceanObject;
+    [SerializeField] CameraOrbit camOrbit;
     [SerializeField] private int layersToHit;
     private Vector3 screenPos, worldPos, gridPos;
     private int layerAsLayerMask;
@@ -71,13 +72,19 @@ public class BoatMovement : MonoBehaviour
 
                 Vector3 pos = playerData.destination;
                 //check if distance is far enough away to rotate ocean towords camera;
-                if ((pos.x > 1f || pos.x < -1f)|| (pos.z > 1f || pos.z < -1f))
+                if ((pos.x > 1f || pos.x < -1f) || (pos.z > 1f || pos.z < -1f))
                 {
                     //mirror position
                     // Vector3 temp = new Vector3(playerData.destination.x *-1, playerData.destination.y *-1, playerData.destination.z * -1);
+                   
+                    //hier nog iets mee doen
                     Vector3 temp = playerData.destination * -1;
                     oceanObject.transform.LookAt(temp);
+
+
+                    camOrbit.AllowOrbit();
                 }
+                else { camOrbit.DisAllowOrbit(); }
 
                 break;
             default:
@@ -89,7 +96,8 @@ public class BoatMovement : MonoBehaviour
     private void Move(InputAction.CallbackContext obj)
     {
         screenPos = obj.ReadValue<Vector2>();
-        if(!boatIsMoving) { CastRay(); }
+        //if(!boatIsMoving) { CastRay(); }
+        CastRay();
     }
 
     private void OnEnable()
