@@ -16,4 +16,4 @@ MonoBehaviour:
   sampleDistance: 0.5
   baseOffset: {x: 0, y: 0, z: 0}
   modelOffset: {x: 0, y: 0, z: 0}
-  targetMargin: {x: 0.1, y: 0.1, z: 0.1}
+  targetMargin: {x: 0.3, y: 0.3, z: 0.3}

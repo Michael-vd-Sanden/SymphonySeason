@@ -9,7 +9,7 @@ public class BoatMovement : MonoBehaviour
     [SerializeField] private PlayerSettings playerSettings;
     [SerializeField] private InputActionReference moveAction;
     [SerializeField] private NavMeshAgent agent;
-    [SerializeField] private GameObject oceanObject;
+    [SerializeField] private GameObject oceanObject, boatObject;
     [SerializeField] CameraOrbit camOrbit;
     [SerializeField] private int layersToHit;
     private Vector3 screenPos, worldPos, gridPos;
@@ -17,19 +17,37 @@ public class BoatMovement : MonoBehaviour
 
     public int allowedSpace; //amount of space before ocean starts moving;
 
+    public float testfloat;
+
     [SerializeField] private bool boatIsMoving;
 
     private void Awake()
     {
         layerAsLayerMask = (1 << layersToHit);
+        agent.speed = playerSettings.moveSpeed;
     }
 
     private void Update()
     {
-        if(boatIsMoving) //check if boat has finished moving
-        { 
-            if(!playerData.isMoving) 
-            { boatIsMoving = false; }
+        camOrbit.gameObject.transform.LookAt(oceanObject.transform);
+
+        if (boatIsMoving) //check if boat has finished moving
+        {
+            Vector3 t = transform.position;
+            Vector3 d = playerData.destination;
+            Vector3 p = playerSettings.targetMargin;
+
+            if ((t.x - p.x < d.x && t.x + p.x > d.x)
+                && (t.z - p.z < d.z && t.z + p.z > d.z)
+                && (t.y - p.y < d.y && t.y + p.y > d.y))
+            { //Checks if close enough to destination
+                //sets destination to postition
+                playerData.destination = transform.position;
+                agent.destination = transform.position;
+
+                playerData.isMoving = false;
+                boatIsMoving = false;
+            }   
         }
     }
 
@@ -39,12 +57,6 @@ public class BoatMovement : MonoBehaviour
 
         if (Physics.Raycast(ray, out RaycastHit hitData, 100, layerAsLayerMask))
         {
-            /*if(hitData.collider.CompareTag("Ocean"))
-            {
-                worldPos = hitData.point;
-                playerData.destination = worldPos; // maybe not needed
-                MoveBoat();
-            }*/
             if (NavMesh.SamplePosition(hitData.point, out NavMeshHit navMeshHit, playerSettings.sampleDistance, NavMesh.AllAreas))
             {
                 worldPos = navMeshHit.position + playerSettings.baseOffset;
@@ -70,18 +82,12 @@ public class BoatMovement : MonoBehaviour
                 agent.SetDestination(playerData.destination);
                 playerData.currentPos = transform.position;
 
-                Vector3 pos = playerData.destination;
+                
+
+                Vector3 pos = playerData.currentPos - playerData.destination;
                 //check if distance is far enough away to rotate ocean towords camera;
                 if ((pos.x > 1f || pos.x < -1f) || (pos.z > 1f || pos.z < -1f))
                 {
-                    //mirror position
-                    // Vector3 temp = new Vector3(playerData.destination.x *-1, playerData.destination.y *-1, playerData.destination.z * -1);
-                   
-                    //hier nog iets mee doen
-                    Vector3 temp = playerData.destination * -1;
-                    oceanObject.transform.LookAt(temp);
-
-
                     camOrbit.AllowOrbit();
                 }
                 else { camOrbit.DisAllowOrbit(); }
@@ -96,7 +102,6 @@ public class BoatMovement : MonoBehaviour
     private void Move(InputAction.CallbackContext obj)
     {
         screenPos = obj.ReadValue<Vector2>();
-        //if(!boatIsMoving) { CastRay(); }
         CastRay();
     }
 
