@@ -11,6 +11,7 @@ TagManager:
   - MazeObject
   - NavMesh
   - Ocean
+  - Tower
   layers:
   - Default
   - TransparentFX

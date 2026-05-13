@@ -10,7 +10,6 @@ public class BoatMovement : MonoBehaviour
     [SerializeField] private InputActionReference moveAction;
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private GameObject oceanObject, boatObject;
-    [SerializeField] CameraOrbit camOrbit;
     [SerializeField] private int layersToHit;
     private Vector3 screenPos, worldPos, gridPos;
     private int layerAsLayerMask;
@@ -29,7 +28,6 @@ public class BoatMovement : MonoBehaviour
 
     private void Update()
     {
-        camOrbit.gameObject.transform.LookAt(oceanObject.transform);
 
         if (boatIsMoving) //check if boat has finished moving
         {
@@ -88,9 +86,9 @@ public class BoatMovement : MonoBehaviour
                 //check if distance is far enough away to rotate ocean towords camera;
                 if ((pos.x > 1f || pos.x < -1f) || (pos.z > 1f || pos.z < -1f))
                 {
-                    camOrbit.AllowOrbit();
+                    //hier miss nog iets mee doen
                 }
-                else { camOrbit.DisAllowOrbit(); }
+                else {  }
 
                 break;
             default:
