@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class TowerID : MonoBehaviour
 {
+    [Header("-------------- Required Objects")]
     public LevelData levelData;
     public GameObject popUp;
-
     public TowerSelectionManager towerSelection;
 
     private void OnTriggerEnter(Collider other)

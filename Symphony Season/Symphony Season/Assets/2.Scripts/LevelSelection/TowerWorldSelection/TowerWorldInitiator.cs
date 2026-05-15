@@ -1,13 +1,17 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class TowerWorldInitiator : MonoBehaviour
 {
     [Header("-------------- Classes")]
     [SerializeField] private TriggerSetter curtainTransition;
     [SerializeField] private TowerSelectionManager towerSelection;
+    [SerializeField] private BoatMovement boatMovement;
     [SerializeField] private Camera cam;
+    [SerializeField] private NavMeshAgent agent;
+    [SerializeField] private PlayerSettings playerSettings;
 
     [Header("-------------- Scriptable Objects")]
     [SerializeField] private LevelHolder levelHolder;
@@ -24,6 +28,7 @@ public class TowerWorldInitiator : MonoBehaviour
         await PrepareLevel();
 
         levelHolder.newSceneHasLoaded = true;
+        curtainTransition.SetTrigger();
     }
 
     private async Task InitializeClasses() //every start and awake function that has to do with setting things
@@ -37,6 +42,9 @@ public class TowerWorldInitiator : MonoBehaviour
         }
         foreach (Canvas c in towerCanvases) { c.worldCamera = cam; }
         foreach (FollowObject f in followObjects) { f.lookAtObject = cam.gameObject; }
+
+        boatMovement.layerAsLayerMask = (1 << boatMovement.layersToHit);
+        agent.speed = playerSettings.moveSpeed;
         await Task.Yield();
     }
 
@@ -47,7 +55,7 @@ public class TowerWorldInitiator : MonoBehaviour
 
     private async Task PrepareLevel() //every start and awake function that has to do with posistioning and appearance
     {
-        
+
 
         await Awaitable.WaitForSecondsAsync(1f);
         await Task.Yield();

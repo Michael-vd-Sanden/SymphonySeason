@@ -20,6 +20,7 @@ public class LevelSelectionInitiator : MonoBehaviour
         await PrepareLevel();
 
         levelHolder.newSceneHasLoaded = true;
+        curtainTransition.SetTrigger();
     }
 
     private async Task InitializeClasses() //every start and awake function that has to do with setting things
@@ -27,8 +28,6 @@ public class LevelSelectionInitiator : MonoBehaviour
         //lvUIController.dioramaAnimators[levelIndex.floorIndex].SetTrigger("Pulsing");
         //lvUIController.isRunning = false;
         lvUIController.LevelShift(0);
-
-        curtainTransition.SetTrigger();
 
         textureChanger.NextTexture(textureChanger.FrontMat, textureChanger.LevelScreenshotsFront[levelIndex.floorIndex]);
 

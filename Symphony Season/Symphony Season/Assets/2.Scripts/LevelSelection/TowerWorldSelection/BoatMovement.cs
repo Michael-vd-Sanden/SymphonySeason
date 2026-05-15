@@ -5,30 +5,22 @@ using UnityEngine.InputSystem;
 
 public class BoatMovement : MonoBehaviour
 {
+    [Header("-------------- Required Objects")]
     [SerializeField] private PlayerData playerData;
     [SerializeField] private PlayerSettings playerSettings;
     [SerializeField] private InputActionReference moveAction;
-    [SerializeField] private NavMeshAgent agent;
-    [SerializeField] private GameObject oceanObject, boatObject;
-    [SerializeField] private int layersToHit;
-    private Vector3 screenPos, worldPos, gridPos;
-    private int layerAsLayerMask;
+    [SerializeField] private NavMeshAgent agent;   
 
-    public int allowedSpace; //amount of space before ocean starts moving;
+    [Header("-------------- Changeble Values")]
+    public int layersToHit;
 
-    public float testfloat;
-
+    [Header("-------------- Background Values (do not change)")]
     [SerializeField] private bool boatIsMoving;
-
-    private void Awake()
-    {
-        layerAsLayerMask = (1 << layersToHit);
-        agent.speed = playerSettings.moveSpeed;
-    }
+    private Vector3 screenPos, worldPos;
+    public int layerAsLayerMask;
 
     private void Update()
     {
-
         if (boatIsMoving) //check if boat has finished moving
         {
             Vector3 t = transform.position;
@@ -58,10 +50,7 @@ public class BoatMovement : MonoBehaviour
             if (NavMesh.SamplePosition(hitData.point, out NavMeshHit navMeshHit, playerSettings.sampleDistance, NavMesh.AllAreas))
             {
                 worldPos = navMeshHit.position + playerSettings.baseOffset;
-               // gridPos = new Vector3(Mathf.FloorToInt(worldPos.x), Mathf.FloorToInt(worldPos.y), Mathf.FloorToInt(worldPos.z));
-                //Debug.Log(gridPos);
                 playerData.destination = worldPos;
-
 
                 CheckIfCanReachDestination();
             }
@@ -79,17 +68,6 @@ public class BoatMovement : MonoBehaviour
                 boatIsMoving = true;
                 agent.SetDestination(playerData.destination);
                 playerData.currentPos = transform.position;
-
-                
-
-                Vector3 pos = playerData.currentPos - playerData.destination;
-                //check if distance is far enough away to rotate ocean towords camera;
-                if ((pos.x > 1f || pos.x < -1f) || (pos.z > 1f || pos.z < -1f))
-                {
-                    //hier miss nog iets mee doen
-                }
-                else {  }
-
                 break;
             default:
                 //Debug.Log("Can't move there");
@@ -100,7 +78,7 @@ public class BoatMovement : MonoBehaviour
     private void Move(InputAction.CallbackContext obj)
     {
         screenPos = obj.ReadValue<Vector2>();
-        CastRay();
+        if (playerData.allowedToMove) { CastRay(); }
     }
 
     private void OnEnable()

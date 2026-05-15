@@ -2,9 +2,13 @@ using UnityEngine;
 
 public class FollowObject : MonoBehaviour
 {
-    
-    public GameObject followPositionObject, lookAtObject;
-    public bool allowedToFollow, followPosition, lookAt;
+    [Header("-------------- Required Objects")]
+    public GameObject followPositionObject;
+    public GameObject lookAtObject;
+
+    [Header("-------------- Changeble Values")]
+    public bool allowedToFollow;
+    public bool followPosition, lookAt;
 
     private void Update()
     {
