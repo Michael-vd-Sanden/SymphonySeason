@@ -47,8 +47,8 @@ public class BoatMovement : MonoBehaviour
 
         if (Physics.Raycast(ray, out RaycastHit hitData, 100, layerAsLayerMask))
         {
-            if (NavMesh.SamplePosition(hitData.point, out NavMeshHit navMeshHit, playerSettings.sampleDistance, NavMesh.AllAreas))
-            {
+            if (NavMesh.SamplePosition(hitData.point, out NavMeshHit navMeshHit, playerSettings.sampleDistance, NavMesh.AllAreas)) 
+            {//clicked on a point on the navmesh where the player can move to
                 worldPos = navMeshHit.position + playerSettings.baseOffset;
                 playerData.destination = worldPos;
 
@@ -75,6 +75,7 @@ public class BoatMovement : MonoBehaviour
         }
     }
 
+    //screen input
     private void Move(InputAction.CallbackContext obj)
     {
         screenPos = obj.ReadValue<Vector2>();

@@ -17,17 +17,11 @@ public class MazeInitiator : MonoBehaviour
 
     private async void Start()
     {
-        BindObjects();
         await InitializeClasses();
         await CreateObjects();
         await PrepareLevel();
 
         levelHolder.newSceneHasLoaded = true;
-    }
-
-    private void BindObjects()  //making the classes
-    {
-        
     }
 
     private async Task InitializeClasses()  //every start and awake function that has to do with setting things
@@ -47,9 +41,8 @@ public class MazeInitiator : MonoBehaviour
         await Task.Yield();
     }
 
-    private async Task CreateObjects()  //making the big objects
+    private async Task CreateObjects()  //making the big objects, loading extra scenes
     { //returns the task automatically, don't have to return it manually
-      //SceneManager.LoadScene(environmentSceneName, LoadSceneMode.Additive);
         SceneManager.LoadScene(levelHolder.sceneNameToLoadExtra, LoadSceneMode.Additive);
 
         await Task.Yield();

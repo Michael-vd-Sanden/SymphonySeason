@@ -20,12 +20,12 @@ public class MazePuzzle : MonoBehaviour
 
     private void Update()
     {
-        if(isCamRotating) 
+        if(isCamRotating) //rotating the camera to the targetCamAngle
         {
             currentCamAngle = cameraObj.transform.rotation;
 
             var step = turnspeed * Time.deltaTime;
-            cameraObj.gameObject.transform.rotation = Quaternion.RotateTowards(currentCamAngle, targetCamAngle, step);
+            cameraObj.transform.rotation = Quaternion.RotateTowards(currentCamAngle, targetCamAngle, step);
             
             if(currentCamAngle == targetCamAngle) { isCamRotating = false; }
         }
@@ -40,7 +40,7 @@ public class MazePuzzle : MonoBehaviour
             //camera position & rotation
             currentCamPos = cameraObj.transform.position;
             changedCamPos = currentCamPos + changeCamPosTo;
-            cameraObj.gameObject.transform.position = changedCamPos;
+            cameraObj.transform.position = changedCamPos;
 
             startCamAngle = cameraObj.transform.rotation;
             targetCamAngle = rotateCamPosTo;
@@ -59,7 +59,7 @@ public class MazePuzzle : MonoBehaviour
     public void EndQuestion()
     {
         //cam position & rotation
-        cameraObj.gameObject.transform.position = currentCamPos;
+        cameraObj.transform.position = currentCamPos;
         targetCamAngle = startCamAngle;
         isCamRotating = true;
 
@@ -71,9 +71,9 @@ public class MazePuzzle : MonoBehaviour
         isQuestionActive = false;
     }
 
-    public void AnswerQuestion(string answer)
+    public void AnswerQuestion(string answer)   //handled through the button input
     {
-        if(answer.EndsWith("1"))
+        if(answer.EndsWith("1"))    //needed for duplicate notes (octaves)
         {
             answer = answer.Replace("1", "");
             Debug.Log(answer);

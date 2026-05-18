@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using Unity.AI.Navigation;
 using UnityEngine;
@@ -24,7 +23,6 @@ public class MazeMovement : MonoBehaviour
     [SerializeField] List<Quaternion> availableAngles;
     public int currentAngleID, layerAsLayerMask;
     [SerializeField] private bool mazeIsMoving, playerIsMoving;
-    private float offsetAngle, startAngle;
     private Quaternion currentAngle, targetAngle;
     [SerializeField] private int directionAmountActive;
     private string direction;
@@ -32,7 +30,7 @@ public class MazeMovement : MonoBehaviour
 
     private void Update()
     {
-        if(mazeIsMoving) 
+        if(mazeIsMoving) //when moving L or R
         {
             playerData.isMoving = true;
             playerData.currentPos = playerMovement.transform.position;
@@ -43,7 +41,7 @@ public class MazeMovement : MonoBehaviour
 
 
            if (currentAngle == targetAngle)
-           {//got to position when moving L or R
+           {//got to position
                 playerData.isMoving = false;
                 navMesh.BuildNavMesh();
                 playerData.allowedToMove = true;
@@ -51,7 +49,8 @@ public class MazeMovement : MonoBehaviour
                 mazeIsMoving = false;
            }
         }
-        if(playerIsMoving) 
+
+        if(playerIsMoving) //when moving up or down
         {
             if(!playerData.isMoving)
             {// stopped moving
@@ -61,7 +60,7 @@ public class MazeMovement : MonoBehaviour
         }
     }
 
-    public void MovePlayer(string inputDirection)
+    public void MovePlayer(string inputDirection) //handled through button input
     {
         if (playerData.allowedToMove && !mazeIsMoving)
         {
@@ -94,7 +93,7 @@ public class MazeMovement : MonoBehaviour
         }
     }
 
-    public void CheckPlayerDirections()
+    public void CheckPlayerDirections() //sets the UI arrows according to which direction the player can move towards
     {
         Transform t = globalRoot;
         Vector3 playerPos = playerMovement.transform.position + new Vector3(0f, -2.5f, 0f);
@@ -102,48 +101,48 @@ public class MazeMovement : MonoBehaviour
         bool able;
         directionAmountActive = 0;
 
-        for (int check = 0; check < 4; check++)
+        for (int check = 0; check < 4; check++) //loops for checking all 4 directions
         {
             switch (check)
-                {
-                    case 0:
-                        rayDirect = t.forward;  //left
-                        break;
-                    case 1:
-                        rayDirect = t.right;    //up
-                        break;
-                    case 2:
-                        rayDirect = -t.right;   //down
-                        break;
-                    case 3:
-                        rayDirect = -t.forward; //right
-                        break;
-                    default:
-                        rayDirect = t.forward;
-                        break;
-                }
+            {
+                case 0:
+                    rayDirect = t.forward;  //left
+                    break;
+                case 1:
+                    rayDirect = t.right;    //up
+                    break;
+                case 2:
+                    rayDirect = -t.right;   //down
+                    break;
+                case 3:
+                    rayDirect = -t.forward; //right
+                    break;
+                default:
+                    rayDirect = t.forward;
+                    break;
+            }
 
             RaycastHit hit;
             if (Physics.Raycast(playerPos, rayDirect, out hit, hitDistance, layerAsLayerMask))
-                {
+            {//if raycast hits the next floortile, the player can move there
 
-                    if (hit.distance <= hitDistance)
-                    {//can move
-                        //Debug.Log("hit " + hit.collider.name);
-                        Debug.DrawRay(playerPos, rayDirect * hitDistance, Color.red, 4f);
-                        able = true;
-                    }
-                    else
-                    {
-                        Debug.DrawRay(playerPos, rayDirect * hitDistance, Color.green, 4f);
-                        able = false;
-                    }
+                if (hit.distance <= hitDistance)
+                {//can move
+                    //Debug.Log("hit " + hit.collider.name);
+                    Debug.DrawRay(playerPos, rayDirect * hitDistance, Color.red, 4f);
+                    able = true;
                 }
-            else
+                else
                 {
                     Debug.DrawRay(playerPos, rayDirect * hitDistance, Color.green, 4f);
                     able = false;
                 }
+            }
+            else
+            {
+                Debug.DrawRay(playerPos, rayDirect * hitDistance, Color.green, 4f);
+                able = false;
+            }
 
             switch (check)
             {
@@ -184,10 +183,10 @@ public class MazeMovement : MonoBehaviour
                 else { down.SetActive(false); }
                 break;
         }
-        if(directionAmountActive > 2) { mazePuzzle.StartQuestion(); }
+        if(directionAmountActive > 2) { mazePuzzle.StartQuestion(); } //if more than 2 directions are active, that means the player is at a crossroads
     }
 
-    private void CheckIfCanRotate()
+    private void CheckIfCanRotate() //called when moving L or R, calculates navmesh path
     {
         var path = new NavMeshPath();
         playerMovement.agent.CalculatePath(playerTargetPos, path);
@@ -202,7 +201,7 @@ public class MazeMovement : MonoBehaviour
         }
     }
 
-    private void RotateMaze()
+    private void RotateMaze() //called when moving L or R, after confirming navmesh path is valid
     {
         if (!mazeIsMoving && playerData.allowedToMove)
         {
@@ -222,7 +221,6 @@ public class MazeMovement : MonoBehaviour
             playerData.allowedToMove = false;
             mazeIsMoving = true;
             direction = string.Empty;
-            startAngle = mazeObject.transform.rotation.eulerAngles.x;
             targetAngle = availableAngles[currentAngleID];
         }
     }

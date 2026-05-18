@@ -15,7 +15,7 @@ public class FollowObject : MonoBehaviour
         if (allowedToFollow)
         {
             if (followPosition) { transform.position = followPositionObject.transform.position; }
-            if(lookAt) { transform.LookAt(lookAtObject.transform) ; }
+            if(lookAt) { transform.LookAt(lookAtObject.transform) ; }              //points the forward position to the lookAtObject
         }
     }
 }

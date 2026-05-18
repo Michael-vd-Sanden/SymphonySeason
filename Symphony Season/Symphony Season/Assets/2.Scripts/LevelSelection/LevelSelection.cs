@@ -35,7 +35,7 @@ public class LevelSelection : MonoBehaviour
 
         levelHolder.SetSceneName(currentLv);
 
-        if(hasTransition) 
+        if(hasTransition) //if the scene has a curtain transition
         { 
             transitionSetter.SetTrigger();
             await Awaitable.WaitForSecondsAsync(transitionWaitTime);

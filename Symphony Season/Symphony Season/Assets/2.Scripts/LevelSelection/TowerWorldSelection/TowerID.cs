@@ -7,7 +7,7 @@ public class TowerID : MonoBehaviour
     public GameObject popUp;
     public TowerSelectionManager towerSelection;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other) //if the player comes inside the trigger collider
     {
         if (other.CompareTag("Player"))
         {
@@ -15,7 +15,7 @@ public class TowerID : MonoBehaviour
             popUp.SetActive(true);
         }
     }
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other) //if the player exits the trigger collider
     {
         towerSelection.currentTower = null;
         popUp.SetActive(false);

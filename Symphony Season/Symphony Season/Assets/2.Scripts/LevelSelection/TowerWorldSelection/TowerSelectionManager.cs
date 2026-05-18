@@ -21,7 +21,7 @@ public class TowerSelectionManager : MonoBehaviour
 
     public async void ChangeLevel() //called on play level btn
     {
-        playerData.allowedToMove = false;
+        playerData.allowedToMove = false; //supposed to stop the player from moving after clicking on play (does not)
         currentLv = currentTower.levelData;
 
         levelHolder.SetSceneName(currentLv);

@@ -21,7 +21,7 @@ public class LvUIController : MonoBehaviour
         }
     }
 
-    public void LevelShift(int shift)
+    public void LevelShift(int shift) //changing the selected level
     {
         if (!isRunning)
         {

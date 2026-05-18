@@ -11,6 +11,7 @@ public class LevelData : ScriptableObject
 
     public void SetcompletionTime(float newTime)
     {
+        if(!completed) { completed = true; completionTime = newTime; }
         if(newTime < completionTime) completionTime = newTime;
     }
 }
