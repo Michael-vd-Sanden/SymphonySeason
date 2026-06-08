@@ -21,32 +21,32 @@ public class BlockPuzzleManager : MonoBehaviour
     public List<MoveBlockScript> enteredBlocks;
     [SerializeField] private int selectedBlockIndex = 0;
     public MoveBlockScript currentSelectedBlock;
-    public string currentBlockNote;
-    public string noteSelected; //which note btn was pressed
+    public string currentBlockAnswer;
+    public string answerSelected; //which note btn was pressed
     public Material[] colourMaterials;
-    private bool isCheckingForNotes = false;
+    private bool isCheckingForAnswers = false;
 
     private void Update()
     {
-        if(isCheckingForNotes) 
+        if(isCheckingForAnswers) 
         {
-            if(currentSelectedBlock== null) { isCheckingForNotes = false; return; }
+            if(currentSelectedBlock== null) { isCheckingForAnswers = false; return; }
 
-            if (noteSelected == currentBlockNote) //goede noot
+            if (answerSelected == currentBlockAnswer) //goede noot
             {
-                RightNote();
+                RightAnswer();
             }
-            if(!string.IsNullOrEmpty(noteSelected) && noteSelected != currentBlockNote) //foute noot
+            if(!string.IsNullOrEmpty(answerSelected) && answerSelected != currentBlockAnswer) //foute noot
             {
                 //play some sort of sound
                 audioPlayer.PlayEffect("Wrong");
                 //Debug.Log("fout");
-                noteSelected = null;
+                answerSelected = null;
             }
         }
     }
 
-    public void RightNote()
+    public void RightAnswer()
     {
         //audioPlayer.PlayEffect(noteSelected); Al in button
         currentSelectedBlock.objectAbleToMove = true;
@@ -56,9 +56,9 @@ public class BlockPuzzleManager : MonoBehaviour
         currentSelectedBlock.noteNotification.SetActive(true);
         currentSelectedBlock.questionNotification.SetActive(false);
         CheckIfAllowedToMove();
-        noteSelected = null;
+        answerSelected = null;
         uiToggle.DeactivateNoteBtns();
-        isCheckingForNotes = false;
+        isCheckingForAnswers = false;
         if (!isTutorial) { notePulse.NoNotes(); }
         return;
     }
@@ -91,17 +91,17 @@ public class BlockPuzzleManager : MonoBehaviour
         if(enteredBlocks.Count > 0) 
         {
             currentSelectedBlock = enteredBlocks[selectedBlockIndex];
-            currentBlockNote = currentSelectedBlock.blockNote;
+            currentBlockAnswer = currentSelectedBlock.blockAnswer;
             currentSelectedBlock.questionNotification.SetActive(true);
-            isCheckingForNotes = true;
-            noteSelected = null;
+            isCheckingForAnswers = true;
+            answerSelected = null;
             playerData.isHoldingSomething = true;
             playerData.allowedToMove = false;
             if (!isTutorial) { notePulse.NoteShift(); }
             if(isTutorial) 
             { 
-                isCheckingForNotes=false;
-                RightNote();
+                isCheckingForAnswers=false;
+                RightAnswer();
             }
         }
     }
@@ -135,7 +135,7 @@ public class BlockPuzzleManager : MonoBehaviour
             playerData.isHoldingSomething = false;
             if (!isTutorial) { notePulse.NoNotes(); }
         }
-        currentBlockNote = null;
+        currentBlockAnswer = null;
         playerData.allowedToMove = true;
         if(!playerData.isMouseMovement)
         { playerData.stoppedMoving = true; }

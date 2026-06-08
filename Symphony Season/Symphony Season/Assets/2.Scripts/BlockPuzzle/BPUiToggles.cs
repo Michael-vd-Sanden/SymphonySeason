@@ -100,9 +100,9 @@ public class BPUiToggles : MonoBehaviour
         manager.LetGoOfBlock();
     }
 
-    public void PressedNoteBtn(string note)
+    public void PressedAnswerBtn(string answer)
     {
-        manager.noteSelected = note;
+        manager.answerSelected = answer;
     }
 
     public void Victory()

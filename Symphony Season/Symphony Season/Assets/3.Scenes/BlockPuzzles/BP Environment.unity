@@ -2279,7 +2279,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2, y: 1, z: 1.25}
+  m_Size: {x: 2, y: 1, z: 1.4}
   m_Center: {x: 4, y: 0, z: 0.5}
 --- !u!65 &1785676115
 BoxCollider:
@@ -2300,7 +2300,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2, y: 1, z: 1.25}
+  m_Size: {x: 2, y: 1, z: 1.4}
   m_Center: {x: -4, y: 0, z: 0.5}
 --- !u!65 &1785676116
 BoxCollider:

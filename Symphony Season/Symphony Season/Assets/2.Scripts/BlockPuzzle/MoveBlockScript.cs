@@ -16,7 +16,7 @@ public class MoveBlockScript : MonoBehaviour
     public float playerDistance;
     public float wallDistance;
     public bool isRightDirection; //set for every object
-    public string blockNote;
+    public string blockAnswer;
     public int materialInArray;
 
     [Header("-------------- Background Values (do not change)")]

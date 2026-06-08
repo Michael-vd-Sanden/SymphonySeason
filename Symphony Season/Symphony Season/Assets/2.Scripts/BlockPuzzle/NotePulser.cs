@@ -16,7 +16,7 @@ public class NotePulser : MonoBehaviour
     //aangeroepen wanneer je op hold button klikt
     public void NoteShift()
     {
-        note = BlockPuzzleManager.currentBlockNote;
+        note = BlockPuzzleManager.currentBlockAnswer;
         noteSetter.CheckNoteIndex(note, notePulseIndexes);
         foreach (int n in notePulseIndexes)
         { NoteAnimators[n].SetTrigger("Pulsing"); }

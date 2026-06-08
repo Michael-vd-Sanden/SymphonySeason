@@ -58,7 +58,7 @@ public class BPGameInitiator : MonoBehaviour
             m.playerMovement = player;
             m.manager = blockPuzzleManager;
             m.colourChanger = blockColourChanger;
-            noteSetter.CheckNoteIndex(m.blockNote, noteSetter.noteIndexes);
+            noteSetter.CheckNoteIndex(m.blockAnswer, noteSetter.noteIndexes);
 
             Canvas c = m.GetComponentInChildren<Canvas>();
             c.worldCamera = cam;
@@ -114,7 +114,7 @@ public class BPGameInitiator : MonoBehaviour
 
     public void ChangeColourBasedOnNote(MoveBlockScript b)       //move
     {
-        b.colourMaterial = b.colourChanger.ChangeColourBasedOnNote(b.blockNote);
+        b.colourMaterial = b.colourChanger.ChangeColourBasedOnNote(b.blockAnswer);
 
         var materialTemp = b.colourBlockRenderer.materials;
         materialTemp[b.materialInArray] = b.colourMaterial;

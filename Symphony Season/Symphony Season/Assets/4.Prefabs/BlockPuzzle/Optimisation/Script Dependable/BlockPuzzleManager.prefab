@@ -48,13 +48,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe29a7f7874a76945894f3907b18cc24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIToggles
-  moveToggles: {fileID: 0}
   manager: {fileID: 75216096739803366}
   nextLevelScreen: {fileID: 0}
-  btnsSharp: {fileID: 0}
-  btnsFlat: {fileID: 0}
   btnSwitchFlSH: {fileID: 0}
-  noteBtnsCanvas: {fileID: 0}
+  baseNoteBtns: {fileID: 0}
   holdControl: {fileID: 0}
   releaseControl: {fileID: 0}
   switchControl: {fileID: 0}
@@ -85,17 +82,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BlockPuzzleManager
   playerData: {fileID: 0}
   uiToggle: {fileID: 6239203860616035901}
-  moveUiToggles: {fileID: 0}
   audioPlayer: {fileID: 0}
-  notePulse: {fileID: 0}
+  notePulse: {fileID: 6147384210025093473}
   hitLayer: 6
   isTutorial: 0
   layerAsLayerMask: 0
   enteredBlocks: []
   selectedBlockIndex: 0
   currentSelectedBlock: {fileID: 0}
-  currentBlockNote: 
-  noteSelected: 
+  currentBlockAnswer: 
+  answerSelected: 
   colourMaterials: []
 --- !u!114 &5852370558567133769
 MonoBehaviour:
@@ -129,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe009d45e77dd0e4fb1e820700308584, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NotePulser
-  BlockPuzzleManager: {fileID: 0}
+  BlockPuzzleManager: {fileID: 75216096739803366}
   NoteAnimators:
   - {fileID: 0}
   - {fileID: 0}
@@ -160,7 +156,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  noteIndexes: 
+  noteSetter: {fileID: 5337439916295164768}
+  notePulseIndexes: 
   note: 
 --- !u!114 &5337439916295164768
 MonoBehaviour:

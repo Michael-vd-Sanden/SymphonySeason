@@ -1,6 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class BoatMovement : MonoBehaviour
@@ -9,7 +10,7 @@ public class BoatMovement : MonoBehaviour
     [SerializeField] private PlayerData playerData;
     [SerializeField] private PlayerSettings playerSettings;
     [SerializeField] private InputActionReference moveAction;
-    [SerializeField] private NavMeshAgent agent;   
+    [SerializeField] private NavMeshAgent agent;
 
     [Header("-------------- Changeble Values")]
     public int layersToHit;
@@ -79,6 +80,7 @@ public class BoatMovement : MonoBehaviour
     private void Move(InputAction.CallbackContext obj)
     {
         screenPos = obj.ReadValue<Vector2>();
+        //do something to check if clicking on UI element
         if (playerData.allowedToMove) { CastRay(); }
     }
 

@@ -1380,6 +1380,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2656724182777583386, guid: 1832f9759d7c7214f852db7ef4decb24, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5973058433314257464, guid: 1832f9759d7c7214f852db7ef4decb24, type: 3}
       propertyPath: lookAtObject
       value: 
@@ -1450,6 +1454,10 @@ PrefabInstance:
       value: Boat
       objectReference: {fileID: 0}
     - target: {fileID: 3807194725716648943, guid: a4c9945ef9e4a7a4ea043ad181f0b527, type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 728644928}
+    - target: {fileID: 3807194725716648943, guid: a4c9945ef9e4a7a4ea043ad181f0b527, type: 3}
       propertyPath: playerData
       value: 
       objectReference: {fileID: 1187648883}
@@ -1509,6 +1517,18 @@ PrefabInstance:
     - target: {fileID: 1220788757404663193, guid: f4e6b6c2f0c3dfb4189b3bc0c7e3362a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3745389177235516401, guid: f4e6b6c2f0c3dfb4189b3bc0c7e3362a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 9.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3745389177235516401, guid: f4e6b6c2f0c3dfb4189b3bc0c7e3362a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 9.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3745389177235516401, guid: f4e6b6c2f0c3dfb4189b3bc0c7e3362a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 9.9
       objectReference: {fileID: 0}
     - target: {fileID: 5392520751641050684, guid: f4e6b6c2f0c3dfb4189b3bc0c7e3362a, type: 3}
       propertyPath: m_Name

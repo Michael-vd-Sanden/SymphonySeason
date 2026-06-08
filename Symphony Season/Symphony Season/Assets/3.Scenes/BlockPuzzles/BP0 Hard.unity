@@ -237,6 +237,10 @@ PrefabInstance:
       value: Gb
       objectReference: {fileID: 0}
     - target: {fileID: 8305375283168669803, guid: bca2bed4d35a707439275c9fddaae7c6, type: 3}
+      propertyPath: blockAnswer
+      value: Gb
+      objectReference: {fileID: 0}
+    - target: {fileID: 8305375283168669803, guid: bca2bed4d35a707439275c9fddaae7c6, type: 3}
       propertyPath: isRightDirection
       value: 1
       objectReference: {fileID: 0}
@@ -993,6 +997,10 @@ PrefabInstance:
       value: F
       objectReference: {fileID: 0}
     - target: {fileID: 8305375283168669803, guid: bca2bed4d35a707439275c9fddaae7c6, type: 3}
+      propertyPath: blockAnswer
+      value: F
+      objectReference: {fileID: 0}
+    - target: {fileID: 8305375283168669803, guid: bca2bed4d35a707439275c9fddaae7c6, type: 3}
       propertyPath: isRightDirection
       value: 1
       objectReference: {fileID: 0}
@@ -1432,6 +1440,10 @@ PrefabInstance:
       propertyPath: blockNote
       value: A
       objectReference: {fileID: 0}
+    - target: {fileID: 8305375283168669803, guid: bca2bed4d35a707439275c9fddaae7c6, type: 3}
+      propertyPath: blockAnswer
+      value: A
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1565,6 +1577,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8305375283168669803, guid: 67d995d065895b54ca0631457e272fc7, type: 3}
       propertyPath: blockNote
+      value: C
+      objectReference: {fileID: 0}
+    - target: {fileID: 8305375283168669803, guid: 67d995d065895b54ca0631457e272fc7, type: 3}
+      propertyPath: blockAnswer
       value: C
       objectReference: {fileID: 0}
     - target: {fileID: 8305375283168669803, guid: 67d995d065895b54ca0631457e272fc7, type: 3}
@@ -2914,6 +2930,10 @@ PrefabInstance:
       propertyPath: blockNote
       value: Bb
       objectReference: {fileID: 0}
+    - target: {fileID: 8305375283168669803, guid: 67d995d065895b54ca0631457e272fc7, type: 3}
+      propertyPath: blockAnswer
+      value: Bb
+      objectReference: {fileID: 0}
     - target: {fileID: 8654226670527642726, guid: 67d995d065895b54ca0631457e272fc7, type: 3}
       propertyPath: m_Color.b
       value: 0.31764707
@@ -2994,6 +3014,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8305375283168669803, guid: 67d995d065895b54ca0631457e272fc7, type: 3}
       propertyPath: blockNote
+      value: Eb
+      objectReference: {fileID: 0}
+    - target: {fileID: 8305375283168669803, guid: 67d995d065895b54ca0631457e272fc7, type: 3}
+      propertyPath: blockAnswer
       value: Eb
       objectReference: {fileID: 0}
     - target: {fileID: 8305375283168669803, guid: 67d995d065895b54ca0631457e272fc7, type: 3}
@@ -3107,6 +3131,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8305375283168669803, guid: bca2bed4d35a707439275c9fddaae7c6, type: 3}
       propertyPath: blockNote
+      value: D
+      objectReference: {fileID: 0}
+    - target: {fileID: 8305375283168669803, guid: bca2bed4d35a707439275c9fddaae7c6, type: 3}
+      propertyPath: blockAnswer
       value: D
       objectReference: {fileID: 0}
     - target: {fileID: 8305375283168669803, guid: bca2bed4d35a707439275c9fddaae7c6, type: 3}
@@ -3574,6 +3602,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8305375283168669803, guid: bca2bed4d35a707439275c9fddaae7c6, type: 3}
       propertyPath: blockNote
+      value: D
+      objectReference: {fileID: 0}
+    - target: {fileID: 8305375283168669803, guid: bca2bed4d35a707439275c9fddaae7c6, type: 3}
+      propertyPath: blockAnswer
       value: D
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -10,8 +10,19 @@ public class VictoryTrigger : MonoBehaviour
     [SerializeField] private TriggerSetter curtainCloser;
     [SerializeField] private MoveObject playerMover;
     [SerializeField] private NavMeshAgent playerAgent;
+    [SerializeField] private PlayerMovement playerMovement;
 
     [SerializeField] private PlayerData playerData;
+
+    private bool isMoving = false;
+
+    private void Update()
+    {
+        if(isMoving) 
+        { 
+            playerData.currentPos = playerMover.transform.position;     //so the playersprite can follow the correct position
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -22,10 +33,12 @@ public class VictoryTrigger : MonoBehaviour
             curtainCloser.SetTrigger();          //close curtain
             bpUIToggles.Victory();               //victory screen active
 
-            playerAgent.enabled = false;
+            isMoving = true;
+
+            playerMovement.enabled = false;     //so it doesn't try to calculate position on navmesh
+            playerAgent.enabled = false;        //so the player can move off the navmesh
             playerMover.StartMoving(true);
             playerData.isMoving = true;
-            playerData.isPressingMove = false;  //so it doesn't try to calculate path
             playerData.destination = playerMover.targetPos;
         }
     }
