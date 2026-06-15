@@ -14,6 +14,7 @@ public class BPGameInitiator : MonoBehaviour
     [SerializeField] private ColourChanger blockColourChanger;
     [SerializeField] private NoteSetter noteSetter;
     [SerializeField] private PlayerData playerData;
+    [SerializeField] private ColourChanger colourChanger;
 
     [Header("-------------- Objects")]
     [SerializeField] private string environmentSceneName;
@@ -21,7 +22,6 @@ public class BPGameInitiator : MonoBehaviour
     [SerializeField] private Camera cam;
     private PopupRotator[] popupRotators;
     private MoveBlockScript[] moveBlocks;
-    [SerializeField] private GameObject[] noteObjects;
 
     [Header("-------------- Scriptable Objects")]
     [SerializeField] private PlayerSettings playerSettings;
@@ -48,48 +48,37 @@ public class BPGameInitiator : MonoBehaviour
 
         blockPuzzleManager.layerAsLayerMask = (1 << blockPuzzleManager.hitLayer);
 
-        playerSprites.ToggleLeft(0f);
+        //reset player sprite
+        playerSprites.ToggleLeft(0f);           
         playerSprites.ToggleMoving(0f);
         playerSprites.ToggleHolding(0f);
 
+        //for each block in scene, do something
         moveBlocks = FindObjectsByType<MoveBlockScript>(FindObjectsSortMode.None);
         foreach (MoveBlockScript m in moveBlocks) 
         {
             m.playerMovement = player;
             m.manager = blockPuzzleManager;
             m.colourChanger = blockColourChanger;
-            noteSetter.CheckNoteIndex(m.blockAnswer, noteSetter.noteIndexes);
+            if(blockPuzzleManager.category == TheoryCategory.NoteNames) noteSetter.CheckNoteIndex(m.blockAnswer, noteSetter.noteIndexes);
 
             Canvas c = m.GetComponentInChildren<Canvas>();
-            c.worldCamera = cam;
-
-            /*EventTrigger trigger = m.GetComponent<EventTrigger>();
-            AddListener(trigger, EventTriggerType.PointerEnter, onClickListener);
-            AddListener(trigger, EventTriggerType.PointerExit, onClickListener);*/
-            
+            c.worldCamera = cam;            
         }
-        foreach (int n in noteSetter.noteIndexes) 
-        { noteObjects[n].SetActive(true); }
+        if (blockPuzzleManager.category == TheoryCategory.NoteNames)
+        {
+            foreach (int n in noteSetter.noteIndexes)
+            { blockPuzzleManager.noteObjects[n].SetActive(true); }
+        }
+
+        foreach(GameObject g in blockPuzzleManager.noteObjects)
+            blockPuzzleManager.noteColourChangers.Add(g.GetComponent<NoteColourChanger>());
+        foreach (NoteColourChanger n in blockPuzzleManager.noteColourChangers)
+            n.spriteRenderer.material = colourChanger.ChangeColourBasedOnNote(n.note);
+        
 
         await Task.Yield();
     }
-
-   /* private static void AddListener(EventTrigger trigger, EventTriggerType type, System.Action<PointerEventData> listener)
-    {
-        EventTrigger.Entry entry = new EventTrigger.Entry();
-        entry.eventID= type;
-        entry.callback.AddListener(data => listener.Invoke((PointerEventData)data));
-        trigger.triggers.Add(entry);
-    }
-
-    void onClickListener (PointerEventData eventData)
-    {
-        if(eventData.pointerEnter)
-        {
-            Debug.Log("enter");
-        }
-        Debug.Log("maybe");
-    }*/
 
     private async Task CreateObjects()  //making the big objects
     { //returns the task automatically, don't have to return it manually

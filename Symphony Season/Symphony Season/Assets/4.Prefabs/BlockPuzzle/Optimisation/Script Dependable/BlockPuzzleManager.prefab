@@ -84,8 +84,41 @@ MonoBehaviour:
   uiToggle: {fileID: 6239203860616035901}
   audioPlayer: {fileID: 0}
   notePulse: {fileID: 6147384210025093473}
+  noteSetter: {fileID: 5337439916295164768}
+  colourChanger: {fileID: 5852370558567133769}
   hitLayer: 6
+  category: 0
   isTutorial: 0
+  noteObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   layerAsLayerMask: 0
   enteredBlocks: []
   selectedBlockIndex: 0
@@ -93,6 +126,7 @@ MonoBehaviour:
   currentBlockAnswer: 
   answerSelected: 
   colourMaterials: []
+  noteColourChangers: []
 --- !u!114 &5852370558567133769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,4 +205,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb9d0e9aabed80847beb31248b7e41ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NoteSetter
+  manager: {fileID: 75216096739803366}
   noteIndexes: 

@@ -48,8 +48,6 @@ public class PlayerMovement : MonoBehaviour
                 if(playerData.destination.x < playerData.currentPos.x || playerData.destination.z > playerData.currentPos.z) //check if moving L or R
                 { playerData.isMovingLeft = true; }
                 else { playerData.isMovingLeft = false; }
-
-                Debug.Log("make path");
                 break;
             default:
                 //Debug.Log("Can't move there");
@@ -62,7 +60,6 @@ public class PlayerMovement : MonoBehaviour
         if (!playerData.isMoving)
         {
             playerData.destination = pos;
-            Debug.Log("playerdata.destination: " + pos);
             CheckIfCanReachDestination();
         }
     }

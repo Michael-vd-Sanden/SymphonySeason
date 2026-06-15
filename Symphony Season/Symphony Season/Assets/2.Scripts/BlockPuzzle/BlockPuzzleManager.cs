@@ -10,11 +10,14 @@ public class BlockPuzzleManager : MonoBehaviour
     [SerializeField] private BPUiToggles uiToggle;
     [SerializeField] private AudioPlayer audioPlayer;
     [SerializeField] private NotePulser notePulse;
+    [SerializeField] private NoteSetter noteSetter;
+    [SerializeField] private ColourChanger colourChanger;
 
     [Header("-------------- Changeble Values")]
     public int hitLayer;
-    
+    public TheoryCategory category;
     [SerializeField] private bool isTutorial;
+    public GameObject[] noteObjects;
 
     [Header("-------------- Background Values (do not change)")]
     public int layerAsLayerMask;
@@ -24,6 +27,7 @@ public class BlockPuzzleManager : MonoBehaviour
     public string currentBlockAnswer;
     public string answerSelected; //which note btn was pressed
     public Material[] colourMaterials;
+    public List<NoteColourChanger> noteColourChangers;
     private bool isCheckingForAnswers = false;
 
     private void Update()
@@ -39,7 +43,7 @@ public class BlockPuzzleManager : MonoBehaviour
             if(!string.IsNullOrEmpty(answerSelected) && answerSelected != currentBlockAnswer) //foute noot
             {
                 //play some sort of sound
-                audioPlayer.PlayEffect("Wrong");
+                audioPlayer.PlayEffect("Wrong", category);
                 //Debug.Log("fout");
                 answerSelected = null;
             }
@@ -48,7 +52,7 @@ public class BlockPuzzleManager : MonoBehaviour
 
     public void RightAnswer()
     {
-        //audioPlayer.PlayEffect(noteSelected); Al in button
+        audioPlayer.PlayEffect(answerSelected, category);
         currentSelectedBlock.objectAbleToMove = true;
         currentSelectedBlock.pushUpControl.SetActive(true);
         currentSelectedBlock.pushDownControl.SetActive(true);
@@ -97,7 +101,21 @@ public class BlockPuzzleManager : MonoBehaviour
             answerSelected = null;
             playerData.isHoldingSomething = true;
             playerData.allowedToMove = false;
-            if (!isTutorial) { notePulse.NoteShift(); }
+
+            if (category == TheoryCategory.Chords)
+            {
+                List<int> indexes = new List<int>();
+                noteSetter.CheckNoteIndex(currentBlockAnswer, indexes); 
+                foreach (int n in indexes) 
+                { 
+                    noteObjects[n].SetActive(true);
+                    //toevoegen dat de colour van alle noten veranderd naar dezelfde kleur
+                    noteColourChangers[n].spriteRenderer.material = colourChanger.ChangeColourBasedOnNote(currentBlockAnswer);
+                }
+            }
+
+            if (!isTutorial && category == TheoryCategory.NoteNames) 
+            { notePulse.NoteShift(); }
             if(isTutorial) 
             { 
                 isCheckingForAnswers=false;
@@ -130,6 +148,9 @@ public class BlockPuzzleManager : MonoBehaviour
             currentSelectedBlock.objectAbleToMove = false;
             currentSelectedBlock.pushDownControl.SetActive(false);
             currentSelectedBlock.pushUpControl.SetActive(false);
+
+            if (category == TheoryCategory.Chords)
+            { for(int i = 0; i < noteObjects.Length; i++) { noteObjects[i].SetActive(false); }}
 
             currentSelectedBlock = null;
             playerData.isHoldingSomething = false;
