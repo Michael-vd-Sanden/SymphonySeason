@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f439fa7ea2bc0a74c83628d3b3b74828, type: 3}
-  m_Name: BP1 Hard
+  m_Name: BP N3 Hard
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
-  levelID: 1
+  levelID: 3
   levelType: 1
+  category: 0
   difficulty: 1
   completed: 0
   completionTime: 0

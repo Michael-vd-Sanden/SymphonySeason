@@ -17,11 +17,50 @@ MonoBehaviour:
   newSceneHasLoaded: 1
   levelSelectionLevels:
   - MainMenu
-  - Tower BP1
+  - Tower BP N0
+  - Tower BP C0
+  blockPuzzleNotesLevels:
+  - BP N0 Easy
+  - BP N0 Hard
+  - BP N1 Easy
+  - BP N1 Hard
+  - BP N2 Easy
+  - BP N2 Hard
+  - BP N3 Easy
+  - BP N3 Hard
+  - BP N4 Easy
+  - BP N4 Hard
+  blockPuzzleChordsLevels:
+  - BP C0 Easy
+  - BP C0 Hard
+  - BP C1 Easy
+  - BP C1 Hard
+  - BP C2 Easy
+  - BP C2 Hard
+  - BP C3 Easy
+  - BP C3 Hard
+  - BP C4 Easy
+  - BP C4 Hard
   blockPuzzleLevels:
-  - BP0 Easy
-  - BP0 Hard
-  - BP1 Easy
-  - BP1 Hard
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   mazeLevels:
   - Maze 0

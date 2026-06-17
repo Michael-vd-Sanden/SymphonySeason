@@ -11,7 +11,8 @@ public class LevelHolder : ScriptableObject
     //so easy levels are on the even (start at 0) and hard levels are uneven
     //add new level containers for every new LevelType you add
     public string[] levelSelectionLevels;
-    public string[] blockPuzzleLevels;
+    public string[] blockPuzzleNotesLevels;
+    public string[] blockPuzzleChordsLevels;
     public string[] mazeLevels;
 
     public void SetSceneName(LevelData level) 
@@ -28,7 +29,8 @@ public class LevelHolder : ScriptableObject
                 sceneNameToLoad = levelSelectionLevels[level.levelID]; //no difficulties
                 break;
             case LevelType.BlockPuzzle:
-                sceneNameToLoad = blockPuzzleLevels[i];
+                    if(level.category == TheoryCategory.NoteNames) sceneNameToLoad = blockPuzzleNotesLevels[i];
+                    else if (level.category == TheoryCategory.Chords) sceneNameToLoad = blockPuzzleChordsLevels[i];
                 break;
             case LevelType.Maze:    
                 sceneNameToLoad = "MazeGameplay";

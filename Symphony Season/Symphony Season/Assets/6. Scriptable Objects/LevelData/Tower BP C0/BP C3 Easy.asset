@@ -9,9 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50829ad407edec545918fa950691e3b7, type: 3}
-  m_Name: LvIndex001
-  m_EditorClassIdentifier: Assembly-CSharp::LevelIndex
-  sceneName: Tower BP1
-  floorIndex: 0
-  floorMaximum: 2
+  m_Script: {fileID: 11500000, guid: f439fa7ea2bc0a74c83628d3b3b74828, type: 3}
+  m_Name: BP C3 Easy
+  m_EditorClassIdentifier: Assembly-CSharp::LevelData
+  levelID: 3
+  levelType: 1
+  category: 6
+  difficulty: 0
+  completed: 0
+  completionTime: 0

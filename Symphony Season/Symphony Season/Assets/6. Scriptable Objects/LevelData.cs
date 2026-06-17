@@ -5,6 +5,7 @@ public class LevelData : ScriptableObject
 {
     public int levelID;             //exmp: lv.0 easy & lv.0 hard are both lvID 0
     public LevelType levelType;
+    public TheoryCategory category;
     public Difficulty difficulty; 
     public bool completed;
     public float completionTime;
