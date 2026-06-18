@@ -4,28 +4,32 @@ using UnityEngine.SceneManagement;
 
 public class SceneSwitching : MonoBehaviour
 {
+    [Header("-------------- Required Objects")]
+    public LevelHolder sceneLoader;
+
     [Header("-------------- Changeble Values")]
     public string nextScene;
 
-    private string newSceneName;
-
-    private void Start()
-    {
-        newSceneName = "BP 1_Easy";
-    }
 
     public void ChangeSceneName (string name)
     {
-        newSceneName = name;
+        sceneLoader.sceneNameToLoad = name;
     }
 
-    public void ChangeScene()
+    public void LoadScene()
     {
-        SceneManager.LoadScene(newSceneName);
+        SceneManager.LoadScene("LoadingScene");
     }
 
     public void NextScene()
     {
-        SceneManager.LoadScene(nextScene);
+        sceneLoader.sceneNameToLoad = nextScene;
+        LoadScene();
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+        Debug.Log("Quit");
     }
 }

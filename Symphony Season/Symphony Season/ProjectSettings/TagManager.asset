@@ -8,6 +8,10 @@ TagManager:
   - GlobalRoot
   - Start
   - End
+  - MazeObject
+  - NavMesh
+  - Ocean
+  - Tower
   layers:
   - Default
   - TransparentFX
@@ -16,7 +20,7 @@ TagManager:
   - Water
   - UI
   - Wall
-  - 
+  - Player
   - 
   - 
   - 

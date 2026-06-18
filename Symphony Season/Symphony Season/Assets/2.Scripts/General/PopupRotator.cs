@@ -2,12 +2,10 @@ using UnityEngine;
 
 public class PopupRotator : MonoBehaviour
 {
-    private GameObject GlobalRoot;
+    [SerializeField] private GameObject GlobalRoot;
 
-    private void Awake()
+    public void SetRotator()
     {
-        GlobalRoot = GameObject.FindGameObjectWithTag("GlobalRoot");
-
         transform.eulerAngles = new Vector3(
             transform.eulerAngles.x,
             GlobalRoot.transform.eulerAngles.y - 45,

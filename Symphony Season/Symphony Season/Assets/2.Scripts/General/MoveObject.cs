@@ -7,9 +7,10 @@ public class MoveObject : MonoBehaviour
     [SerializeField] private Vector3[] positions;
 
     [Header("-------------- Background Values (do not change)")]
-    [SerializeField] private bool isMoving = false;
-    [SerializeField] private int pos;
-    [SerializeField] private Vector3 currentPos, targetPos;
+    public bool isMoving = false;
+    public int pos;
+    [SerializeField] private Vector3 currentPos;
+    public Vector3 targetPos;
 
     private void Update()
     {
@@ -37,5 +38,12 @@ public class MoveObject : MonoBehaviour
             targetPos = positions[pos];
             isMoving = true;
         }
+    }
+
+    public void MoveTo(int newPos)
+    {
+        pos = newPos;
+        targetPos = positions[pos];
+        isMoving = true;
     }
 }

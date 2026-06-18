@@ -4,10 +4,9 @@ using UnityEngine;
 public class TutorialScript : MonoBehaviour
 {
     [Header("-------------- Required Objects")]
-    [SerializeField] private GameObject player;
-    [SerializeField] private UIToggles UiToggles;
+    [SerializeField] private BPUiToggles UiToggles;
+    [SerializeField] private MoveUIToggles moveUIToggles;
     [SerializeField] private BlockPuzzleManager manager;
-    private PlayerMouseMovement playerMove;
 
     [Header("-------- Lv 1 & 2")]
     [SerializeField] private Animator cross;
@@ -20,7 +19,6 @@ public class TutorialScript : MonoBehaviour
 
     private void Start()
     {
-        playerMove = player.GetComponent<PlayerMouseMovement>();
         CheckTut();
     }
 
@@ -39,7 +37,7 @@ public class TutorialScript : MonoBehaviour
 
     public void PressedHoldWithoutNotes()
     {
-        UiToggles.TurnOffDirections();
+        moveUIToggles.TurnOffDirections();
         UiToggles.holdControl.SetActive(false);
         UiToggles.releaseControl.SetActive(true);
 

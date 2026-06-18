@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f45f706b51341dd43b795510a45ec997, type: 3}
+  m_Name: 1.LevelHolder
+  m_EditorClassIdentifier: Assembly-CSharp::LevelHolder
+  sceneNameToLoad: MainMenu
+  sceneNameToLoadExtra: Maze 0
+  newSceneHasLoaded: 1
+  levelSelectionLevels:
+  - MainMenu
+  - Tower BP N0
+  - Tower BP C0
+  blockPuzzleNotesLevels:
+  - BP N0 Easy
+  - BP N0 Hard
+  - BP N1 Easy
+  - BP N1 Hard
+  - BP N2 Easy
+  - BP N2 Hard
+  - BP N3 Easy
+  - BP N3 Hard
+  - BP N4 Easy
+  - BP N4 Hard
+  blockPuzzleChordsLevels:
+  - BP C0 Easy
+  - BP C0 Hard
+  - BP C1 Easy
+  - BP C1 Hard
+  - BP C2 Easy
+  - BP C2 Hard
+  - BP C3 Easy
+  - BP C3 Hard
+  - BP C4 Easy
+  - BP C4 Hard
+  blockPuzzleLevels:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  mazeLevels:
+  - Maze 0

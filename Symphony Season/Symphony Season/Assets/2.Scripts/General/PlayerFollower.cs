@@ -3,35 +3,55 @@ using UnityEngine;
 public class PlayerFollower : MonoBehaviour
 {
     [Header("-------------- Required Objects")]
-    [SerializeField] private GameObject PlayerObject;
+    [SerializeField] private PlayerData playerData;
+    [SerializeField] private PlayerSettings playerSettings;
     [SerializeField] private Material playerMaterial;
 
-    [Header("-------------- Changeble Values")]
-    [SerializeField] private float Yoffset;
-    [SerializeField] private float Xoffset;
-    [SerializeField] private float Zoffset;
-
     [Header("-------------- Background Values (do not change)")]
-    [SerializeField] private PlayerMouseMovement playerMovement;
-
-    private void Start()
-    {
-        playerMovement = FindFirstObjectByType<PlayerMouseMovement>();
-        ToggleLeft(0f);
-        ToggleMoving(0f);
-        ToggleHolding(0f);
-    }
+    private bool hasToggledMoving = false;
+    private bool hasToggledHolding = false;
 
     void Update()
     {
-        transform.position = new Vector3(PlayerObject.transform.position.x + Xoffset, PlayerObject.transform.position.y + Yoffset, PlayerObject.transform.position.z + Zoffset);
-        if(playerMovement.isMoving) 
-        { 
-            ToggleMoving(1f); 
-            if(playerMovement.isMovingLeft) { ToggleLeft(1f); }
-            else if (!playerMovement.isMovingLeft) { ToggleLeft(0f); }
+        if(playerData.isMoving) 
+        {
+            SetPositionToPlayer();
+            if (!hasToggledMoving) 
+            { 
+                ToggleMoving(1f);
+                hasToggledMoving = true;
+            }
+
+            if (playerData.isMovingLeft) { ToggleLeft(1f); }
+            else if (!playerData.isMovingLeft) { ToggleLeft(0f); }
         }
-        else if(!playerMovement.isMoving) { ToggleMoving(0f); }
+        else if(!playerData.isMoving) 
+        {
+            if (hasToggledMoving) 
+            { 
+                ToggleMoving(0f);
+                hasToggledMoving = false;
+            }
+            
+        }
+
+        if(playerData.isHoldingSomething && !hasToggledHolding)
+        {
+            ToggleHolding(1f);
+            hasToggledHolding = true;
+        }
+        else if (!playerData.isHoldingSomething && hasToggledHolding)
+        {
+            ToggleHolding(0f);
+            hasToggledHolding = false;
+        }
+    }
+
+    private void SetPositionToPlayer()
+    {
+        transform.position = new Vector3(playerData.currentPos.x + playerSettings.modelOffset.x, 
+            playerData.currentPos.y + playerSettings.modelOffset.y, 
+            playerData.currentPos.z + playerSettings.modelOffset.z);
     }
 
     public void ToggleLeft(float toggle)

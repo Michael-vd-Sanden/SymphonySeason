@@ -5,27 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/3.Scenes/OverworldScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
     path: Assets/3.Scenes/MainMenu.unity
     guid: e2c5c948c01fb5447a5357679c909a8b
-  - enabled: 1
-    path: Assets/3.Scenes/BlockPuzzles/BP 1_Easy.unity
-    guid: f0d65af551020594b9c2e175344984bd
-  - enabled: 1
-    path: Assets/3.Scenes/BlockPuzzles/BP 1_Hard.unity
-    guid: 53fb5002f2dc70543a36427d4712704f
-  - enabled: 1
-    path: Assets/3.Scenes/BlockPuzzles/BP 2_Easy.unity
-    guid: c71118b7858578f48ac9917704ca3929
-  - enabled: 1
-    path: Assets/3.Scenes/BlockPuzzles/BP 2_Hard.unity
-    guid: e981e90571a38c842a45a5676887d03c
-  - enabled: 1
-    path: Assets/3.Scenes/MazeScene.unity
-    guid: 67889f3008942c54bba1949d0231702f
   - enabled: 1
     path: Assets/3.Scenes/BlockPuzzles/1.BP Tutorials/BP Tut1.unity
     guid: 7831d32b1584f1a4eb53d4fd0190fcce
@@ -44,6 +26,54 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/3.Scenes/BlockPuzzles/1.BP Tutorials/BP Tut6.unity
     guid: db9584a7fbad86e4fbb76727162d4c3d
+  - enabled: 1
+    path: Assets/3.Scenes/BlockPuzzles/2. LvsNotename/BP Environment.unity
+    guid: 26800ca8de50df0448365baed515cbdc
+  - enabled: 1
+    path: Assets/3.Scenes/BlockPuzzles/2. LvsNotename/BP N0 Easy.unity
+    guid: c09e5196d5ed7d7459038aaa6bca3032
+  - enabled: 1
+    path: Assets/3.Scenes/BlockPuzzles/2. LvsNotename/BP N0 Hard.unity
+    guid: cfa58e9b3770dcd4292ce31c46bbd3bc
+  - enabled: 1
+    path: Assets/3.Scenes/BlockPuzzles/2. LvsNotename/BP N1 Easy.unity
+    guid: 525f7a99aa870bf40b49ebac83832acd
+  - enabled: 1
+    path: Assets/3.Scenes/BlockPuzzles/2. LvsNotename/BP N1 Hard.unity
+    guid: 9d982dbd07f323945b013f10fb7c0ca6
+  - enabled: 1
+    path: Assets/3.Scenes/BlockPuzzles/2. LvsNotename/BP N2 Easy.unity
+    guid: 2e06fe997a9738341a77961b9b98aeb1
+  - enabled: 1
+    path: Assets/3.Scenes/BlockPuzzles/2. LvsNotename/BP N2 Hard.unity
+    guid: 761f8fa50a5ac8d4ebce9b23dadf611f
+  - enabled: 1
+    path: Assets/3.Scenes/BlockPuzzles/2. LvsNotename/BP N3 Easy.unity
+    guid: 550c9f58cdfa2524fbb70fa65423ddf0
+  - enabled: 1
+    path: Assets/3.Scenes/BlockPuzzles/2. LvsNotename/BP N3 Hard.unity
+    guid: 31e516f10039a204c9bf495980b44723
+  - enabled: 1
+    path: Assets/3.Scenes/BlockPuzzles/2. LvsNotename/BP N4 Easy.unity
+    guid: 085430ef3a105634c9111485ce23da4f
+  - enabled: 1
+    path: Assets/3.Scenes/BlockPuzzles/2. LvsNotename/BP N4 Hard.unity
+    guid: b17d41f88e2e8324194f24c79f537c27
+  - enabled: 1
+    path: Assets/3.Scenes/LoadingScene.unity
+    guid: 0e4dca7f8d5199e44acdd9401972d51b
+  - enabled: 1
+    path: Assets/3.Scenes/TowerSelections/Tower BP N0.unity
+    guid: 31e0dfb519be78f438291901ef264c73
+  - enabled: 1
+    path: Assets/3.Scenes/Mazes/Maze 0.unity
+    guid: dc0ec0dd93d890f49b5649bb7d44999d
+  - enabled: 1
+    path: Assets/3.Scenes/Mazes/MazeGameplay.unity
+    guid: 13ca9215e374443499c6dad56fa505f8
+  - enabled: 1
+    path: Assets/3.Scenes/BlockPuzzles/3. LvsChords/BP ChordEnvironment.unity
+    guid: 3e800added361644ca7bf24c243f65c3
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: 34bbc23a37b4a3a4b8cf384479f2a8d5, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: d0023cf99f94471429399f8a2f79c4ab, type: 2}

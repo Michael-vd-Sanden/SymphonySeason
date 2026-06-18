@@ -1,67 +1,68 @@
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class BlockPuzzleManager : MonoBehaviour
 {
     [Header("-------------- Required Objects")]
-    [SerializeField] private PlayerMouseMovement playerMovement;
-    [SerializeField] private UIToggles uiToggle;
+    [SerializeField] private PlayerData playerData;
+    [SerializeField] private BPUiToggles uiToggle;
     [SerializeField] private AudioPlayer audioPlayer;
-    [SerializeField] private PlayerFollower playerFollow;
-    public PlayerButtonMovement playerBtnMove;
-    private NotePulser notePulse;
+    [SerializeField] private NotePulser notePulse;
+    [SerializeField] private NoteSetter noteSetter;
+    [SerializeField] private ColourChanger colourChanger;
 
     [Header("-------------- Changeble Values")]
     public int hitLayer;
-    private int layerAsLayerMask;
+    public TheoryCategory category;
     [SerializeField] private bool isTutorial;
+    public GameObject[] noteObjects;
 
     [Header("-------------- Background Values (do not change)")]
+    public int layerAsLayerMask;
     public List<MoveBlockScript> enteredBlocks;
     [SerializeField] private int selectedBlockIndex = 0;
     public MoveBlockScript currentSelectedBlock;
-    public string currentBlockNote;
-    public string noteSelected; //which note btn was pressed
+    public string currentBlockAnswer;
+    public string answerSelected; //which note btn was pressed
     public Material[] colourMaterials;
-    private bool isCheckingForNotes = false;
-
-    private void Awake()
-    {
-        layerAsLayerMask = (1 << hitLayer);
-        notePulse = FindFirstObjectByType<NotePulser>();
-    }
+    public List<NoteColourChanger> noteColourChangers;
+    private bool isCheckingForAnswers = false;
 
     private void Update()
     {
-        if(isCheckingForNotes) 
+        if(isCheckingForAnswers) 
         {
-            if(currentSelectedBlock== null) { isCheckingForNotes = false; return; }
+            if(currentSelectedBlock== null) { isCheckingForAnswers = false; return; }
 
-            if (noteSelected == currentBlockNote) //goede noot
+            if (answerSelected == currentBlockAnswer) //goede noot
             {
-                RightNote();
+                RightAnswer();
             }
-            if(!string.IsNullOrEmpty(noteSelected) && noteSelected != currentBlockNote) //foute noot
+            if(!string.IsNullOrEmpty(answerSelected) && answerSelected != currentBlockAnswer) //foute noot
             {
                 //play some sort of sound
-                audioPlayer.PlayEffect("Wrong");
+                audioPlayer.PlayEffect("Wrong", category);
                 //Debug.Log("fout");
-                noteSelected = null;
+                answerSelected = null;
             }
         }
     }
 
-    public void RightNote()
+    public void RightAnswer()
     {
-        //audioPlayer.PlayEffect(noteSelected); Al in button
-        playerMovement.allowedToMove = false;
+        audioPlayer.PlayEffect(answerSelected, category);
         currentSelectedBlock.objectAbleToMove = true;
+        currentSelectedBlock.pushUpControl.SetActive(true);
+        currentSelectedBlock.pushDownControl.SetActive(true);
+
         currentSelectedBlock.noteNotification.SetActive(true);
         currentSelectedBlock.questionNotification.SetActive(false);
         CheckIfAllowedToMove();
-        noteSelected = null;
+        answerSelected = null;
         uiToggle.DeactivateNoteBtns();
-        isCheckingForNotes = false;
+        isCheckingForAnswers = false;
         if (!isTutorial) { notePulse.NoNotes(); }
         return;
     }
@@ -70,8 +71,8 @@ public class BlockPuzzleManager : MonoBehaviour
     {
         enteredBlocks.Add(block);
         if (enteredBlocks.Count > 0) 
-        { 
-            playerMovement.canBeOverUI= true;
+        {
+            playerData.canBeOverUI = true;
         }   
         if(enteredBlocks.Count == 1)
         {
@@ -84,7 +85,7 @@ public class BlockPuzzleManager : MonoBehaviour
         if (enteredBlocks.Count == 0) 
         {
             selectedBlockIndex = 0;
-            playerMovement.canBeOverUI= false;
+            playerData.canBeOverUI= false;
             uiToggle.ExitedTrigger();
         }
     }
@@ -93,18 +94,32 @@ public class BlockPuzzleManager : MonoBehaviour
     {
         if(enteredBlocks.Count > 0) 
         {
-            uiToggle.TurnOffDirections();
             currentSelectedBlock = enteredBlocks[selectedBlockIndex];
-            currentBlockNote = currentSelectedBlock.blockNote;
+            currentBlockAnswer = currentSelectedBlock.blockAnswer;
             currentSelectedBlock.questionNotification.SetActive(true);
-            isCheckingForNotes = true;
-            noteSelected = null;
-            playerFollow.ToggleHolding(1f);
-            if (!isTutorial) { notePulse.NoteShift(); }
+            isCheckingForAnswers = true;
+            answerSelected = null;
+            playerData.isHoldingSomething = true;
+            playerData.allowedToMove = false;
+
+            if (category == TheoryCategory.Chords)
+            {
+                List<int> indexes = new List<int>();
+                noteSetter.CheckNoteIndex(currentBlockAnswer, indexes); 
+                foreach (int n in indexes) 
+                { 
+                    noteObjects[n].SetActive(true);
+                    //toevoegen dat de colour van alle noten veranderd naar dezelfde kleur
+                    noteColourChangers[n].spriteRenderer.material = colourChanger.ChangeColourBasedOnNote(currentBlockAnswer);
+                }
+            }
+
+            if (!isTutorial && category == TheoryCategory.NoteNames) 
+            { notePulse.NoteShift(); }
             if(isTutorial) 
             { 
-                isCheckingForNotes=false;
-                RightNote();
+                isCheckingForAnswers=false;
+                RightAnswer();
             }
         }
     }
@@ -131,14 +146,86 @@ public class BlockPuzzleManager : MonoBehaviour
             currentSelectedBlock.questionNotification.SetActive(false);
             currentSelectedBlock.noteNotification.SetActive(false);
             currentSelectedBlock.objectAbleToMove = false;
+            currentSelectedBlock.pushDownControl.SetActive(false);
+            currentSelectedBlock.pushUpControl.SetActive(false);
+
+            if (category == TheoryCategory.Chords)
+            { for(int i = 0; i < noteObjects.Length; i++) { noteObjects[i].SetActive(false); }}
+
             currentSelectedBlock = null;
-            playerFollow.ToggleHolding(0f);
+            playerData.isHoldingSomething = false;
             if (!isTutorial) { notePulse.NoNotes(); }
         }
-        currentBlockNote = null;
-        playerMovement.allowedToMove = true;
-        if(!playerMovement.isMouseMovement)
-        { playerBtnMove.CheckPlayerDirections(); }
+        currentBlockAnswer = null;
+        playerData.allowedToMove = true;
+        if(!playerData.isMouseMovement)
+        { playerData.stoppedMoving = true; }
+    }
+
+    public void onPressMove(string direction)
+    {
+        if (playerData.isHoldingSomething && currentSelectedBlock.objectAbleToMove)
+        {
+            ///fix met niew ding
+            switch (isRight: currentSelectedBlock.isRightDirection, dir: direction)
+            {
+                case (isRight: true, dir: "Up"):
+                    direction = "RightUp";
+                    break;
+                case (isRight: true, dir: "Down"):
+                    direction = "LeftDown";
+                    break;
+                case (isRight: false, dir: "Up"):
+                    direction = "LeftUp";
+                    break;
+                case (isRight: false, dir: "Down"):
+                    direction = "RightDown";
+                    break;
+            }
+            currentSelectedBlock.moveDirection = direction;
+            currentSelectedBlock.isPressingBlockMove = true;   
+        }
+    }
+
+    public void onReleaseMove()
+    {
+        if (playerData.isHoldingSomething)
+        {
+            currentSelectedBlock.isPressingBlockMove = false;
+        }
+    }
+
+    public void SetBlockTargetPos(MoveBlockScript b)
+    {//move 1 space
+        //Debug.Log("pushed " + direction.ToString());
+        if (b.objectAbleToMove && !b.isMoving)
+        {
+            b.checkedDirections = false;
+            b.objectCurrentPos = b.gameObject.transform.position;
+            b.playerCurrentPos = b.playerMovement.transform.position;
+
+            b.stepTime = 0f;
+            switch (b.moveDirection)
+            {
+                case "RightUp":
+                    b.objectTargetPos = b.objectCurrentPos + new Vector3(1f, 0f, 0f);
+                    b.playerTargetPos = b.playerCurrentPos + new Vector3(1f, 0f, 0f);
+                    break;
+                case "LeftUp":
+                    b.objectTargetPos = b.objectCurrentPos + new Vector3(0f, 0f, 1f);
+                    b.playerTargetPos = b.playerCurrentPos + new Vector3(0f, 0f, 1f);
+                    break;
+                case "RightDown":
+                    b.objectTargetPos = b.objectCurrentPos + new Vector3(0f, 0f, -1f);
+                    b.playerTargetPos = b.playerCurrentPos + new Vector3(0f, 0f, -1f);
+                    break;
+                case "LeftDown":
+                    b.objectTargetPos = b.objectCurrentPos + new Vector3(-1f, 0f, 0f);
+                    b.playerTargetPos = b.playerCurrentPos + new Vector3(-1f, 0f, 0f);
+                    break;
+            }
+            b.isMoving = true;
+        }
     }
 
     public void CheckIfAllowedToMove()
