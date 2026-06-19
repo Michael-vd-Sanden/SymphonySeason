@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/3.Scenes/MainMenu.unity
     guid: e2c5c948c01fb5447a5357679c909a8b
   - enabled: 1
+    path: Assets/3.Scenes/TowerSelections/TowerWorldSelection.unity
+    guid: dd157c59c86204742a17b1a73296bb3c
+  - enabled: 1
+    path: Assets/3.Scenes/LoadingScene.unity
+    guid: 0e4dca7f8d5199e44acdd9401972d51b
+  - enabled: 1
     path: Assets/3.Scenes/BlockPuzzles/1.BP Tutorials/BP Tut1.unity
     guid: 7831d32b1584f1a4eb53d4fd0190fcce
   - enabled: 1
@@ -26,6 +32,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/3.Scenes/BlockPuzzles/1.BP Tutorials/BP Tut6.unity
     guid: db9584a7fbad86e4fbb76727162d4c3d
+  - enabled: 1
+    path: Assets/3.Scenes/TowerSelections/Tower BP N0.unity
+    guid: 31e0dfb519be78f438291901ef264c73
   - enabled: 1
     path: Assets/3.Scenes/BlockPuzzles/2. LvsNotename/BP Environment.unity
     guid: 26800ca8de50df0448365baed515cbdc
@@ -60,20 +69,47 @@ EditorBuildSettings:
     path: Assets/3.Scenes/BlockPuzzles/2. LvsNotename/BP N4 Hard.unity
     guid: b17d41f88e2e8324194f24c79f537c27
   - enabled: 1
-    path: Assets/3.Scenes/LoadingScene.unity
-    guid: 0e4dca7f8d5199e44acdd9401972d51b
+    path: Assets/3.Scenes/TowerSelections/Tower BP C0.unity
+    guid: 9c671f1753875ab4d9147ff374a71671
   - enabled: 1
-    path: Assets/3.Scenes/TowerSelections/Tower BP N0.unity
-    guid: 31e0dfb519be78f438291901ef264c73
+    path: Assets/3.Scenes/BlockPuzzles/3. LvsChords/BP ChordEnvironment.unity
+    guid: 3e800added361644ca7bf24c243f65c3
+  - enabled: 1
+    path: Assets/3.Scenes/BlockPuzzles/3. LvsChords/BP C0 Easy.unity
+    guid: cb33aad83cd710d4d814a410a365bc0e
+  - enabled: 1
+    path: Assets/3.Scenes/BlockPuzzles/3. LvsChords/BP C0 Hard.unity
+    guid: 6b02a84bb96d6c049ba1039e7fd1c0bd
+  - enabled: 1
+    path: Assets/3.Scenes/BlockPuzzles/3. LvsChords/BP C1 Easy.unity
+    guid: 8a5b337670244b9488e2be8f773479a1
+  - enabled: 1
+    path: Assets/3.Scenes/BlockPuzzles/3. LvsChords/BP C1 Hard.unity
+    guid: db41d51d281459b47a760a4aebc7833c
+  - enabled: 1
+    path: Assets/3.Scenes/BlockPuzzles/3. LvsChords/BP C2 Easy.unity
+    guid: bd1a256cb7f059041a81d17c0ae89181
+  - enabled: 1
+    path: Assets/3.Scenes/BlockPuzzles/3. LvsChords/BP C2 Hard.unity
+    guid: ce332d9295d4dbc4cb528fc55ac20e11
+  - enabled: 1
+    path: Assets/3.Scenes/BlockPuzzles/3. LvsChords/BP C3 Easy.unity
+    guid: e66197bb2ae9666448ed2db0ca7b9e92
+  - enabled: 1
+    path: Assets/3.Scenes/BlockPuzzles/3. LvsChords/BP C3 Hard.unity
+    guid: 8f20226bfaa2f9148bfaf9878151f90d
+  - enabled: 1
+    path: Assets/3.Scenes/BlockPuzzles/3. LvsChords/BP C4 Easy.unity
+    guid: bdc29c3be543796498c69cebcaa400cd
+  - enabled: 1
+    path: Assets/3.Scenes/BlockPuzzles/3. LvsChords/BP C4 Hard.unity
+    guid: 4b4fee89ef0b35344b3a1327084adf3d
   - enabled: 1
     path: Assets/3.Scenes/Mazes/Maze 0.unity
     guid: dc0ec0dd93d890f49b5649bb7d44999d
   - enabled: 1
     path: Assets/3.Scenes/Mazes/MazeGameplay.unity
     guid: 13ca9215e374443499c6dad56fa505f8
-  - enabled: 1
-    path: Assets/3.Scenes/BlockPuzzles/3. LvsChords/BP ChordEnvironment.unity
-    guid: 3e800added361644ca7bf24c243f65c3
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: 34bbc23a37b4a3a4b8cf384479f2a8d5, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: d0023cf99f94471429399f8a2f79c4ab, type: 2}
