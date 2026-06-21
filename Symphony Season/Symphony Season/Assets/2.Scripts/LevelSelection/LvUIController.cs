@@ -13,6 +13,12 @@ public class LvUIController : MonoBehaviour
     [Header("-------------- Background Values (do not change)")]
     public bool isRunning;
 
+    void Start()
+    {
+        var jsonData = JSONHandler.Instance.GetJSONData();
+        LevelShift(jsonData.LevelIndex);
+    }
+
     private void Update()
     {
         if(isRunning) 

@@ -1064,6 +1064,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3399286826754372817, guid: 83886b63660cf634dae0c3c0378f6cb0, type: 3}
+      propertyPath: nextScene
+      value: Tower BP C0
+      objectReference: {fileID: 0}
     - target: {fileID: 5901667596632835745, guid: 83886b63660cf634dae0c3c0378f6cb0, type: 3}
       propertyPath: m_Name
       value: Next Level
@@ -2193,10 +2197,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 484426836}
-    - target: {fileID: 6875061057006907523, guid: 4584709f1845334429f423eb867d174a, type: 3}
-      propertyPath: levelIndex
-      value: 
-      objectReference: {fileID: 11400000, guid: 6ca790305a15a7741a6a0efb3dc0cbaa, type: 2}
     - target: {fileID: 6875061057006907523, guid: 4584709f1845334429f423eb867d174a, type: 3}
       propertyPath: sceneSwitch
       value: 
