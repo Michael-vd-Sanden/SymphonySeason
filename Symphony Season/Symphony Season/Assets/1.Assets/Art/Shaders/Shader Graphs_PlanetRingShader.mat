@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5531421472805891715
+--- !u!114 &-2811422778941235295
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,43 +20,33 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WaterMat
-  m_Shader: {fileID: -6465566751694194690, guid: bb0053dc3bc173141aa8c9986452e109, type: 3}
+  m_Name: Shader Graphs_PlanetRingShader
+  m_Shader: {fileID: -6465566751694194690, guid: b37ec601f82e3b743aac75bb3327d337, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - _ALPHATEST_ON
+  m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap:
-    RenderType: TransparentCutout
+  stringTagMap: {}
   disabledShaderPasses:
   - MOTIONVECTORS
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_0dcfc228be3140f2811cf00408e64280:
-        m_Texture: {fileID: 0}
+    - _SampleTexture2D_20d90625cb9a4e18820fb28c8dd37261_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 2b762321de1fd71458547c4208276227, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _BaseTex:
-        m_Texture: {fileID: 0}
+    - _SampleTexture2D_87948a5e3b904002a3014bd21bfd9dec_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 3121cf5cfb735214cab288f754d32f1b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_3a2b9da54e3849aa814eed9d29f3cb60_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: bf50d7ad58d60d14baaa0ee1f10f9f70, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ShadowPattern:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Texture2DAsset_d60402e883c249b897d2febba4ac07bf_Out_0_Texture2D:
-        m_Texture: {fileID: 2800000, guid: 7a6ec789b69536d4b8eab10e3abced13, type: 3}
+    - _SampleTexture2D_9665eef25d1c4be481dcafece004b45a_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: a642f90acb769fe499965644cfb1fd4a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -73,36 +63,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - Vector1_dc79406616554abebf1c259bff01ca29: 14.88
-    - _AlphaClip: 1
-    - _AlphaToMask: 1
-    - _Blend: 0
-    - _CastShadows: 1
-    - _Cull: 0
-    - _DstBlend: 0
-    - _DstBlendAlpha: 0
-    - _Fresnel: 1
-    - _InverseFresnel: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Rotation: 0
-    - _ShadingCutoff: 0.95
-    - _ShadingOpacity: 0.5
-    - _SrcBlend: 1
-    - _SrcBlendAlpha: 1
-    - _Surface: 0
-    - _Tiling: 2.06
-    - _Transparency: 1
-    - _WaterLineShear: 0
-    - _WaterLineTiling: 10
-    - _Wobble: 1
-    - _WobbleRange: 0.05
-    - _WobleSpeed: 0.02
-    - _ZTest: 4
-    - _ZWrite: 1
-    - _ZWriteControl: 0
-    m_Colors:
-    - _Colour: {r: 0.5507007, g: 0.36142924, b: 0.800539, a: 1}
-    - _ShadingColour: {r: 0.55699307, g: 0.27210996, b: 0.703504, a: 0}
+    m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1
