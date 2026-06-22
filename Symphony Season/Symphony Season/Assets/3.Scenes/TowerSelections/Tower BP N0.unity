@@ -7128,7 +7128,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Beginner Tower
+  m_text: Note Names
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 36104656264837a45bd8ec2ed0f347fe, type: 2}
   m_sharedMaterial: {fileID: -248057274587618129, guid: 36104656264837a45bd8ec2ed0f347fe, type: 2}
