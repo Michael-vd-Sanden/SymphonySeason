@@ -13,12 +13,6 @@ public class LvUIController : MonoBehaviour
     [Header("-------------- Background Values (do not change)")]
     public bool isRunning;
 
-    void Start()
-    {
-        var jsonData = JSONHandler.Instance.GetJSONData();
-        LevelShift(jsonData.LevelIndex);
-    }
-
     private void Update()
     {
         if(isRunning) 
@@ -34,7 +28,7 @@ public class LvUIController : MonoBehaviour
             isRunning = true;
             var prevFloorIndex = lvIndex.floorIndex;
             lvIndex.floorIndex += shift;
-            Debug.Log(lvIndex.floorIndex);
+            //Debug.Log(lvIndex.floorIndex);
             if (lvIndex.floorIndex <= 0)
             { 
                 lvIndex.floorIndex = 0;
@@ -50,6 +44,11 @@ public class LvUIController : MonoBehaviour
                 downBtn.SetActive(true);
                 upBtn.SetActive(true);
             }
+
+            //updating json file
+            var jsonData = JSONHandler.Instance.GetJSONData();
+            jsonData.LevelIndexes[jsonData.CurrentLevelIndex] = lvIndex.floorIndex;
+            JSONHandler.Instance.WriteJSON(jsonData);
 
             floorText.LevelTextShift(lvIndex.floorIndex);
             if (lvIndex.floorIndex != prevFloorIndex) { dioramaAnimators[prevFloorIndex].SetTrigger("NotPulsing"); }

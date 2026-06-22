@@ -4,12 +4,13 @@ using Newtonsoft.Json;
 using System.Diagnostics.Contracts;
 using System.Diagnostics;
 using System.IO;
+using System.Collections.Generic;
 
 public class SSeasonJSONData
 {
     public bool AppHasStarted { get; set; } //if the towerworld scene has been started from the application or returned from another scene
-    public int LevelIndex { get; set; }
-    
+    public int CurrentLevelIndex { get; set; }
+    public List<int> LevelIndexes { get; set; } //the LvIndex ID is the list nr. The value is the level index itself
 }
 
 public class JSONHandler : MonoBehaviour

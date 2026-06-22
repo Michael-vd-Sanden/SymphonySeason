@@ -35,10 +35,6 @@ public class LevelSelection : MonoBehaviour
 
         levelHolder.SetSceneName(currentLv);
 
-        var jsonData = JSONHandler.Instance.GetJSONData();
-        jsonData.LevelIndex = levelIndex.floorIndex;
-        JSONHandler.Instance.WriteJSON(jsonData);
-
         if(hasTransition) //if the scene has a curtain transition
         { 
             transitionSetter.SetTrigger();

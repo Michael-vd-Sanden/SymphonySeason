@@ -6,11 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/3.Scenes/MainMenu.unity
-    guid: e2c5c948c01fb5447a5357679c909a8b
-  - enabled: 1
     path: Assets/3.Scenes/TowerSelections/TowerWorldSelection.unity
     guid: dd157c59c86204742a17b1a73296bb3c
+  - enabled: 1
+    path: Assets/3.Scenes/MainMenu.unity
+    guid: e2c5c948c01fb5447a5357679c909a8b
   - enabled: 1
     path: Assets/3.Scenes/LoadingScene.unity
     guid: 0e4dca7f8d5199e44acdd9401972d51b

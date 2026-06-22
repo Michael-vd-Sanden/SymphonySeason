@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 50829ad407edec545918fa950691e3b7, type: 3}
-  m_Name: LvIndex002
+  m_Name: LvIndex0
   m_EditorClassIdentifier: Assembly-CSharp::LevelIndex
-  sceneName: Tower BP C0
+  sceneName: Tower BP N0
+  indexID: 0
   floorIndex: 0
   floorMaximum: 4

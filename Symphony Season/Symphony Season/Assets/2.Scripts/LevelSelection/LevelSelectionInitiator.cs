@@ -25,9 +25,14 @@ public class LevelSelectionInitiator : MonoBehaviour
 
     private async Task InitializeClasses() //every start and awake function that has to do with setting things
     {
+        var jsonData = JSONHandler.Instance.GetJSONData();
+        jsonData.CurrentLevelIndex = levelIndex.indexID;
+        lvUIController.LevelShift(jsonData.LevelIndexes[jsonData.CurrentLevelIndex]);
+        JSONHandler.Instance.WriteJSON(jsonData);
+
         //lvUIController.dioramaAnimators[levelIndex.floorIndex].SetTrigger("Pulsing");
         //lvUIController.isRunning = false;
-        lvUIController.LevelShift(0);
+       // lvUIController.LevelShift(0);
 
         textureChanger.NextTexture(textureChanger.FrontMat, textureChanger.LevelScreenshotsFront[levelIndex.floorIndex]);
 
