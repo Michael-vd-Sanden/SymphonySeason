@@ -7,6 +7,7 @@ public class TowerWorldInitiator : MonoBehaviour
 {
     [Header("-------------- Classes")]
     [SerializeField] private TriggerSetter curtainTransition;
+    [SerializeField] private TriggerSetter StartScreenTransition;
     [SerializeField] private TowerSelectionManager towerSelection;
     [SerializeField] private BoatMovement boatMovement;
     [SerializeField] private Camera cam;
@@ -15,6 +16,10 @@ public class TowerWorldInitiator : MonoBehaviour
 
     [Header("-------------- Scriptable Objects")]
     [SerializeField] private LevelHolder levelHolder;
+
+    [Header("-------------- Objects")]
+    [SerializeField] private GameObject startScreen;
+    [SerializeField] private GameObject curtainObject;
 
     [Header("-------------- Objects (do not assign)")]
     [SerializeField] private TowerID[] towers;
@@ -55,7 +60,19 @@ public class TowerWorldInitiator : MonoBehaviour
 
     private async Task PrepareLevel() //every start and awake function that has to do with posistioning and appearance
     {
-
+        var jsonData = JSONHandler.Instance.GetJSONData();
+        if (jsonData.AppHasStarted)
+        { //turn off start screen -> has returned from another scene
+            StartScreenTransition.SetTrigger();
+            //startScreen.SetActive(false);
+            curtainObject.SetActive(true);
+        }
+        else
+        {
+            jsonData.AppHasStarted = true;
+            curtainObject.SetActive(false);
+        }
+        JSONHandler.Instance.WriteJSON(jsonData);
 
         await Awaitable.WaitForSecondsAsync(1f);
         await Task.Yield();

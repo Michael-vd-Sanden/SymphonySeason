@@ -7,7 +7,9 @@ using System.IO;
 
 public class SSeasonJSONData
 {
+    public bool AppHasStarted { get; set; } //if the towerworld scene has been started from the application or returned from another scene
     public int LevelIndex { get; set; }
+    
 }
 
 public class JSONHandler : MonoBehaviour
@@ -24,17 +26,6 @@ public class JSONHandler : MonoBehaviour
         Instance = this;
 
         DontDestroyOnLoad(this.gameObject);
-    }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public SSeasonJSONData GetJSONData()

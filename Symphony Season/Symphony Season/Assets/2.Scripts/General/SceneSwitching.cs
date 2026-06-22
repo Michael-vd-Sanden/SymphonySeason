@@ -29,6 +29,10 @@ public class SceneSwitching : MonoBehaviour
 
     public void ExitGame()
     {
+        var jsonData = JSONHandler.Instance.GetJSONData();
+        jsonData.AppHasStarted = false; //returns to default value
+        JSONHandler.Instance.WriteJSON(jsonData);
+
         Application.Quit();
         Debug.Log("Quit");
     }

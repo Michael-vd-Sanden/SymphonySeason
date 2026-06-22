@@ -9,6 +9,7 @@ public class TowerSelectionManager : MonoBehaviour
     [SerializeField] private SceneSwitching sceneSwitching;
     [SerializeField] private PlayerData playerData;
     [SerializeField] private TriggerSetter curtainTransition;
+    [SerializeField] private GameObject curtainTransitionObject;
 
     [Header("-------------- Changeble Values")]
     [SerializeField] private bool hasTransition;
@@ -28,6 +29,7 @@ public class TowerSelectionManager : MonoBehaviour
 
         if(hasTransition) 
         {
+            curtainTransitionObject.SetActive(true);
             curtainTransition.SetTrigger();
             await Awaitable.WaitForSecondsAsync(transitionWaitTime);
         }
