@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-1706655416584939470
+--- !u!114 &-1631815759803930918
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: UnderWater
-  m_Shader: {fileID: -6465566751694194690, guid: e0f911ccb3447d743ad372ad90b4a619, type: 3}
+  m_Name: Shader Graphs_TriplanarGrass 1
+  m_Shader: {fileID: -6465566751694194690, guid: 53dd2fb5a9c91ee488361fdfed9dc454, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -33,24 +33,16 @@ Material:
   stringTagMap: {}
   disabledShaderPasses:
   - MOTIONVECTORS
-  m_LockedProperties: _ShadingColour
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_0dcfc228be3140f2811cf00408e64280:
-        m_Texture: {fileID: 0}
+    - Texture2D_4af4357629de4f93bc85e2e76130857e:
+        m_Texture: {fileID: 2800000, guid: 83571948337449a469feccdb4cffdc4b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _BaseTex:
-        m_Texture: {fileID: 2800000, guid: 2fe87d9dfd915994db5abb3d3bc6b4e0, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ShadowPattern:
-        m_Texture: {fileID: 2800000, guid: 44d483a7ce66667489579627bd7e5c77, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _WoodTex:
-        m_Texture: {fileID: 2800000, guid: 2fe87d9dfd915994db5abb3d3bc6b4e0, type: 3}
+    - _AlphaTexture:
+        m_Texture: {fileID: 2800000, guid: c6ec536bf9ca1f94bb5a3909cb7bce67, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -67,34 +59,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - Vector1_dc79406616554abebf1c259bff01ca29: 15
-    - _AlphaClip: 0
-    - _AlphaToMask: 0
-    - _Blend: 0
-    - _CastShadows: 1
-    - _Cull: 2
-    - _DstBlend: 0
-    - _DstBlendAlpha: 0
-    - _Fresnel: 0
-    - _InverseFresnel: 0
+    - Boolean_a28ad3fc8d3f4fda93f9c8945a5a33cb: 0
+    - Vector1_6cabd9f62b534aba8ae9044c87319336: 1.12
+    - Vector1_77df1527ee0c44eab2c602a261ac1519: 0.07
+    - Vector1_cbf16136a67d49c0a5beaaa5e67e42a3: 0.35
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _ShadingCutoff: 0.95
-    - _ShadingOpacity: 0
-    - _Speed: 0
-    - _SrcBlend: 1
-    - _SrcBlendAlpha: 1
-    - _Surface: 0
-    - _Tiling: 0.53
-    - _Transparency: 1
-    - _Wobble: 1
-    - _WobbleRange: -0.1
-    - _WobleSpeed: 1.86
-    - _ZTest: 4
-    - _ZWrite: 1
-    - _ZWriteControl: 0
+    - _Tiling_Alpha: 0.56
     m_Colors:
-    - _Colour: {r: 0.5161724, g: 0.71385854, b: 1, a: 0}
-    - _ShadingColour: {r: 0.19457318, g: 0.15574932, b: 0.33692718, a: 0}
+    - Color_f61d22bb50de454190161ca39eb744cc: {r: 0, g: 0, b: 0, a: 0}
+    - _Emission: {r: 0.30997294, g: 0.043028574, b: 0.185113, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
