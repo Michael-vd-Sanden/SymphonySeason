@@ -822,6 +822,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7742214468706285564, guid: 2b25dab7655dab946a27c55b4fe06d98, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7742214468706285564, guid: 2b25dab7655dab946a27c55b4fe06d98, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -835,15 +839,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4080955307934101799, guid: 2b25dab7655dab946a27c55b4fe06d98, type: 3}
       propertyPath: m_LocalScale.x
-      value: 99.68983
+      value: 97.55838
       objectReference: {fileID: 0}
     - target: {fileID: -4080955307934101799, guid: 2b25dab7655dab946a27c55b4fe06d98, type: 3}
       propertyPath: m_LocalScale.y
-      value: 99.68983
+      value: 97.55838
       objectReference: {fileID: 0}
     - target: {fileID: -4080955307934101799, guid: 2b25dab7655dab946a27c55b4fe06d98, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.68983
+      value: 97.55838
       objectReference: {fileID: 0}
     - target: {fileID: -4080955307934101799, guid: 2b25dab7655dab946a27c55b4fe06d98, type: 3}
       propertyPath: m_LocalPosition.x
@@ -877,6 +881,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 200057073051254337, guid: 2b25dab7655dab946a27c55b4fe06d98, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2b25dab7655dab946a27c55b4fe06d98, type: 3}
       propertyPath: m_Name
       value: PlanetsWithSkybox
@@ -908,6 +916,10 @@ PrefabInstance:
     - target: {fileID: 5377272181589894423, guid: 2b25dab7655dab946a27c55b4fe06d98, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.00024415
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032948406068503324, guid: 2b25dab7655dab946a27c55b4fe06d98, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8641203691359138613, guid: 2b25dab7655dab946a27c55b4fe06d98, type: 3}
       propertyPath: m_CastShadows
@@ -1399,6 +1411,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlanetRing
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b63c4789ef8e2124f9427f9e68fa1c2c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1796,6 +1812,10 @@ PrefabInstance:
       propertyPath: followPositionObject
       value: 
       objectReference: {fileID: 1167347675}
+    - target: {fileID: 6649621998960600776, guid: 1832f9759d7c7214f852db7ef4decb24, type: 3}
+      propertyPath: far clip plane
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 8825984332221363016, guid: 1832f9759d7c7214f852db7ef4decb24, type: 3}
       propertyPath: m_Name
       value: Main Camera
@@ -1869,6 +1889,10 @@ PrefabInstance:
       propertyPath: oceanObject
       value: 
       objectReference: {fileID: 384973259}
+    - target: {fileID: 8635302891027164834, guid: a4c9945ef9e4a7a4ea043ad181f0b527, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.808
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1922,17 +1946,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1266923257217163191, guid: f4e6b6c2f0c3dfb4189b3bc0c7e3362a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3745389177235516401, guid: f4e6b6c2f0c3dfb4189b3bc0c7e3362a, type: 3}
       propertyPath: m_LocalScale.x
-      value: 10.850399
+      value: 10.696974
       objectReference: {fileID: 0}
     - target: {fileID: 3745389177235516401, guid: f4e6b6c2f0c3dfb4189b3bc0c7e3362a, type: 3}
       propertyPath: m_LocalScale.y
-      value: 10.850399
+      value: 10.696974
       objectReference: {fileID: 0}
     - target: {fileID: 3745389177235516401, guid: f4e6b6c2f0c3dfb4189b3bc0c7e3362a, type: 3}
       propertyPath: m_LocalScale.z
-      value: 10.850399
+      value: 10.696974
       objectReference: {fileID: 0}
     - target: {fileID: 5392520751641050684, guid: f4e6b6c2f0c3dfb4189b3bc0c7e3362a, type: 3}
       propertyPath: m_Name
@@ -1941,6 +1969,10 @@ PrefabInstance:
     - target: {fileID: 5392520751641050684, guid: f4e6b6c2f0c3dfb4189b3bc0c7e3362a, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656665726701335259, guid: f4e6b6c2f0c3dfb4189b3bc0c7e3362a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
