@@ -15,4 +15,4 @@ MonoBehaviour:
   sceneName: Tower BP N0
   indexID: 0
   floorIndex: 0
-  floorMaximum: 4
+  floorMaximum: 5
