@@ -48,12 +48,14 @@ public class TouchInput : MonoBehaviour
     }
     private void OnEnable()          
     {
+        moveAction.action.Enable();
         moveAction.action.performed += Move;
     }
 
     private void OnDisable()      
     {
         moveAction.action.performed -= Move;
+        moveAction.action.Disable();
     }
 
     private void Move(InputAction.CallbackContext obj)   

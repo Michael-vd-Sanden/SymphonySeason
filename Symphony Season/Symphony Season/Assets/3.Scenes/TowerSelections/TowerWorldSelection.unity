@@ -260,6 +260,10 @@ PrefabInstance:
       value: TowerComponent (1)
       objectReference: {fileID: 0}
     - target: {fileID: 2095462508550396124, guid: 9fb8e43df7bcf4d43a4ea6a9c41ce0ab, type: 3}
+      propertyPath: hasLevels
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095462508550396124, guid: 9fb8e43df7bcf4d43a4ea6a9c41ce0ab, type: 3}
       propertyPath: levelData
       value: 
       objectReference: {fileID: 11400000, guid: 6e2ceb41e36baf943bc652ea18b00953, type: 2}
@@ -315,10 +319,18 @@ PrefabInstance:
       propertyPath: m_text
       value: Chords Majour
       objectReference: {fileID: 0}
+    - target: {fileID: 7831473290343036628, guid: 9fb8e43df7bcf4d43a4ea6a9c41ce0ab, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8434276176952507283, guid: 9fb8e43df7bcf4d43a4ea6a9c41ce0ab, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: b657055b09bd7e9488ce6ba9db46e846, type: 2}
+    - target: {fileID: 8460436136245238411, guid: 9fb8e43df7bcf4d43a4ea6a9c41ce0ab, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -391,6 +403,10 @@ PrefabInstance:
       value: TowerComponent (2)
       objectReference: {fileID: 0}
     - target: {fileID: 2095462508550396124, guid: 9fb8e43df7bcf4d43a4ea6a9c41ce0ab, type: 3}
+      propertyPath: hasLevels
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095462508550396124, guid: 9fb8e43df7bcf4d43a4ea6a9c41ce0ab, type: 3}
       propertyPath: levelData
       value: 
       objectReference: {fileID: 11400000, guid: 80ec50555a732e84eaa2ad72a4316383, type: 2}
@@ -446,10 +462,18 @@ PrefabInstance:
       propertyPath: m_text
       value: Note Names
       objectReference: {fileID: 0}
+    - target: {fileID: 7831473290343036628, guid: 9fb8e43df7bcf4d43a4ea6a9c41ce0ab, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8434276176952507283, guid: 9fb8e43df7bcf4d43a4ea6a9c41ce0ab, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: b657055b09bd7e9488ce6ba9db46e846, type: 2}
+    - target: {fileID: 8460436136245238411, guid: 9fb8e43df7bcf4d43a4ea6a9c41ce0ab, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
