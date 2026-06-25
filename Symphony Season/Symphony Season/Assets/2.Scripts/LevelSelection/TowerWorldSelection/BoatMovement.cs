@@ -81,7 +81,7 @@ public class BoatMovement : MonoBehaviour
     {
         screenPos = obj.ReadValue<Vector2>();
         //do something to check if clicking on UI element
-        if (playerData.allowedToMove) { CastRay(); }
+        // if (playerData.allowedToMove) { CastRay(); }
     }
 
     private void OnEnable()
