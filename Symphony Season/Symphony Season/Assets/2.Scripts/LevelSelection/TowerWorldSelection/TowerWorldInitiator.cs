@@ -1,4 +1,6 @@
+using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AI;
@@ -6,6 +8,7 @@ using UnityEngine.AI;
 public class TowerWorldInitiator : MonoBehaviour
 {
     [Header("-------------- Classes")]
+    [SerializeField] private JSONHandler jsonHandler;
     [SerializeField] private TriggerSetter curtainTransition;
     [SerializeField] private TriggerSetter StartScreenTransition;
     [SerializeField] private TowerSelectionManager towerSelection;
@@ -29,6 +32,13 @@ public class TowerWorldInitiator : MonoBehaviour
     private async void Start()
     {
         await InitializeClasses();
+
+        if (JSONHandler.Instance.GetJSONData().LevelIndexes == null)
+        {
+           // Debug.Log("no data");
+            await jsonHandler.CreateFirsttimeData();
+        }
+
         await CreateObjects();
         await PrepareLevel();
 

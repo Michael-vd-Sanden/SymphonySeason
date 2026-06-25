@@ -1,10 +1,9 @@
 using UnityEngine;
 using Newtonsoft.Json;
-// using System.Text.Json.Serialization;
-using System.Diagnostics.Contracts;
-using System.Diagnostics;
 using System.IO;
 using System.Collections.Generic;
+using Debug = UnityEngine.Debug;
+using System.Threading.Tasks;
 
 public class SSeasonJSONData
 {
@@ -27,6 +26,25 @@ public class JSONHandler : MonoBehaviour
         Instance = this;
 
         DontDestroyOnLoad(this.gameObject);
+
+        Debug.Log(Application.persistentDataPath);
+    }
+
+    public async Task CreateFirsttimeData()
+    {
+        SSeasonJSONData retData = new SSeasonJSONData();
+
+        string output = @"{
+                'AppHasStarted': true,
+                'CurrentLevelIndex': 0,
+                'LevelIndexes': [0,0]
+            }";
+        retData = JsonConvert.DeserializeObject<SSeasonJSONData>(output);
+
+        JSONHandler.Instance.WriteJSON(retData);
+        Debug.Log("Created data");
+
+        await Task.Yield();
     }
 
     public SSeasonJSONData GetJSONData()
@@ -44,7 +62,6 @@ public class JSONHandler : MonoBehaviour
 
             retData = JsonConvert.DeserializeObject<SSeasonJSONData>(output);
         }
-
         return retData;
     }
 
