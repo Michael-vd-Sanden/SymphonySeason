@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
@@ -80,7 +81,11 @@ public class BoatMovement : MonoBehaviour
     private void Move(InputAction.CallbackContext obj)
     {
         screenPos = obj.ReadValue<Vector2>();
-        //do something to check if clicking on UI element
+
+        if (IsMousePointerOverUi())
+        {
+            return;
+        }
         if (playerData.allowedToMove) { CastRay(); }
     }
 
@@ -94,5 +99,14 @@ public class BoatMovement : MonoBehaviour
     {
         moveAction.action.performed -= Move;
         moveAction.action.Disable();
+    }
+
+    private bool IsMousePointerOverUi()
+    {
+        PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
+        pointerEventData.position = screenPos;
+        var raycastResults = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(pointerEventData, raycastResults);
+        return raycastResults.Count > 0;
     }
 }

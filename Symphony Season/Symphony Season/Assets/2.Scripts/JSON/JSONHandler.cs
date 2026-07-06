@@ -27,7 +27,7 @@ public class JSONHandler : MonoBehaviour
 
         DontDestroyOnLoad(this.gameObject);
 
-        Debug.Log(Application.persistentDataPath);
+        //Debug.Log(Application.persistentDataPath);
     }
 
     public async Task CreateFirsttimeData()

@@ -1,6 +1,8 @@
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
@@ -65,5 +67,5 @@ public class TouchInput : MonoBehaviour
         {
             castRay();
         }
-    }
+    } 
 }
