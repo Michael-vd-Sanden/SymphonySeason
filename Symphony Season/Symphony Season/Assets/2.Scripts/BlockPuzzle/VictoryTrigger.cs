@@ -5,12 +5,11 @@ using UnityEngine.InputSystem;
 
 public class VictoryTrigger : MonoBehaviour
 {
-    [SerializeField] private MoveUIToggles moveUIToggles;
-    [SerializeField] private BPUiToggles bpUIToggles;
+    [SerializeField] private GameObject nextLevelScreen;
+
     [SerializeField] private TriggerSetter curtainCloser;
     [SerializeField] private MoveObject playerMover;
     [SerializeField] private NavMeshAgent playerAgent;
-    [SerializeField] private PlayerMovement playerMovement;
 
     [SerializeField] private PlayerData playerData;
 
@@ -28,14 +27,12 @@ public class VictoryTrigger : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            moveUIToggles.TurnOffDirections();   //turn off move arrows    
-          
             curtainCloser.SetTrigger();          //close curtain
-            bpUIToggles.Victory();               //victory screen active
+            nextLevelScreen.SetActive(true);
 
             isMoving = true;
 
-            playerMovement.enabled = false;     //so it doesn't try to calculate position on navmesh
+            playerData.allowedToMove = false;      //so it doesn't try to calculate position on navmesh
             playerAgent.enabled = false;        //so the player can move off the navmesh
             playerMover.StartMoving(true);
             playerData.isMoving = true;

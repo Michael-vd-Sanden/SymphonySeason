@@ -6,7 +6,7 @@ public class BPUiToggles : MonoBehaviour
     [Header("-------------- Required Objects")]
     [SerializeField] private BlockPuzzleManager manager;
     [SerializeField]
-    private GameObject nextLevelScreen, btnSwitchFlSH, baseNoteBtns;
+    private GameObject btnSwitchFlSH, baseNoteBtns;
     public GameObject holdControl, releaseControl, switchControl;
     [SerializeField] private GameObject[] noteBtnsObjects;
 
@@ -103,10 +103,5 @@ public class BPUiToggles : MonoBehaviour
     public void PressedAnswerBtn(string answer)
     {
         manager.answerSelected = answer;
-    }
-
-    public void Victory()
-    { 
-        nextLevelScreen.SetActive(true) ;
     }
 }

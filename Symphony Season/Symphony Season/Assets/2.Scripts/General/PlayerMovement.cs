@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
     public void CheckIfCanReachDestination()
     {
         var path = new NavMeshPath();
-        agent.CalculatePath(playerData.destination, path);
+        if(playerData.allowedToMove) agent.CalculatePath(playerData.destination, path);
         switch (path.status)
         {
             case NavMeshPathStatus.PathComplete: //can make path

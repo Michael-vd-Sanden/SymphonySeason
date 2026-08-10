@@ -517,7 +517,7 @@ PrefabInstance:
     - target: {fileID: 75216096739803366, guid: ebc8a2b9b0d26474184a04bd5e61b141, type: 3}
       propertyPath: moveUiToggles
       value: 
-      objectReference: {fileID: 452358028}
+      objectReference: {fileID: 0}
     - target: {fileID: 75216096739803366, guid: ebc8a2b9b0d26474184a04bd5e61b141, type: 3}
       propertyPath: 'noteObjects.Array.data[0]'
       value: 
@@ -893,7 +893,7 @@ PrefabInstance:
     - target: {fileID: 6239203860616035901, guid: ebc8a2b9b0d26474184a04bd5e61b141, type: 3}
       propertyPath: moveToggles
       value: 
-      objectReference: {fileID: 452358028}
+      objectReference: {fileID: 0}
     - target: {fileID: 6239203860616035901, guid: ebc8a2b9b0d26474184a04bd5e61b141, type: 3}
       propertyPath: baseNoteBtns
       value: 
@@ -1030,17 +1030,6 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 3947049977711054049, guid: b41ef5afdae81d244a23b6cac0e51a5d, type: 3}
   m_PrefabInstance: {fileID: 533132112}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &452358028 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2538655226738670856, guid: 4a30c5577635c814e9a6f19414d06923, type: 3}
-  m_PrefabInstance: {fileID: 8545115472826845126}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2c28993871506148a82d13f0d2ce643, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MoveUIToggles
 --- !u!95 &484426836 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5972734743663843645, guid: b41ef5afdae81d244a23b6cac0e51a5d, type: 3}
@@ -1199,7 +1188,7 @@ PrefabInstance:
     - target: {fileID: 4000607197570436975, guid: c412f8698ac9fec4fa1fe985dda44ff5, type: 3}
       propertyPath: moveUIToggles
       value: 
-      objectReference: {fileID: 452358028}
+      objectReference: {fileID: 0}
     - target: {fileID: 4000607197570436975, guid: c412f8698ac9fec4fa1fe985dda44ff5, type: 3}
       propertyPath: playerFollower
       value: 
@@ -1208,6 +1197,10 @@ PrefabInstance:
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 4482368029917983029}
+    - target: {fileID: 4000607197570436975, guid: c412f8698ac9fec4fa1fe985dda44ff5, type: 3}
+      propertyPath: nextLevelScreen
+      value: 
+      objectReference: {fileID: 1950732775}
     - target: {fileID: 8146424759510601900, guid: c412f8698ac9fec4fa1fe985dda44ff5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8
@@ -4157,7 +4150,7 @@ PrefabInstance:
     - target: {fileID: 2444371439802382816, guid: 98250d58d279f9741bd3d225f1987bce, type: 3}
       propertyPath: moveUIToggles
       value: 
-      objectReference: {fileID: 452358028}
+      objectReference: {fileID: 0}
     - target: {fileID: 3678373008844980110, guid: 98250d58d279f9741bd3d225f1987bce, type: 3}
       propertyPath: playerData
       value: 
@@ -4313,79 +4306,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1001 &8545115472826845126
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2538655226738670856, guid: 4a30c5577635c814e9a6f19414d06923, type: 3}
-      propertyPath: pushLeftUpControl
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2538655226738670856, guid: 4a30c5577635c814e9a6f19414d06923, type: 3}
-      propertyPath: pushRightUpControl
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2538655226738670856, guid: 4a30c5577635c814e9a6f19414d06923, type: 3}
-      propertyPath: pushLeftDownControl
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2538655226738670856, guid: 4a30c5577635c814e9a6f19414d06923, type: 3}
-      propertyPath: pushRightDownControl
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5255442576328987263, guid: 4a30c5577635c814e9a6f19414d06923, type: 3}
-      propertyPath: m_Name
-      value: MoveUIToggles
-      objectReference: {fileID: 0}
-    - target: {fileID: 9157642753181299779, guid: 4a30c5577635c814e9a6f19414d06923, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9157642753181299779, guid: 4a30c5577635c814e9a6f19414d06923, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9157642753181299779, guid: 4a30c5577635c814e9a6f19414d06923, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9157642753181299779, guid: 4a30c5577635c814e9a6f19414d06923, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9157642753181299779, guid: 4a30c5577635c814e9a6f19414d06923, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9157642753181299779, guid: 4a30c5577635c814e9a6f19414d06923, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9157642753181299779, guid: 4a30c5577635c814e9a6f19414d06923, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9157642753181299779, guid: 4a30c5577635c814e9a6f19414d06923, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9157642753181299779, guid: 4a30c5577635c814e9a6f19414d06923, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9157642753181299779, guid: 4a30c5577635c814e9a6f19414d06923, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4a30c5577635c814e9a6f19414d06923, type: 3}
 --- !u!114 &8679656399243218827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4443,7 +4363,6 @@ SceneRoots:
   - {fileID: 1493561460}
   - {fileID: 1776338370}
   - {fileID: 1143413576}
-  - {fileID: 8545115472826845126}
   - {fileID: 671528997}
   - {fileID: 1471411194}
   - {fileID: 702102621}
