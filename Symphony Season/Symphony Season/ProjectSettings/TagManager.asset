@@ -12,6 +12,7 @@ TagManager:
   - NavMesh
   - Ocean
   - Tower
+  - Interactable
   layers:
   - Default
   - TransparentFX
