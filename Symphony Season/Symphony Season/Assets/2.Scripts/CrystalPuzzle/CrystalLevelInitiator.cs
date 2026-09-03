@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
@@ -13,9 +14,11 @@ public class CrystalLevelInitiator : MonoBehaviour
     [SerializeField] private PlayerSettings playerSettings;
     [SerializeField] private PlayerFollower playerSprites;
     [SerializeField] private TouchInput touchInput;
+    [SerializeField] private CrystalPuzzleManager manager;
 
     [Header("-------------- Objects")]
     [SerializeField] private string environmentSceneName;
+    [SerializeField] private TMP_Text answerText;
 
     [Header("-------------- Objects (do not assign)")]
     [SerializeField] private CrystalUIScript[] heightLevers;
@@ -63,7 +66,7 @@ public class CrystalLevelInitiator : MonoBehaviour
 
     private async Task PrepareLevel() //every start and awake function that has to do with posistioning and appearance
     {
-
+        answerText.text = manager.chord;
 
         await Awaitable.WaitForSecondsAsync(1f);
         await Task.Yield();
