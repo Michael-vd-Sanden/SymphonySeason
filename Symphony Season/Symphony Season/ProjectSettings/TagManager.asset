@@ -13,6 +13,8 @@ TagManager:
   - Ocean
   - Tower
   - Interactable
+  - LightBeam
+  - Front
   layers:
   - Default
   - TransparentFX
