@@ -27,7 +27,7 @@ public class WorldRotator : MonoBehaviour
         }
         var dir = rb.angularVelocity.normalized;
         float ang = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        var boatRotation = Quaternion.Lerp(boat.transform.rotation, Quaternion.Euler(0, (ang*1)-0, 0), Time.deltaTime * 5);
+        var boatRotation = Quaternion.Lerp(boat.transform.rotation, Quaternion.Euler(0, (ang*1)-180.0f, 0), Time.deltaTime * 5);
         boat.transform.rotation = boatRotation;
     }
 
