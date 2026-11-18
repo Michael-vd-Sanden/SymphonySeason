@@ -20,3 +20,16 @@ public enum TheoryCategory
     Scales,
     Chords
 }
+
+public enum NoteTypes
+{
+    Sixteenth,
+    SixteenthDot,
+    Eighth,
+    EighthDot,
+    Quarter,
+    QuarterDot,
+    Half,
+    HalfDot,
+    Whole
+}
