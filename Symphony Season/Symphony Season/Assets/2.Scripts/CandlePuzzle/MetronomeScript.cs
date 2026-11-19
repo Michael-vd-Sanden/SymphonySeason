@@ -3,11 +3,15 @@ using UnityEngine;
 
 public class MetronomeScript : MonoBehaviour
 {
-    public int bpm;
-    [SerializeField] private float timeBetweenNotes;
-    public bool metronomeIsActive;
+    [Header("-------------- Required Objects")]
     [SerializeField] private AudioSource metronomeSource;
 
+    [Header("-------------- Changeble Values")]
+    public int bpm;
+    public bool metronomeIsActive;
+
+    [Header("-------------- Background Values (do not change)")]
+    [SerializeField] private float timeBetweenNotes;
     private bool reachedEndOfCoroutine = true;
 
     private void Update()

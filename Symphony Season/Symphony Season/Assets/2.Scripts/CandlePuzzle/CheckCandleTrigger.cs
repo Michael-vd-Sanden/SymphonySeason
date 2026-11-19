@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class CheckCandleTrigger : MonoBehaviour
 {
+    [Header("-------------- Required Objects")]
     [SerializeField] private CandleScript candle;
 
     private void OnTriggerEnter(Collider other)
